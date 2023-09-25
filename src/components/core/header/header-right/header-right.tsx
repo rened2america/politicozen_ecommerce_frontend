@@ -11,7 +11,7 @@ export default component$(() => {
       <button
         class={style.join}
         onClick$={() => {
-          window.location.replace("http://app.localhost:5173/dashboard");
+          window.location.replace("http://app.politicozen.dev/dashboard");
         }}
       >
         Join
