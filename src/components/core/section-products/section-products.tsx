@@ -10,6 +10,7 @@ export default component$(() => {
   useVisibleTask$(() => {
     console.log("window.innerWidth", window.innerWidth);
     widthUser.value = window.innerWidth;
+    console.log(widthUser.value);
   });
   return (
     <div>
@@ -19,6 +20,8 @@ export default component$(() => {
           <div class={styles["image-container"]}>
             <div class={styles["image-container-img"]}>
               <img
+                width="300"
+                height="200"
                 class={styles["image-container-img-rounded"]}
                 src={Img1Section}
                 alt=""
@@ -39,6 +42,8 @@ export default component$(() => {
           <div class={styles["image-container"]}>
             <div class={styles["image-container-img"]}>
               <img
+                width="300"
+                height="200"
                 class={styles["image-container-img-rounded"]}
                 src={Img2Section}
                 alt=""
@@ -59,6 +64,8 @@ export default component$(() => {
           <div class={styles["image-container"]}>
             <div class={styles["image-container-img"]}>
               <img
+                width="300"
+                height="200"
                 class={styles["image-container-img-rounded"]}
                 src={Img3Section}
                 alt=""
@@ -79,6 +86,8 @@ export default component$(() => {
           <div class={styles["image-container"]}>
             <div class={styles["image-container-img"]}>
               <img
+                width="300"
+                height="200"
                 class={styles["image-container-img-rounded"]}
                 src={Img4Section}
                 alt=""
@@ -96,10 +105,12 @@ export default component$(() => {
               </div>
             </div>
           </div>
-          {widthUser.value && widthUser.value > 1500 ? (
+          {widthUser.value && widthUser.value > 1550 ? (
             <div class={styles["image-container"]}>
               <div class={styles["image-container-img"]}>
                 <img
+                  width="300"
+                  height="200"
                   class={styles["image-container-img-rounded"]}
                   src={Img4Section}
                   alt=""

@@ -1,12 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-
+import styles from "./banner.module.css";
 export default component$(() => {
-  return (
-    <img
-      width="1349"
-      height="257"
-      src="/banners/banner1.png"
-      alt="principal_banner_politicozen"
-    />
-  );
+  return <div class={styles["banner-image"]} />;
 });

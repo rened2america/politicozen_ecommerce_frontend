@@ -17,6 +17,8 @@ export default component$(() => {
           <div class={styles["image-container"]}>
             <div data-hover="Description" class={styles["hovertext"]}>
               <img
+                width="300"
+                height="200"
                 class={styles["image-container-img-rounded"]}
                 src={Img1Section}
                 alt=""
@@ -27,6 +29,8 @@ export default component$(() => {
           <div class={styles["image-container"]}>
             <div data-hover="Description" class={styles["hovertext"]}>
               <img
+                width="300"
+                height="200"
                 class={styles["image-container-img-rounded"]}
                 src={Img2Section}
                 alt=""
@@ -37,6 +41,8 @@ export default component$(() => {
           <div class={styles["image-container"]}>
             <div data-hover="Description" class={styles["hovertext"]}>
               <img
+                width="300"
+                height="200"
                 class={styles["image-container-img-rounded"]}
                 src={Img1Section}
                 alt=""
@@ -47,6 +53,8 @@ export default component$(() => {
           <div class={styles["image-container"]}>
             <div data-hover="Description" class={styles["hovertext"]}>
               <img
+                width="300"
+                height="200"
                 class={styles["image-container-img-rounded"]}
                 src={Img1Section}
                 alt=""
@@ -54,10 +62,12 @@ export default component$(() => {
               <div class={styles["img-container-text"]}>Mehmet Zeber</div>
             </div>
           </div>
-          {widthUser.value && widthUser.value > 1500 ? (
+          {widthUser.value && widthUser.value > 1550 ? (
             <div class={styles["image-container"]}>
               <div data-hover="Description" class={styles["hovertext"]}>
                 <img
+                  width="300"
+                  height="200"
                   class={styles["image-container-img-rounded"]}
                   src={Img1Section}
                   alt=""

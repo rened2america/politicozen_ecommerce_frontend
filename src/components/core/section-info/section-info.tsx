@@ -16,7 +16,7 @@ export default component$(() => {
         <button class={styles.join}>Join</button>
       </div>
       <div class={styles["section-info-container-right"]}>
-        <img src={SectionImg} alt="" />
+        <img width="600" height="395" src={SectionImg} alt="" />
       </div>
     </div>
   );
