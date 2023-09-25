@@ -36,8 +36,6 @@ export default component$(() => {
 
   return (
     <>
-      <Header />
-      <Submenu />
       <HeaderSearch searchText={term} />
       <LayoutSearch result={productData} />
     </>

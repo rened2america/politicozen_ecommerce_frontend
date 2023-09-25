@@ -3,7 +3,7 @@ import styles from "./search.module.css";
 import { HiMagnifyingGlassMini } from "@qwikest/icons/heroicons";
 export default component$(() => {
   return (
-    <form action="/politicozen/search">
+    <form action="/search">
       <div class={styles["input-search-container"]}>
         <div class={styles["icon-search"]}>
           <HiMagnifyingGlassMini />

@@ -18,15 +18,12 @@ export default component$(() => {
 
   return (
     <>
-      <Header />
-      <Submenu />
       <Banner />
       <HomeSearch />
       <SectionProducts />
       <SectionArtists />
       <SectionInfo />
       <SectionSuscribe />
-      <Footer />
     </>
   );
 });

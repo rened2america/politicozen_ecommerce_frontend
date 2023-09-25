@@ -1,6 +1,6 @@
 .header-right-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 30px;
+  grid-template-columns: 1fr 30px;
 }
 .sigin {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
