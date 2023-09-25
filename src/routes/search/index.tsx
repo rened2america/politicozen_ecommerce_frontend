@@ -1,9 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import { routeLoader$, useLocation } from "@builder.io/qwik-city";
 import HeaderSearch from "~/components/core/header-search/header-search";
-import Header from "~/components/core/header/header/header";
 import LayoutSearch from "~/components/core/layout-search/layout-search";
-import Submenu from "~/components/core/submenu/submenu";
 
 export const useProductData = routeLoader$(async ({ query }) => {
   const search = query.get("q") || "";
