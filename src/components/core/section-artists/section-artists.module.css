@@ -1,0 +1,115 @@
+.section-container {
+  display: grid;
+  grid-template-rows: 54px 1fr;
+  height: 450px;
+  background-color: white;
+}
+
+.title {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 25px;
+  padding-left: 8px;
+}
+
+.image-container-top {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  height: 30px;
+  justify-items: center;
+  align-items: center;
+}
+
+.section-container {
+  width: 100%;
+}
+
+.tag {
+  border-radius: 16px;
+  background-color: #43b3cd;
+  color: white;
+  padding: 4px 8px 4px 8px;
+  font-size: 8.2px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.image-container-top-title {
+  font-size: 12.8px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #303538;
+  font-weight: bold;
+}
+
+.image-container-content {
+  height: 50px;
+}
+
+.image-container-bottom-subtitle {
+  font-size: 8.2px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #303538;
+  font-weight: bold;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  justify-content: space-between;
+  padding: 16px 8px 16px 8px;
+}
+
+.image-container {
+  width: 300px;
+}
+
+.title {
+  color: #303538;
+  font-size: 25px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.img-container-text {
+  position: absolute;
+  font-size: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  top: 80px;
+  left: 70px;
+  opacity: 0.68;
+  color: white;
+}
+
+.hovertext {
+  position: relative;
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.5);
+}
+
+.hovertext:before {
+  content: attr(data-hover);
+  visibility: hidden;
+  opacity: 0;
+  width: 200px;
+  background-color: rgb(49, 49, 49);
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 0;
+  transition: opacity 1s ease-in-out;
+
+  position: absolute;
+  z-index: 1;
+  left: 15%;
+  top: 65%;
+}
+
+.hovertext:hover:before {
+  opacity: 0.6;
+  visibility: visible;
+}
+
+.image-container-img {
+  position: relative;
+}
+
+.image-container-img-rounded {
+  border-radius: 16px;
+}

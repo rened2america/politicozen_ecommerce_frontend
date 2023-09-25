@@ -1,0 +1,24 @@
+.input-search {
+  height: 48px;
+  width: 600px;
+  background-color: #f7f8f8;
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+  border: 1px solid transparent;
+}
+.icon-search {
+  font-size: 24px;
+  color: #7b858e;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  background-color: #f7f8f8;
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+  height: 48px;
+}
+.input-search-container {
+  width: 650px;
+  display: grid;
+  grid-template-columns: 50px 600px;
+}

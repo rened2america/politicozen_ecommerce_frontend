@@ -1,0 +1,27 @@
+.nav-filter-container {
+  background-color: white;
+  width: 260px;
+  height: 500px;
+  padding: 16px 24px 16px 24px;
+}
+.title {
+  font-size: 16px;
+  font-weight: 500;
+}
+.filter-list {
+  font-size: 14px;
+  list-style: none;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+.section {
+  border-top: 1px solid rgb(229, 229, 229);
+  margin-top: 24px;
+}
+.button-load-more {
+  border: none;
+  height: 30px;
+  border-radius: 16px;
+  color: black;
+  margin-top: 24px;
+}

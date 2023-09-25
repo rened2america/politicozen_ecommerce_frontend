@@ -1,0 +1,20 @@
+.submenu-container {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  height: 48px;
+  background-color: white;
+}
+.submenu-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 200px;
+  list-style: none;
+}
+.submenu-list li {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 12.8px;
+  color: #303538;
+  width: 100px;
+}

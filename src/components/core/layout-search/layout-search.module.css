@@ -1,0 +1,13 @@
+.search-container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  background-color: white;
+  margin-top: 32px;
+}
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 250px);
+  grid-auto-rows: 300px;
+  grid-gap: 10px;
+  grid-auto-flow: dense;
+}

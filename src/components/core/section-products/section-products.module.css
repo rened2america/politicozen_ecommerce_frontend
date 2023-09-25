@@ -1,0 +1,73 @@
+.section-container {
+  display: grid;
+  grid-template-rows: 54px 1fr;
+  height: 450px;
+  background-color: white;
+  margin-top: 100px;
+}
+
+.title {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 25px;
+  padding-left: 8px;
+}
+
+.image-container-top {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  height: 30px;
+  justify-items: center;
+  align-items: center;
+}
+
+.section-container {
+  width: 100%;
+}
+
+.tag {
+  border-radius: 16px;
+  background-color: #43b3cd;
+  color: white;
+  padding: 4px 8px 4px 8px;
+  font-size: 8.2px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.image-container-top-title {
+  font-size: 12.8px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #303538;
+  font-weight: bold;
+}
+
+.image-container-content {
+  height: 50px;
+}
+
+.image-container-bottom-subtitle {
+  font-size: 8.2px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #303538;
+  font-weight: bold;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  justify-content: space-between;
+  padding: 16px 8px 16px 8px;
+}
+
+.image-container {
+  width: 300px;
+}
+
+.title {
+  color: #303538;
+  font-size: 25px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.image-container-img-rounded {
+  border-radius: 16px;
+}

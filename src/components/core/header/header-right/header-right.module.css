@@ -1,0 +1,39 @@
+.header-right-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 30px;
+}
+.sigin {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12.8px;
+  color: #303538;
+  font-weight: bold;
+  width: 48px;
+}
+
+.login {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12.8px;
+  color: #303538;
+  font-weight: bold;
+  width: 48px;
+}
+
+.join {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  margin-left: 8px;
+  margin-right: 16px;
+  font-size: 12.8px;
+  padding: 8px 12px 8px 12px;
+  background-color: #cdfeee;
+  color: #39584e;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+}
+
+.group {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+}

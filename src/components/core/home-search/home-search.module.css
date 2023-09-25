@@ -1,0 +1,29 @@
+.group-search-buttons {
+  color: #303538;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 12.8px;
+  display: grid;
+  grid-template-columns: 125px 125px 125px 125px 125px;
+}
+.group-search-buttons div {
+  border-radius: 16px;
+  border: 1px solid #e4e4e4;
+  background-color: white;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 24px;
+  padding-right: 24px;
+  margin-right: 24px;
+  text-align: center;
+}
+.home-search-container {
+  display: grid;
+  grid-template-rows: 150px 100px;
+  justify-items: center;
+  align-items: center;
+  background-color: white;
+}
+.button {
+  color: #303538;
+}
