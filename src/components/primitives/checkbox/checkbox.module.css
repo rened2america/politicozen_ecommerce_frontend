@@ -1,0 +1,7 @@
+.label {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  align-items: center;
+  font-size: 16px;
+  font-family: "Poppins-Medium";
+}

@@ -1,16 +1,100 @@
 import { component$ } from "@builder.io/qwik";
-import { Footer } from "~/components/core/footer/footer";
-import Header from "~/components/core/header/header/header";
-import SearchOutOptions from "~/components/core/search-out-options/search-out-options";
-import Submenu from "~/components/core/submenu/submenu";
+import { routeLoader$, useNavigate } from "@builder.io/qwik-city";
+import { Image } from "@unpic/qwik";
+import Search from "~/components/primitives/input/search/search";
+import Pagination from "~/components/primitives/pagination/pagination";
+
+export const artist = routeLoader$(async ({ query }) => {
+  const page = query.get("page") || "";
+  const url = new URL(
+    `/api/1/artist/all?page=${page}`,
+    "https://politicozen-backend.onrender.com"
+  ); // Cambia la URL base según tu configuración
+  const res = await fetch(url);
+  const artists = (await res.json()) as any;
+  console.log(artists);
+  return artists;
+});
 
 export default component$(() => {
+  const getArtists = artist();
+  const nav = useNavigate();
   return (
     <>
-      <Header />
-      <Submenu />
-      <SearchOutOptions />
-      <Footer />
+      <div
+        style={{
+          display: "grid",
+          justifyItems: "center",
+        }}
+      >
+        <Search />
+      </div>
+      <Pagination count={getArtists.value.count} />
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, 216px)",
+          padding: "48px 136px",
+          justifyContent: "space-between",
+        }}
+      >
+        {getArtists.value.artist.map((artist: any) => {
+          return (
+            <div
+              style={{
+                borderRadius: "144px",
+                width: "136px",
+                height: "136px",
+                padding: "32px 32px",
+                display: "grid",
+                gridTemplateRows: "1fr 40px",
+                justifyItems: "center",
+                gap: "16px",
+              }}
+              onClick$={() => {
+                nav(`/artist/store/${artist.id}/?page=1`);
+              }}
+            >
+              {artist.avatar ? (
+                <Image
+                  src={artist.avatar}
+                  width={136}
+                  height={136}
+                  alt={artist.name}
+                  style={{
+                    borderRadius: "144px",
+                  }}
+                />
+              ) : (
+                <div
+                  style={{
+                    width: "136px",
+                    height: "136px",
+                    fontSize: "24px",
+                    display: "grid",
+                    alignItems: "center",
+                    justifyItems: "center",
+                    backgroundColor: "#f7f8f8",
+                    borderRadius: "136px",
+                    fontWeight: "700",
+                  }}
+                >
+                  {artist.name.split(" ")[0][0].toUpperCase()}
+                  {artist.name.split(" ")[1][0].toUpperCase()}
+                </div>
+              )}
+              <div
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "500",
+                }}
+              >
+                {artist.name}
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 });

@@ -1,0 +1,23 @@
+/* Establecer el tamaño deseado para el checkbox */
+input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+}
+
+/* Establecer el color de fondo cuando está seleccionado */
+input[type="checkbox"]:before {
+  background-color: black;
+}
+
+/* Cambiar el color de la palomita cuando está seleccionado */
+input[type="checkbox"]:checked::before {
+  content: "\2713"; /* Código unicode de la palomita */
+  display: block;
+  width: 24px;
+  height: 24px;
+  line-height: 24px; /* Centrar verticalmente */
+  text-align: center; /* Centrar horizontalmente */
+  color: white; /* Color del símbolo cuando está seleccionado */
+  font-weight: bold; /* Opcional: hacer la palomita más audaz */
+  background-color: black;
+}

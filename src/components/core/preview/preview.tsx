@@ -14,6 +14,9 @@ export const Preview = component$((props: any) => {
           return (
             <div class={styles[img === radioValue.value ? "img-border" : ""]}>
               <input
+                style={{
+                  borderRadius: "8px",
+                }}
                 name="skuAndSize"
                 type="radio"
                 value="2"
@@ -38,7 +41,7 @@ export const Preview = component$((props: any) => {
                   width={58}
                   height={58}
                   alt="A lovely bath"
-                />{" "}
+                />
               </label>
             </div>
           );
@@ -46,10 +49,13 @@ export const Preview = component$((props: any) => {
       </div>
       <div class={styles["preview-image"]}>
         <Image
-          src={radioValue.value}
+          style={{
+            backgroundColor: "#f5f5f5",
+          }}
+          src={props.product.design[0].url}
           layout="constrained"
-          width={300}
-          height={300}
+          width={550}
+          height={475}
           alt="A lovely bath"
         />
       </div>
