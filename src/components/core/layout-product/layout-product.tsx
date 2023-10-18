@@ -51,79 +51,99 @@ export default component$((props: any) => {
 
         <div class={style["product-information"]}>
           <h1 class={style["title"]}>{props.product.title}</h1>
-          <h2 class={style["subtitle"]}>{props.product.subtitle}</h2>
+          <h2 class={style["tag"]}>
+            {props.product.tag.map((tag) => {
+              return (
+                <div
+                  style={{
+                    border: "1px solid black",
+                    borderRadius: "8px",
+                    padding: "8px 16px",
+                  }}
+                  key={tag.id}
+                >
+                  {tag.value}
+                </div>
+              );
+            })}
+          </h2>
           <h3 class={style["price"]}>${props.product.design[0].price}</h3>
           <div class={style["size-content"]}>
             <div>Select Size</div>
             <div class={style["size-content-table"]}>
-              {props.product.sizes.map((size: any) => {
-                return (
-                  <div
-                    onClick$={() => {
-                      const sizeSelect = size.value;
-                      const variant =
-                        loc.url.searchParams.get("variant") || "white";
-                      const productId = loc.params.slug;
-                      nav(
-                        `/product/${productId}/?variant=${variant}&size=${sizeSelect}`
-                      );
-                    }}
-                    class={[
-                      style["content-value"],
-                      size.value === loc.url.searchParams.get("size")
-                        ? style["img-border"]
-                        : "",
-                    ]}
-                  >
-                    <input
-                      name="skuAndSize"
-                      type="radio"
-                      class={style["visually-hidden"]}
-                      value="29695257:XS"
-                    />
-                    <label for="skuAndSize__29695257" class="css-xf3ahq">
-                      {size.value}
-                    </label>
-                  </div>
-                );
-              })}
+              {props.product
+                ? props.product.sizes.map((size: any) => {
+                    return (
+                      <div
+                        onClick$={() => {
+                          const sizeSelect = size.value;
+                          const variant =
+                            loc.url.searchParams.get("variant") || "white";
+                          const productId = loc.params.slug;
+                          nav(
+                            `/product/${productId}/?variant=${variant}&size=${sizeSelect}`
+                          );
+                        }}
+                        class={[
+                          style["content-value"],
+                          size.value === loc.url.searchParams.get("size")
+                            ? style["img-border"]
+                            : "",
+                        ]}
+                      >
+                        <input
+                          name="skuAndSize"
+                          type="radio"
+                          class={style["visually-hidden"]}
+                          value="29695257:XS"
+                        />
+                        <label for="skuAndSize__29695257" class="css-xf3ahq">
+                          {size.value}
+                        </label>
+                      </div>
+                    );
+                  })
+                : null}
             </div>
           </div>
           {props.product.colors.length > 0 ? (
             <div class={style["color-container"]}>
               <div>Color</div>
               <div class={style["content-color"]}>
-                {props.product.colors.map((color: any) => {
-                  return (
-                    <div
-                      onClick$={() => {
-                        const variant = color.value.toLowerCase();
-                        const size = loc.url.searchParams.get("size") || "S";
-                        const productId = loc.params.slug;
-                        nav(
-                          `/product/${productId}/?variant=${variant}&size=${size}`
-                        );
-                      }}
-                      class={[
-                        style["content-value"],
-                        color.value.toLowerCase() ===
-                        loc.url.searchParams.get("variant")
-                          ? style["img-border"]
-                          : "",
-                      ]}
-                    >
-                      <input
-                        name="skuAndSize"
-                        type="radio"
-                        class={style["visually-hidden"]}
-                        value="29695257:XS"
-                      />
-                      <label for="skuAndSize__29695257" class="css-xf3ahq">
-                        {color.value}
-                      </label>
-                    </div>
-                  );
-                })}
+                {props.product
+                  ? props.product.colors.map((color: any) => {
+                      return (
+                        <div
+                          onClick$={() => {
+                            const variant = color.value.toLowerCase();
+                            const size =
+                              loc.url.searchParams.get("size") || "S";
+                            const productId = loc.params.slug;
+                            nav(
+                              `/product/${productId}/?variant=${variant}&size=${size}`
+                            );
+                          }}
+                          class={[
+                            style["content-value"],
+                            color.value.toLowerCase() ===
+                            loc.url.searchParams.get("variant")
+                              ? style["img-border"]
+                              : "",
+                          ]}
+                        >
+                          <input
+                            name="skuAndSize"
+                            type="radio"
+                            class={style["visually-hidden"]}
+                            value="29695257:XS"
+                          />
+                          <label for="skuAndSize__29695257" class="css-xf3ahq">
+                            {color.value}
+                          </label>
+                        </div>
+                      );
+                    })
+                  : null}
               </div>
             </div>
           ) : null}
@@ -136,10 +156,7 @@ export default component$((props: any) => {
           <div class={style["description-container"]}>
             <div class={style["description-title"]}>Description</div>
             <div class={style["description-content"]}>
-              Pull on this versatile base layer and be ready for whatever the
-              trail throws your way. It's designed to keep things light and
-              breezy for effortless cool in warm conditions. Take it on the
-              trail and don't let the heat slow you down.
+              {props.product.description}
             </div>
           </div>
         </div>

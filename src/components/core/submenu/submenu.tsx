@@ -8,6 +8,9 @@ export default component$(() => {
     <nav class={styles["submenu-container"]}>
       <ul class={styles["submenu-list"]}>
         <li
+          style={{
+            cursor: "pointer",
+          }}
           onClick$={() => {
             nav("/search/?q=");
           }}
@@ -15,11 +18,24 @@ export default component$(() => {
           Collections
         </li>
         <li
+          style={{
+            cursor: "pointer",
+          }}
           onClick$={() => {
             nav("/artists");
           }}
         >
           Artists store
+        </li>
+        <li
+          style={{
+            cursor: "pointer",
+          }}
+          onClick$={() => {
+            nav("/how-it-works");
+          }}
+        >
+          How it works
         </li>
       </ul>
     </nav>

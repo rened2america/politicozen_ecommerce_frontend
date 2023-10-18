@@ -37,6 +37,9 @@ export default component$((props: { count: number }) => {
             <ArrowLeftFull />
           ) : (
             <div
+              style={{
+                cursor: "pointer",
+              }}
               onClick$={() => {
                 const pageUrl = loc.url.searchParams.get("page")
                   ? parseInt(loc.url.searchParams.get("page") || "1")
@@ -79,6 +82,7 @@ export default component$((props: { count: number }) => {
                     width: "16px",
                     flex: "0 0 auto" /* Los elementos no cambian de tamaño y se ajustan automáticamente */,
                     textAlign: "center" /* Alinea el contenido en el centro */,
+                    cursor: "pointer",
                   }}
                 >
                   {intNumber}
@@ -116,6 +120,9 @@ export default component$((props: { count: number }) => {
             <ArrowRightFull />
           ) : (
             <div
+              style={{
+                cursor: "pointer",
+              }}
               onClick$={() => {
                 const pageUrl = loc.url.searchParams.get("page")
                   ? parseInt(loc.url.searchParams.get("page") || "1")

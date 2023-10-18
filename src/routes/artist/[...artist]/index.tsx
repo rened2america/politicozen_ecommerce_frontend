@@ -9,8 +9,8 @@ export const artist = routeLoader$(async ({ query, params }) => {
   const { artist } = params;
   console.log(artist);
   const url = new URL(
-    `/api/1/artist/${artist}/?page=${page}`,
-    "https://politicozen-backend.onrender.com"
+    `/api/1/artist/store/${artist}/?page=${page}`,
+    "http://localhost:4000"
   ); // Cambia la URL base según tu configuración
   const res = await fetch(url);
   const artistResult = (await res.json()) as any;
@@ -20,7 +20,7 @@ export const artist = routeLoader$(async ({ query, params }) => {
 
 export default component$(() => {
   const getArtist = artist();
-
+  console.log(getArtist);
   return (
     <div>
       <div
@@ -45,6 +45,7 @@ export default component$(() => {
               style={{
                 borderRadius: "16px",
               }}
+              layout="fullWidth"
             />
           ) : (
             <div
@@ -66,16 +67,33 @@ export default component$(() => {
             marginTop: "16px",
           }}
         >
-          <Image
-            src={getArtist.value.artist.avatar}
-            width={156}
-            height={156}
-            style={{
-              borderRadius: "156px",
-              display: "grid",
-              justifySelf: "center",
-            }}
-          />
+          {!getArtist?.value?.artist?.avatar ? (
+            <div
+              style={{
+                height: "156px",
+                width: "156px",
+                fontSize: "32px",
+                borderRadius: "156px",
+                display: "grid",
+                placeItems: "center",
+                border: "3px solid black",
+              }}
+            >
+              {getArtist.value.artist.name.slice(0, 2)}
+            </div>
+          ) : (
+            <Image
+              src={getArtist.value.artist.avatar}
+              width={156}
+              height={156}
+              style={{
+                borderRadius: "156px",
+                display: "grid",
+                justifySelf: "center",
+              }}
+            />
+          )}
+
           <div
             style={{
               fontSize: "32px",

@@ -11,13 +11,7 @@ export default component$((props: any) => {
           <span class={style["search-text"]}>{props.searchText}</span>
         </div>
         <Search />
-        <div>
-          <select class={style["search-header-select"]} name="" id="">
-            <option value="">Most Popular</option>
-            <option value="">Price: High-Low</option>
-            <option value="">Price: Low-High</option>
-          </select>
-        </div>
+        <div></div>
       </div>
     </>
   );

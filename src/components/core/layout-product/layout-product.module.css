@@ -19,9 +19,12 @@
   font-size: 24px;
   color: black;
 }
-.subtitle {
-  font-size: 16px;
+.tag {
+  font-size: 13px;
   font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
 }
 .price {
   font-size: 16px;
@@ -64,6 +67,7 @@
   width: 390px;
   height: 60px;
   margin-top: 36px;
+  cursor: pointer;
 }
 .product-information {
   width: 450px;

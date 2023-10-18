@@ -22,16 +22,17 @@
 
 .join {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: bold;
-  font-size: 12.8px;
-  padding: 8px 12px;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 8px 16px;
   width: 72px;
-  background-color: #cdfeee;
-  color: #39584e;
+  background-color: black;
+  color: white;
   text-align: center;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   position: relative;
+  cursor: pointer;
 }
 
 .badge {

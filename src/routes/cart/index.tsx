@@ -35,6 +35,23 @@ export default component$(() => {
     }
   });
 
+  if (cart?.products?.length === 0) {
+    return (
+      <div
+        style={{
+          display: "grid",
+          placeItems: "center",
+          width: "100%",
+          height: "300px",
+          fontSize: "32px",
+          fontWeight: "500",
+        }}
+      >
+        No Items in Cart
+      </div>
+    );
+  }
+
   return (
     <>
       <div
@@ -70,13 +87,25 @@ export default component$(() => {
           );
         })}
 
-        <button
+        <div
           onClick$={() => {
             Buy.value = true;
           }}
+          style={{
+            padding: "8px 32px",
+            backgroundColor: "black",
+            color: "white",
+            display: "grid",
+            placeItems: "center",
+            borderRadius: "8px",
+            fontSize: "16px",
+            fontWeight: "500",
+            cursor: "pointer",
+            marginTop: "32px",
+          }}
         >
           Buy
-        </button>
+        </div>
       </div>
     </>
   );

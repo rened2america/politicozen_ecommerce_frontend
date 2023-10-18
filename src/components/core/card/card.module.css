@@ -1,5 +1,6 @@
 .card {
   width: 340px;
+  cursor: pointer;
   /* border-radius: 5px; */
 }
 
@@ -23,10 +24,14 @@
   margin: 0px;
   font-family: "Poppins-Medium";
 }
-.subtitle {
-  font-size: 16px;
+.tag {
   color: #767677;
   font-family: "Poppins-Medium";
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
 }
 
 .price {
@@ -34,6 +39,7 @@
   color: #111111;
   font-weight: 700;
   font-family: "Poppins-Medium";
+  margin-top: 8px;
 }
 h4 {
   all: unset;

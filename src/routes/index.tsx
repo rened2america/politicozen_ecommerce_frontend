@@ -10,7 +10,7 @@ import { CartContext } from "~/context/cart";
 export default component$(() => {
   const cart = useStore({
     products: [],
-    numberProducts:0
+    numberProducts: 0,
   });
   useContextProvider(CartContext, cart);
 
@@ -21,7 +21,6 @@ export default component$(() => {
       <SectionProducts />
       <SectionArtists />
       <SectionInfo />
-      <SectionSuscribe />
     </>
   );
 });

@@ -2,7 +2,7 @@ import { createContextId } from "@builder.io/qwik";
 
 export type TFilter = {
   types: Array<"Shirt" | "Hoodie" | "Mug">;
-  theme: Array<"Politic" | "Rusia" | "China">;
+  tag: Array<"1810" | "Rusia" | "China">;
   artist: Array<"Alex Johnson" | "Jane Smith" | "John Doe">;
 };
 export interface filterProductState {

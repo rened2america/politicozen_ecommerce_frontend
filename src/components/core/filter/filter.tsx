@@ -72,7 +72,7 @@ export default component$(() => {
   //   console.log("va a retornar false");
   //   return false;
   // });
-
+  console.log(filters?.filters?.artist);
   return (
     <>
       <div class={style["nav-filter-container"]}>
@@ -83,7 +83,9 @@ export default component$(() => {
             <label class={style["label"]}>
               <input
                 checked={
-                  filters.filters.types.find((typeValue) => typeValue === "Mug")
+                  filters?.filters?.types?.find(
+                    (typeValue) => typeValue === "Mug"
+                  )
                     ? true
                     : false
                 }
@@ -107,7 +109,33 @@ export default component$(() => {
             <label class={style["label"]}>
               <input
                 checked={
-                  filters.filters.types.find(
+                  filters?.filters?.types?.find(
+                    (typeValue) => typeValue === "Sweatshirt"
+                  )
+                    ? true
+                    : false
+                }
+                name="productType"
+                value="Sweatshirt"
+                type="checkbox"
+                onChange$={(e) => {
+                  const newValue = e.target.value;
+                  const newUri = generateUrlQuery(
+                    filters.filters,
+                    filters.search,
+                    newValue,
+                    "types"
+                  );
+                  console.log(newUri);
+                  nav(`/search/${newUri}`);
+                }}
+              />
+              <span>Sweatshirt</span>
+            </label>
+            <label class={style["label"]}>
+              <input
+                checked={
+                  filters?.filters?.types?.find(
                     (typeValue) => typeValue === "Hoodie"
                   )
                     ? true
@@ -132,7 +160,7 @@ export default component$(() => {
             <label class={style["label"]}>
               <input
                 checked={
-                  filters.filters.types.find(
+                  filters?.filters?.types?.find(
                     (typeValue) => typeValue === "Shirt"
                   )
                     ? true
@@ -160,15 +188,37 @@ export default component$(() => {
           <h1 class={style.title}>Theme</h1>
           <div class={style["filter-list"]}>
             <label class={style["label"]}>
-              <input name="theme" type="checkbox" />
-              <span>Politic</span>
+              <input
+                checked={
+                  filters?.filters?.tag?.find(
+                    (typeValue) => typeValue === "1810"
+                  )
+                    ? true
+                    : false
+                }
+                onChange$={(e) => {
+                  const newValue = e.target.value;
+                  console.log("newValue", newValue);
+                  const newUri = generateUrlQuery(
+                    filters.filters,
+                    filters.search,
+                    newValue,
+                    "tag"
+                  );
+                  nav(`/search/${newUri}`);
+                }}
+                value="1810"
+                name="tag"
+                type="checkbox"
+              />
+              <span>1810</span>
             </label>
             <label class={style["label"]}>
-              <input name="theme" type="checkbox" />
+              <input name="tag" type="checkbox" />
               <span>Rusia</span>
             </label>
             <label class={style["label"]}>
-              <input name="theme" type="checkbox" />
+              <input name="tag" type="checkbox" />
               <span>China</span>
             </label>
           </div>
@@ -177,22 +227,66 @@ export default component$(() => {
           <h1 class={style.title}>Artist</h1>
           <div class={style["filter-list"]}>
             <label class={style["label"]}>
-              <input name="artist" type="checkbox" />
-              <span>Alex Johnson</span>
+              <input
+                onChange$={(e) => {
+                  const newValue = e.target.value;
+                  const newUri = generateUrlQuery(
+                    filters.filters,
+                    filters.search,
+                    newValue,
+                    "artist"
+                  );
+                  console.log(newUri);
+                  nav(`/search/${newUri}`);
+                }}
+                checked={
+                  filters?.filters?.artist?.find(
+                    (typeValue) =>
+                      typeValue.name === "Rene Alberto Meza Escamilla"
+                  )
+                    ? true
+                    : false
+                }
+                value="Rene Alberto Meza Escamilla"
+                name="artist"
+                type="checkbox"
+              />
+              <span>Rene Meza</span>
             </label>
             <label class={style["label"]}>
-              <input name="artist" type="checkbox" />
-              <span>Jane Smith</span>
+              <input
+                onChange$={(e) => {
+                  const newValue = e.target.value;
+                  const newUri = generateUrlQuery(
+                    filters.filters,
+                    filters.search,
+                    newValue,
+                    "artist"
+                  );
+                  console.log(newUri);
+                  nav(`/search/${newUri}`);
+                }}
+                checked={
+                  filters?.filters?.artist?.find(
+                    (typeValue) => typeValue.name === "Rene Meza"
+                  )
+                    ? true
+                    : false
+                }
+                value="Rene Meza"
+                name="artist"
+                type="checkbox"
+              />
+              <span>Rene A</span>
             </label>
-            <label class={style["label"]}>
-              <input name="artist" type="checkbox" />
-              <span>John Doe</span>
-            </label>
-            <Link
-              class={style["button-load-more"]}
-              href={`/politicozen/artists`}
-            >
-              <div>Load more...</div>
+            <Link class={style["button-load-more"]} href={`/artists`}>
+              <div
+                style={{
+                  cursor: "pointer",
+                }}
+              >
+                Load more...
+              </div>
             </Link>
           </div>
         </div>

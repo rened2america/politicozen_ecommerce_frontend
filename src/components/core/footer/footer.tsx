@@ -5,8 +5,11 @@ import { Instagram } from "../icons/instagram";
 import { Twitter } from "../icons/twitter";
 import { Facebook } from "../icons/facebook";
 import { Tiktok } from "../icons/tiktok";
+import { Link, useNavigate } from "@builder.io/qwik-city";
 
 export const Footer = component$(() => {
+  const nav = useNavigate();
+
   return (
     <div class={styles["footer-container"]}>
       <div class={styles["footer-top"]}>
@@ -16,16 +19,24 @@ export const Footer = component$(() => {
           </div>
           <div class={styles["social"]}>
             <span>
-              <Instagram />
+              <Link href="https://www.instagram.com/politicozen/">
+                <Instagram />
+              </Link>
             </span>
             <span>
-              <Twitter />
+              <Link href="https://twitter.com/PoliticoZen">
+                <Twitter />
+              </Link>
             </span>
             <span>
-              <Facebook />
+              <Link href="https://www.facebook.com/thepoliticozen">
+                <Facebook />
+              </Link>
             </span>
             <span>
-              <Tiktok />
+              <Link href="https://www.tiktok.com/@politicozen">
+                <Tiktok />
+              </Link>
             </span>
           </div>
         </div>
@@ -39,7 +50,14 @@ export const Footer = component$(() => {
         <div class={styles["footer-top-thirt"]}>
           <div class={styles["footer-top-thirt-header"]}>Artistis</div>
           <div class={styles["footer-top-thirt-content"]}>
-            <div>How Works</div>
+            <div
+              style={{
+                cursor: "pointer",
+              }}
+              onClick$={() => nav("/how-we-work")}
+            >
+              How We Works
+            </div>
             <div>Shop Benefits</div>
           </div>
         </div>
@@ -50,14 +68,60 @@ export const Footer = component$(() => {
             <div>+1 408-835-0739</div>
           </div>
         </div>
+        <div>
+          <div
+            style={{
+              padding: "16px 16px",
+              display: "grid",
+              backgroundColor: "black",
+              color: "white",
+              gridTemplateColumns: "1fr 72px",
+              gap: "8px",
+              borderRadius: "16px",
+            }}
+          >
+            <input
+              style={{
+                padding: "4px 8px",
+                borderRadius: "8px",
+                fontSize: "14px",
+              }}
+              type="email"
+              placeholder="email"
+            />
+            <div
+              style={{
+                cursor: "pointer",
+                padding: "4px 8px",
+                backgroundColor: "white",
+                color: "black",
+                borderRadius: "12px",
+                fontWeight: "500",
+                fontSize: "14px",
+              }}
+            >
+              Suscribe
+            </div>
+          </div>
+        </div>
       </div>
       <div class={styles["footer-bottom"]}>
         <div class={styles["footer-bottom-left"]}>
           Copyright © 2022 Politicozen. All Rights Reserved.
         </div>
         <div class={styles["footer-bottom-right"]}>
-          <div class={styles["terms-of-service"]}>Terms of Service</div>
-          <div class={styles["privacy-policy"]}>Privacy Policy</div>
+          <div
+            onClick$={() => nav("/terms-of-service")}
+            class={styles["terms-of-service"]}
+          >
+            Terms of Service
+          </div>
+          <div
+            onClick$={() => nav("/privacy-policy")}
+            class={styles["privacy-policy"]}
+          >
+            Privacy Policy
+          </div>
         </div>
       </div>
     </div>

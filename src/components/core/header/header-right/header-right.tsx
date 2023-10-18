@@ -32,6 +32,7 @@ export default component$(() => {
           fontSize: "24px",
           display: "grid",
           position: "relative",
+          cursor: "pointer",
         }}
       >
         <HiShoppingCartOutline />

@@ -4,7 +4,7 @@ export const generateStateFromUrlQuery = (url: URL) => {
   let search = "";
   let filters = {
     types: [],
-    theme: [],
+    tag: [],
     artist: [],
   };
   if (hasSearch) {

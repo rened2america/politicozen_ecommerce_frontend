@@ -13,7 +13,25 @@ export default component$((props: any) => {
       />
       <div class={style.container}>
         <h4 class={style["title"]}>{props.product.title}</h4>
-        <h5 class={style["subtitle"]}>{props.product.subtitle}</h5>
+        {props?.product?.tag?.length < 1 ? null : (
+          <h5 class={style["tag"]}>
+            {props?.product?.tag?.map((tag) => {
+              return (
+                <div
+                  style={{
+                    border: "1px solid black",
+                    borderRadius: "8px",
+                    padding: "4px 8px",
+                  }}
+                  key={tag.id}
+                >
+                  {tag.value}
+                </div>
+              );
+            })}
+          </h5>
+        )}
+
         <span class={style["price"]}>${props.product.price}</span>
       </div>
     </div>

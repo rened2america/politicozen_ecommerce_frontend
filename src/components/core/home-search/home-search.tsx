@@ -7,19 +7,19 @@ export default component$(() => {
     <div class={styles["home-search-container"]}>
       <Search />
       <div class={styles["group-search-buttons"]}>
-        <Link href={`/politicozen/search/?q=Trump`}>
+        <Link href={`/search/?q=Trump`}>
           <div class={styles["button"]}>Trump</div>
         </Link>
-        <Link href={`/politicozen/search/?q=Creative`}>
+        <Link href={`/search/?q=Creative`}>
           <div class={styles["button"]}>Creative</div>
         </Link>
-        <Link href={`/politicozen/search/?q=USA`}>
+        <Link href={`/search/?q=USA`}>
           <div class={styles["button"]}>USA</div>
         </Link>
-        <Link href={`/politicozen/search/?q=Army`}>
+        <Link href={`/search/?q=Army`}>
           <div class={styles["button"]}>Army</div>
         </Link>
-        <Link href={`/politicozen/search/?q=People`}>
+        <Link href={`/search/?q=People`}>
           <div class={styles["button"]}>People</div>
         </Link>
       </div>

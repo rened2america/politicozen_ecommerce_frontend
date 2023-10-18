@@ -16,15 +16,16 @@
 }
 .footer-top {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  width: 800px;
+  grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
+  width: 100%;
   height: 150px;
-  padding: 36px;
+  padding: 36px 0;
   line-height: 2;
 }
 .footer-top-first {
   display: grid;
   grid-template-rows: 1fr 2fr;
+  padding: 16px 32px;
 }
 .footer-top-second-header {
   color: black;
@@ -37,4 +38,21 @@
 .footer-top-four-header {
   color: black;
   font-weight: 700;
+}
+.terms-of-service {
+  cursor: pointer;
+}
+
+.privacy-policy {
+  cursor: pointer;
+}
+
+.social {
+  gap: 8px;
+  display: grid;
+  grid-template-columns: 48px 48px 48px 48px;
+}
+
+.social span {
+  cursor: pointer;
 }

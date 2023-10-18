@@ -1,3 +1,4 @@
+import { artist } from "./../routes/artists/index";
 import { TFilter } from "~/context/filter";
 
 export const generateUrlQuery = (
@@ -7,8 +8,11 @@ export const generateUrlQuery = (
   typeValue: string
 ) => {
   const addFilter = filters;
+  console.log("generateUrlQuery");
+  console.log(addFilter);
+  console.log(typeValue);
   //@ts-ignore
-  if (addFilter[typeValue].find((type: any) => type === nameValue)) {
+  if (addFilter[typeValue]?.find((type: any) => type === nameValue)) {
     //@ts-ignore
     const index = addFilter[typeValue].findIndex(
       (type: any) => type === nameValue
@@ -24,10 +28,10 @@ export const generateUrlQuery = (
   if (search) {
     query += search;
   }
-  const hasType = addFilter.types.length > 0;
-  const hasTheme = addFilter.theme.length > 0;
-  const hasArtist = addFilter.artist.length > 0;
-
+  const hasType = addFilter?.types?.length > 0;
+  const hasTheme = addFilter?.tag?.length > 0;
+  const hasArtist = addFilter?.artist?.length > 0;
+  console.log("filteros", addFilter.artist);
   if (hasType || hasTheme || hasArtist) {
     query += `&filters=`;
 
@@ -39,13 +43,16 @@ export const generateUrlQuery = (
     if (hasTheme) {
       filtersOptions = {
         ...filtersOptions,
-        theme: addFilter.theme,
+        tag: addFilter.tag,
       };
     }
     if (hasArtist) {
+      const dataArtist = addFilter.artist.map((artist) => {
+        return { name: artist };
+      });
       filtersOptions = {
         ...filtersOptions,
-        artist: addFilter.artist,
+        artist: dataArtist,
       };
     }
     const filtersOptionsJson = JSON.stringify(filtersOptions);

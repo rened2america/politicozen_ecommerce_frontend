@@ -12,23 +12,11 @@ export const useProductOneData = routeLoader$(async ({ params, query }) => {
 
   const url = new URL(
     `/api/1/product/${slug}?variant=${variant}&size=${size}`,
-    "https://politicozen-backend.onrender.com"
+    "http://localhost:4000"
   ); // Cambia la URL base según tu configuración
   const res = await fetch(url);
   const product = (await res.json()) as any;
-  console.log(product);
   return product.products;
-});
-
-export const usePayment = routeLoader$(async (price) => {
-  console.log(price);
-  // const session = await fetch("https://politicozen-backend.onrender.com/api/1/product/payment", {
-  //   method: "POST",
-  //   body: JSON.stringify(price),
-  // });
-  const session = "dsdsddsadsad";
-
-  return session;
 });
 
 export default component$(() => {
@@ -36,7 +24,6 @@ export default component$(() => {
   const term = url.searchParams.get("q") || "";
   const data = useProductOneData();
 
-  console.log(term);
   return (
     <>
       <SearchOutOptions />
