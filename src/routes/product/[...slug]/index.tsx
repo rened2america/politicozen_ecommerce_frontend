@@ -12,7 +12,7 @@ export const useProductOneData = routeLoader$(async ({ params, query }) => {
 
   const url = new URL(
     `/api/1/product/${slug}?variant=${variant}&size=${size}`,
-    "http://localhost:4000"
+    "https://politicozen-backend.onrender.com"
   ); // Cambia la URL base según tu configuración
   const res = await fetch(url);
   const product = (await res.json()) as any;

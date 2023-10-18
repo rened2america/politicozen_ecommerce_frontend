@@ -10,7 +10,7 @@ export const artist = routeLoader$(async ({ query, params }) => {
   console.log(artist);
   const url = new URL(
     `/api/1/artist/store/${artist}/?page=${page}`,
-    "http://localhost:4000"
+    "https://politicozen-backend.onrender.com"
   ); // Cambia la URL base según tu configuración
   const res = await fetch(url);
   const artistResult = (await res.json()) as any;
