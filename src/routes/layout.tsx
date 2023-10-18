@@ -20,7 +20,7 @@ export default component$(() => {
   const filter = useStore<filterProductState>({
     filters: {
       types: [],
-      theme: [],
+      tag: [],
       artist: [],
     },
     numberPage: 1,
