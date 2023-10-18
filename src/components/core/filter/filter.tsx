@@ -110,7 +110,7 @@ export default component$(() => {
               <input
                 checked={
                   filters?.filters?.types?.find(
-                    (typeValue) => typeValue === "Sweatshirt"
+                    (typeValue: any) => typeValue === "Sweatshirt"
                   )
                     ? true
                     : false
@@ -241,7 +241,7 @@ export default component$(() => {
                 }}
                 checked={
                   filters?.filters?.artist?.find(
-                    (typeValue) =>
+                    (typeValue: any) =>
                       typeValue.name === "Rene Alberto Meza Escamilla"
                   )
                     ? true
@@ -268,7 +268,7 @@ export default component$(() => {
                 }}
                 checked={
                   filters?.filters?.artist?.find(
-                    (typeValue) => typeValue.name === "Rene Meza"
+                    (typeValue: any) => typeValue.name === "Rene Meza"
                   )
                     ? true
                     : false

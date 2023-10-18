@@ -1,4 +1,3 @@
-import { artist } from "./../routes/artists/index";
 import { TFilter } from "~/context/filter";
 
 export const generateUrlQuery = (

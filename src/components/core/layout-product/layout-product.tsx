@@ -52,7 +52,7 @@ export default component$((props: any) => {
         <div class={style["product-information"]}>
           <h1 class={style["title"]}>{props.product.title}</h1>
           <h2 class={style["tag"]}>
-            {props.product.tag.map((tag) => {
+            {props.product.tag.map((tag: any) => {
               return (
                 <div
                   style={{

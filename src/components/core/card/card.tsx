@@ -15,7 +15,7 @@ export default component$((props: any) => {
         <h4 class={style["title"]}>{props.product.title}</h4>
         {props?.product?.tag?.length < 1 ? null : (
           <h5 class={style["tag"]}>
-            {props?.product?.tag?.map((tag) => {
+            {props?.product?.tag?.map((tag: any) => {
               return (
                 <div
                   style={{

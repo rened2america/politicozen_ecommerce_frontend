@@ -1,11 +1,8 @@
 import { component$ } from "@builder.io/qwik";
-import styles from "./section-info.module.css";
-import SectionImg from "../../../../public/section-info/img1.png";
 import { Image } from "@unpic/qwik";
-import { Link, useNavigate } from "@builder.io/qwik-city";
+import { Link } from "@builder.io/qwik-city";
 
 export default component$(() => {
-  const nav = useNavigate();
   return (
     <div
       style={{

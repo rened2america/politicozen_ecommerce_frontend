@@ -1,5 +1,4 @@
 import { component$ } from "@builder.io/qwik";
-import { Image } from "@unpic/qwik";
 
 export default component$(() => {
   return (
@@ -99,27 +98,27 @@ export default component$(() => {
             </span>
           </p>
           <ul>
-            <li style="font-weight: 400;" aria-level="1">
+            <li style="font-weight: 400;">
               <span style="font-weight: 400;">
                 Provide, operate, and maintain our website
               </span>
             </li>
-            <li style="font-weight: 400;" aria-level="1">
+            <li style="font-weight: 400;">
               <span style="font-weight: 400;">
                 Improve, personalize, and expand our website
               </span>
             </li>
-            <li style="font-weight: 400;" aria-level="1">
+            <li style="font-weight: 400;">
               <span style="font-weight: 400;">
                 Understand and analyze how you use our website
               </span>
             </li>
-            <li style="font-weight: 400;" aria-level="1">
+            <li style="font-weight: 400;">
               <span style="font-weight: 400;">
                 Develop new products, services, features, and functionality
               </span>
             </li>
-            <li style="font-weight: 400;" aria-level="1">
+            <li style="font-weight: 400;">
               <span style="font-weight: 400;">
                 Communicate with you, either directly or through one of our
                 partners, including for customer service, to provide you with
@@ -127,10 +126,10 @@ export default component$(() => {
                 marketing and promotional purposes
               </span>
             </li>
-            <li style="font-weight: 400;" aria-level="1">
+            <li style="font-weight: 400;">
               <span style="font-weight: 400;">Send you emails</span>
             </li>
-            <li style="font-weight: 400;" aria-level="1">
+            <li style="font-weight: 400;">
               <span style="font-weight: 400;">Find and prevent fraud</span>
             </li>
           </ul>
@@ -253,20 +252,20 @@ export default component$(() => {
             </span>
           </p>
           <ul>
-            <li style="font-weight: 400;" aria-level="1">
+            <li style="font-weight: 400;">
               <span style="font-weight: 400;">
                 Request that a business that collects a consumer’s data disclose
                 the categories and specific personal data that a company has
                 collected about consumers.
               </span>
             </li>
-            <li style="font-weight: 400;" aria-level="1">
+            <li style="font-weight: 400;">
               <span style="font-weight: 400;">
                 Request that a business deletes any personal data about the
                 consumer a company has collected.
               </span>
             </li>
-            <li style="font-weight: 400;" aria-level="1">
+            <li style="font-weight: 400;">
               <span style="font-weight: 400;">
                 Request that a business that sells a consumer’s data not sell
                 the consumer’s data.
@@ -289,13 +288,13 @@ export default component$(() => {
             </span>
           </p>
           <ul>
-            <li style="font-weight: 400;" aria-level="1">
+            <li style="font-weight: 400;">
               <span style="font-weight: 400;">
                 The right to access – You can request copies of your data. We
                 may charge you a small fee for this service.
               </span>
             </li>
-            <li style="font-weight: 400;" aria-level="1">
+            <li style="font-weight: 400;">
               <span style="font-weight: 400;">
                 The right to rectification – You have the right to request that
                 we correct any information you believe is inaccurate. You also
@@ -303,27 +302,27 @@ export default component$(() => {
                 think is incomplete.
               </span>
             </li>
-            <li style="font-weight: 400;" aria-level="1">
+            <li style="font-weight: 400;">
               <span style="font-weight: 400;">
                 The right to erasure – You have the right to request that we
                 erase your data under certain conditions.
               </span>
             </li>
-            <li style="font-weight: 400;" aria-level="1">
+            <li style="font-weight: 400;">
               <span style="font-weight: 400;">
                 The right to restrict processing – You have the right to request
                 that we restrict the processing of your data under certain
                 conditions.
               </span>
             </li>
-            <li style="font-weight: 400;" aria-level="1">
+            <li style="font-weight: 400;">
               <span style="font-weight: 400;">
                 The right to object to processing – Under certain conditions,
                 you have the right to object to our processing of your personal
                 data.
               </span>
             </li>
-            <li style="font-weight: 400;" aria-level="1">
+            <li style="font-weight: 400;">
               <span style="font-weight: 400;">
                 The right to data portability – You have the right to request
                 that we transfer the data that we have collected to another
