@@ -5,7 +5,6 @@ import LayoutSearch from "~/components/core/layout-search/layout-search";
 import Pagination from "~/components/primitives/pagination/pagination";
 import { FilterContext } from "~/context/filter";
 import { generateStateFromUrlQuery } from "~/utils/generateStateFromUrlQuery";
-
 export const useProductData = routeLoader$(async ({ query }) => {
   console.log("--ok--");
   console.log(query);
@@ -16,8 +15,8 @@ export const useProductData = routeLoader$(async ({ query }) => {
   const filters = filtersData || "";
   const sortBy = sortByData || "";
   const searchTerm = search;
-
-  const url = new URL("/api/1/product/all", process.env.['URL_BACKEND']); // Cambia la URL base según tu configuración
+  //@ts-ignore
+  const url = new URL("/api/1/product/all", process.env.VITE_URL_BACKEND); // Cambia la URL base según tu configuración
 
   url.searchParams.append("filters", filters);
   url.searchParams.append("sortBy", sortBy);

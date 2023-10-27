@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "@qwikest/icons": "^0.0.13",
-    "@unpic/qwik": "^0.0.20"
+    "@unpic/qwik": "^0.0.20",
+    "zod": "^3.22.4"
   }
 }
