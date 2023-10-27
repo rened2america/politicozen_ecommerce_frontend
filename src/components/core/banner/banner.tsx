@@ -11,6 +11,7 @@ export default component$(() => {
         alignItems: "center",
         padding: "48px 32px",
         boxSizing: "border-box",
+        justifySelf: "center",
       }}
     >
       <div
