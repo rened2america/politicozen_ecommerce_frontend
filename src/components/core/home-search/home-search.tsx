@@ -6,6 +6,16 @@ export default component$(() => {
   return (
     <div class={styles["home-search-container"]}>
       <Search />
+      <div
+        style={{
+          fontSize: "48px",
+          color: "#1b1b1b",
+          fontFamily: "Verdana, Geneva, Tahoma, sans-serif",
+          margin: "24px 0",
+        }}
+      >
+        Trending Topics
+      </div>
       <div class={styles["group-search-buttons"]}>
         <Link href={`/search/?q=Trump`}>
           <div class={styles["button"]}>Trump</div>

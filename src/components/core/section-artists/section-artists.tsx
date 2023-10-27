@@ -1,6 +1,5 @@
 import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import styles from "./section-artists.module.css";
-import Img1Section from "../../../../public/section-artists/img1.png";
 
 export default component$(() => {
   const widthUser = useSignal<null | number>(null);
@@ -103,6 +102,21 @@ export default component$(() => {
           </div> */}
           {widthUser.value && widthUser.value > 1550 ? (
             <div class={styles["image-container"]}>
+              <img
+                width="270"
+                height="340"
+                class={styles["image-container-img-rounded"]}
+                src="https://politicozen.com/wp-content/uploads/Mehmet-Zeber-400x400.jpg"
+                alt=""
+              />
+              <div class={styles["backgroundImageText"]}>
+                <div class={styles["img-container-text"]}>Mehmet Zeber</div>
+                <div class={styles["img-container-text2"]}>Artist</div>
+              </div>
+            </div>
+          ) : null}
+          {/* {widthUser.value && widthUser.value > 1550 ? (
+            <div class={styles["image-container"]}>
               <div data-hover="Description" class={styles["hovertext"]}>
                 <img
                   width="300"
@@ -114,7 +128,7 @@ export default component$(() => {
                 <div class={styles["img-container-text"]}>Mehmet Zeber</div>
               </div>
             </div>
-          ) : null}
+          ) : null} */}
         </div>
       </div>
     </div>
