@@ -16,7 +16,7 @@ export default component$(() => {
     console.log("Buy.value", cart);
     if (Buy.value) {
       const getPayment = await fetch(
-        "https://politicozen-backend.onrender.com/api/1/product/payment",
+        process.env.VITE_URL_BACKEND + "/api/1/product/payment",
         {
           method: "POST",
           headers: {

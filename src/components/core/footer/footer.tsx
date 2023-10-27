@@ -107,7 +107,7 @@ export const Footer = component$(() => {
       </div>
       <div class={styles["footer-bottom"]}>
         <div class={styles["footer-bottom-left"]}>
-          Copyright © 2022 Politicozen. All Rights Reserved.
+          Copyright © 2023 Politicozen. All Rights Reserved.
         </div>
         <div class={styles["footer-bottom-right"]}>
           <div

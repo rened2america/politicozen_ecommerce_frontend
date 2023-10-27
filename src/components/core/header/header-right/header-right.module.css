@@ -1,6 +1,7 @@
 .header-right-container {
   display: grid;
-  grid-template-columns: 1fr 30px;
+  grid-template-columns: 1fr 24px;
+  gap: 16px;
   align-items: center;
   width: 130px;
 }
@@ -22,17 +23,17 @@
 
 .join {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 14px;
-  padding: 8px 16px;
-  width: 72px;
+  padding: 0 24px;
   background-color: black;
   color: white;
   text-align: center;
   border: none;
-  border-radius: 8px;
+  border-radius: 9999999px;
   position: relative;
   cursor: pointer;
+  height: 48px;
 }
 
 .badge {

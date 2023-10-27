@@ -8,11 +8,10 @@ export const artist = routeLoader$(async ({ query }) => {
   const page = query.get("page") || "";
   const url = new URL(
     `/api/1/artist/all?page=${page}`,
-    "https://politicozen-backend.onrender.com"
+    process.env.VITE_URL_BACKEND
   ); // Cambia la URL base según tu configuración
   const res = await fetch(url);
   const artists = (await res.json()) as any;
-  console.log(artists);
   return artists;
 });
 
@@ -33,9 +32,10 @@ export default component$(() => {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, 216px)",
+          gridTemplateColumns: "repeat(auto-fit,minmax(216px, 1fr))",
           padding: "48px 136px",
           justifyContent: "space-between",
+          justifyItems: "center",
         }}
       >
         {getArtists.value.artist.map((artist: any) => {
