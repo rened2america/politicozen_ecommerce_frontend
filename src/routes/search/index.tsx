@@ -17,10 +17,7 @@ export const useProductData = routeLoader$(async ({ query }) => {
   const sortBy = sortByData || "";
   const searchTerm = search;
 
-  const url = new URL(
-    "/api/1/product/all",
-    "https://politicozen-backend.onrender.com"
-  ); // Cambia la URL base según tu configuración
+  const url = new URL("/api/1/product/all", process.env.URL_BACKEND); // Cambia la URL base según tu configuración
 
   url.searchParams.append("filters", filters);
   url.searchParams.append("sortBy", sortBy);

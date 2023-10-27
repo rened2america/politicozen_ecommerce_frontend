@@ -1,6 +1,8 @@
 import { component$, useContext } from "@builder.io/qwik";
 import style from "./header-right.module.css";
 import { HiShoppingCartOutline } from "@qwikest/icons/heroicons";
+import { LuShoppingBag } from "@qwikest/icons/lucide";
+
 import { CartContext } from "~/context/cart";
 import { useNavigate } from "@builder.io/qwik-city";
 
@@ -35,7 +37,7 @@ export default component$(() => {
           cursor: "pointer",
         }}
       >
-        <HiShoppingCartOutline />
+        <LuShoppingBag />
         {cart.numberProducts > 0 ? (
           <div class={style["badge"]}>{cart.numberProducts}</div>
         ) : null}

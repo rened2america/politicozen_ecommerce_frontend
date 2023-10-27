@@ -32,11 +32,14 @@ export default component$(() => {
   useContextProvider(FilterContext, filter);
 
   return (
-    <>
+    <div
+      style={{
+        padding: "",
+      }}
+    >
       <Header />
-      <Submenu />
       <Slot />
       <Footer />
-    </>
+    </div>
   );
 });

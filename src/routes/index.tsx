@@ -15,10 +15,19 @@ export default component$(() => {
 
   return (
     <>
-      <Banner />
-      <HomeSearch />
-      <SectionProducts />
-      <SectionArtists />
+      <div
+        style={{
+          width: "100%",
+          display: "grid",
+          justifyContent: "center",
+        }}
+      >
+        <Banner />
+        <HomeSearch />
+        {/* <SectionProducts /> */}
+        <SectionArtists />
+      </div>
+
       <SectionInfo />
     </>
   );
