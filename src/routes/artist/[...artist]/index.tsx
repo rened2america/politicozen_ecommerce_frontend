@@ -9,10 +9,11 @@ export const artist = routeLoader$(async ({ query, params }) => {
   const page = query.get("page") || "";
   const { artist } = params;
   console.log(artist);
+  // @ts-ignore
   const url = new URL(
     `/api/1/artist/store/${artist}/?page=${page}`,
-    process.env.URL_BACKEND
-  ); // Cambia la URL base según tu configuración
+    process.env["URL_BACKEND"]
+  );
   const res = await fetch(url);
   const artistResult = (await res.json()) as any;
   console.log(artistResult);
