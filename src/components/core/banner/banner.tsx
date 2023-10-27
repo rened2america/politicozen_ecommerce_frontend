@@ -52,6 +52,7 @@ export default component$(() => {
         Transform your art into earnings
       </div>
       <Link
+        href={process.env["VITE_URL_APP_DASHBOARD"] + "/register"}
         style={{
           backgroundColor: "#1B1B1B",
           color: "white",

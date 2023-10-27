@@ -3,7 +3,7 @@ import style from "./header-right.module.css";
 import { LuShoppingBag } from "@qwikest/icons/lucide";
 
 import { CartContext } from "~/context/cart";
-import { useNavigate } from "@builder.io/qwik-city";
+import { Link, useNavigate } from "@builder.io/qwik-city";
 
 export default component$(() => {
   const cart = useContext(CartContext);
@@ -15,14 +15,22 @@ export default component$(() => {
         <span class={style.sigin}>Sig in</span>
         <span class={style.login}>Log in</span>
       </div> */}
-      <button
+      <Link
         class={style.join}
+        href={process.env["VITE_URL_APP_DASHBOARD"] + "/login"}
+      >
+        Join
+      </Link>
+
+      {/* <button
         onClick$={() => {
-          window.location.replace("http://app.politicozen.dev/login");
+          window.location.replace(
+            process.env["VITE_URL_APP_DASHBOARD"] + "/login"
+          );
         }}
       >
         Join
-      </button>
+      </button> */}
       <div
         onClick$={() => {
           console.log("se ejecuto");

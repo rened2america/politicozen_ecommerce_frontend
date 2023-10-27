@@ -25,9 +25,14 @@ export default component$(() => {
             fontSize: "14px",
             fontFamily: "Verdana, Geneva, Tahoma, sans-serif",
             fontWeight: "700",
-            color: "#1B1B1B",
-            width: "48px",
+            color: "white",
+            width: "136px",
             cursor: "pointer",
+            textAlign: "center",
+            backgroundColor: "#000",
+            borderRadius: "9999999px",
+            height: "48px",
+            alignSelf: "center",
           }}
           onClick$={() => {
             nav("/how-it-works");
