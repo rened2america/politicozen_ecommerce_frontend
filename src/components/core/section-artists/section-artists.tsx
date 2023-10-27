@@ -1,6 +1,5 @@
 import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import styles from "./section-artists.module.css";
-import Img1Section from "../../../../public/section-artists/img1.png";
 
 export default component$(() => {
   const widthUser = useSignal<null | number>(null);
