@@ -1,6 +1,4 @@
-import { component$, useSignal } from "@builder.io/qwik";
-import { Image } from "@unpic/qwik";
-import { Link } from "@builder.io/qwik-city";
+import { component$ } from "@builder.io/qwik";
 
 const artistSellers = [
   {
@@ -35,17 +33,17 @@ const artistSellers = [
 ];
 
 export default component$(() => {
-  const currentSeller = useSignal(0);
+  // const currentSeller = useSignal(0);
 
-  const moreSeller = () => {
-    if (currentSeller.value > 4) return;
-    currentSeller.value++;
-  };
+  // const moreSeller = () => {
+  //   if (currentSeller.value > 4) return;
+  //   currentSeller.value++;
+  // };
 
-  const lessSeller = () => {
-    if (currentSeller.value < 0) return;
-    currentSeller.value--;
-  };
+  // const lessSeller = () => {
+  //   if (currentSeller.value < 0) return;
+  //   currentSeller.value--;
+  // };
 
   return (
     <div

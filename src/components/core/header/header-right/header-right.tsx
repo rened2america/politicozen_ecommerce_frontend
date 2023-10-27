@@ -1,6 +1,5 @@
 import { component$, useContext } from "@builder.io/qwik";
 import style from "./header-right.module.css";
-import { HiShoppingCartOutline } from "@qwikest/icons/heroicons";
 import { LuShoppingBag } from "@qwikest/icons/lucide";
 
 import { CartContext } from "~/context/cart";

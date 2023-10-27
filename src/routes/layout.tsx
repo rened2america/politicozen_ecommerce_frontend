@@ -6,7 +6,6 @@ import {
 } from "@builder.io/qwik";
 
 import Header from "~/components/core/header/header/header";
-import Submenu from "~/components/core/submenu/submenu";
 import { Footer } from "~/components/core/footer/footer";
 import { CartContext, CartProductsListState } from "~/context/cart";
 import { FilterContext, filterProductState } from "~/context/filter";

@@ -1,5 +1,4 @@
 import { component$ } from "@builder.io/qwik";
-import styles from "./banner.module.css";
 import { Link } from "@builder.io/qwik-city";
 export default component$(() => {
   return (
