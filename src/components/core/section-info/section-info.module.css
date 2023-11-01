@@ -41,3 +41,22 @@
   border: none;
   border-radius: 4px;
 }
+
+.artist-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin: 48px 24px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 800px) {
+  .artist-info {
+    display: grid;
+    gap: 48px;
+    margin: 48px 24px;
+    box-sizing: border-box;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+}

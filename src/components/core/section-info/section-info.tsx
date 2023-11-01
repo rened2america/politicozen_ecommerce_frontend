@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-
+import styles from "./section-info.module.css";
 const artistSellers = [
   {
     id: 1,
@@ -57,8 +57,6 @@ export default component$(() => {
     >
       <div
         style={{
-          display: "grid",
-          gridTemplateRows: "56px 1fr",
           color: "white",
           backgroundColor: "#1B1B1B",
           width: "100%",
@@ -73,18 +71,20 @@ export default component$(() => {
             placeItems: "center",
             fontSize: "48px",
             fontWeight: "400",
+            textAlign: "center",
           }}
         >
           They sell on politicozen
         </div>
         <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "48px",
-            margin: "48px 24px",
-            boxSizing: "border-box",
-          }}
+          // style={{
+          //   display: "grid",
+          //   gridTemplateColumns: "1fr 1fr",
+          //   gap: "48px",
+          //   margin: "48px 24px",
+          //   boxSizing: "border-box",
+          // }}
+          class={styles["artist-info"]}
         >
           <div
             style={{

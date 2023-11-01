@@ -1,39 +1,73 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useSignal } from "@builder.io/qwik";
 import HeaderLeft from "../header-left/header-left";
 import HeaderRight from "../header-right/header-right";
 import styles from "./header.module.css";
 import { useNavigate } from "@builder.io/qwik-city";
-
+import { LuMenu } from "@qwikest/icons/lucide";
 export default component$(() => {
   const nav = useNavigate();
-
+  const openMenu = useSignal(false);
   return (
     <>
-      <header
-        style={{
-          display: "grid",
-          gridTemplateColumns: "150px 1fr 150px",
-          height: "100px",
-          padding: "0 40px",
-        }}
-      >
+      <header class={styles["header-container"]}>
         <div
-          style={{
-            display: "grid",
-            justifySelf: "start",
-            alignItems: "center",
-            fontSize: "14px",
-            fontFamily: "Verdana, Geneva, Tahoma, sans-serif",
-            fontWeight: "700",
-            color: "white",
-            width: "136px",
-            cursor: "pointer",
-            textAlign: "center",
-            backgroundColor: "#000",
-            borderRadius: "9999999px",
-            height: "48px",
-            alignSelf: "center",
-          }}
+          style={
+            openMenu.value
+              ? {
+                  position: "absolute",
+                  width: "80%",
+                  height: "120px",
+                  top: "80px",
+                  backgroundColor: "#f1f1f1",
+                  display: "grid",
+                  justifyItems: "center",
+                  padding: "8px 8px",
+                  gap: "24px",
+                }
+              : { display: "none" }
+          }
+        >
+          <div
+            onClick$={() => {
+              nav("/artists");
+            }}
+          >
+            Artists store
+          </div>
+          <div
+            onClick$={() => {
+              nav("/search/?q=");
+            }}
+          >
+            Collections
+          </div>
+          <div
+            onClick$={() => {
+              nav("/how-it-works");
+            }}
+          >
+            How it works
+          </div>
+        </div>
+        <div class={styles["header-menu-mobile"]}>
+          <LuMenu
+            onClick$={() => {
+              openMenu.value = !openMenu.value;
+            }}
+          />
+          <div
+            style={{
+              cursor: "pointer",
+            }}
+            onClick$={() => {
+              nav("/");
+            }}
+          >
+            <HeaderLeft />
+          </div>
+        </div>
+        <div
+          class={styles["hiw"]}
           onClick$={() => {
             nav("/how-it-works");
           }}
@@ -41,12 +75,7 @@ export default component$(() => {
           How it works
         </div>
 
-        <nav
-          style={{
-            display: "grid",
-            justifyContent: "center",
-          }}
-        >
+        <nav class={styles["home-nav"]}>
           <ul
             style={{
               display: "grid",

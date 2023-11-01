@@ -48,7 +48,7 @@ export const Footer = component$(() => {
           </div>
         </div>
         <div class={styles["footer-top-thirt"]}>
-          <div class={styles["footer-top-thirt-header"]}>Artistis</div>
+          <div class={styles["footer-top-thirt-header"]}>Artists</div>
           <div class={styles["footer-top-thirt-content"]}>
             <div
               style={{
@@ -68,7 +68,13 @@ export const Footer = component$(() => {
             <div>+1 408-835-0739</div>
           </div>
         </div>
-        <div>
+        <div
+          style={{
+            display: "grid",
+            alignItems: "center",
+            height: "128px",
+          }}
+        >
           <div
             style={{
               padding: "16px 16px",
@@ -78,6 +84,7 @@ export const Footer = component$(() => {
               gridTemplateColumns: "1fr 72px",
               gap: "8px",
               borderRadius: "16px",
+              height: "32px",
             }}
           >
             <input

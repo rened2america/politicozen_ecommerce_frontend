@@ -3,7 +3,13 @@ import styles from "./search.module.css";
 import { HiMagnifyingGlassMini } from "@qwikest/icons/heroicons";
 export default component$(() => {
   return (
-    <form action="/search">
+    <form
+      style={{
+        width: "100%",
+        maxWidth: "600px",
+      }}
+      action="/search"
+    >
       <div class={styles["input-search-container"]}>
         <div class={styles["icon-search"]}>
           <HiMagnifyingGlassMini />
