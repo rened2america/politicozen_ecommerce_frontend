@@ -10,3 +10,14 @@
   grid-gap: 8px;
   grid-auto-flow: dense;
 }
+
+@media (max-width: 650px) {
+  .search-container {
+    display: grid;
+    grid-template-rows: 550px 1fr;
+    grid-template-columns: 1fr;
+    background-color: white;
+    margin-top: 32px;
+    justify-items: center;
+  }
+}

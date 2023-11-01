@@ -3,3 +3,29 @@
   width: 100%;
   height: 257px;
 }
+
+.banner-title {
+  font-size: 72px;
+  color: #1b1b1b;
+  padding: 10px 16px;
+  font-weight: 400;
+  margin: 40px auto 24px;
+  max-width: 870px;
+  line-height: 76px;
+  letter-spacing: -0.5px;
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  .banner-title {
+    font-size: 48px;
+    color: #1b1b1b;
+    padding: 10px 16px;
+    font-weight: 400;
+    margin: 40px auto 24px;
+    max-width: 870px;
+    line-height: 48px;
+    letter-spacing: -0.5px;
+    text-align: center;
+  }
+}

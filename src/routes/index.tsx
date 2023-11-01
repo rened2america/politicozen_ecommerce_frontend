@@ -18,7 +18,6 @@ export default component$(() => {
         style={{
           width: "100%",
           display: "grid",
-          justifyContent: "center",
         }}
       >
         <Banner />

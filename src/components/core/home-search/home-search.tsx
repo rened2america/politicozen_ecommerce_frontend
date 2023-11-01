@@ -12,6 +12,7 @@ export default component$(() => {
           color: "#1b1b1b",
           fontFamily: "Verdana, Geneva, Tahoma, sans-serif",
           margin: "24px 0",
+          textAlign: "center",
         }}
       >
         Trending Topics

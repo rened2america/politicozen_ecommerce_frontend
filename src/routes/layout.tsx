@@ -31,14 +31,10 @@ export default component$(() => {
   useContextProvider(FilterContext, filter);
 
   return (
-    <div
-      style={{
-        padding: "",
-      }}
-    >
+    <>
       <Header />
       <Slot />
       <Footer />
-    </div>
+    </>
   );
 });
