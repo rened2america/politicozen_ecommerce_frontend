@@ -16,7 +16,7 @@ export default component$(() => {
     console.log("Buy.value", cart);
     if (Buy.value) {
       const getPayment = await fetch(
-        import.meta.env.PUBLIC_URL_BACKEND + "/api/1/product/payment",
+        import.meta.env.VITE_URL_BACKEND + "/api/1/product/payment",
         {
           method: "POST",
           headers: {

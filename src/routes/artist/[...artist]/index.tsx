@@ -11,7 +11,7 @@ export const artist = routeLoader$(async ({ query, params }) => {
   // @ts-ignore
   const url = new URL(
     `/api/1/artist/store/${artist}/?page=${page}`,
-    import.meta.env.PUBLIC_URL_BACKEND
+    import.meta.env.VITE_URL_BACKEND
   );
   const res = await fetch(url);
   const artistResult = (await res.json()) as any;

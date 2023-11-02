@@ -21,8 +21,8 @@ export default component$(() => {
         }}
       >
         <Banner />
-        {/* Variable: {import.meta.env.PUBLIC_URL_BACKEND}
-        Type: {typeof import.meta.env.PUBLIC_URL_BACKEND} */}
+        {/* Variable: {import.meta.env.VITE_URL_BACKEND}
+        Type: {typeof import.meta.env.VITE_URL_BACKEND} */}
         <HomeSearch />
         {/* <SectionProducts /> */}
         <SectionArtists />
