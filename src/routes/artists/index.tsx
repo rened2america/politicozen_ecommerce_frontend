@@ -8,7 +8,7 @@ export const artist = routeLoader$(async ({ query }) => {
   const page = query.get("page") || "";
   const url = new URL(
     `/api/1/artist/all?page=${page}`,
-    process.env["VITE_URL_BACKEND"]
+    import.meta.env.PUBLIC_URL_BACKEND
   ); // Cambia la URL base según tu configuración
   const res = await fetch(url);
   const artists = (await res.json()) as any;

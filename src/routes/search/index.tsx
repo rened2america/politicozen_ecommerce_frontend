@@ -16,7 +16,7 @@ export const useProductData = routeLoader$(async ({ query }) => {
   const sortBy = sortByData || "";
   const searchTerm = search;
   //@ts-ignore
-  const url = new URL("/api/1/product/all", process.env["VITE_URL_BACKEND"]); // Cambia la URL base según tu configuración
+  const url = new URL("/api/1/product/all", import.meta.env.PUBLIC_URL_BACKEND); // Cambia la URL base según tu configuración
 
   url.searchParams.append("filters", filters);
   url.searchParams.append("sortBy", sortBy);

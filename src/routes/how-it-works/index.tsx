@@ -107,7 +107,7 @@ export default component$(() => {
             Be heard. Be rewarded.
           </p>
 
-          <Link href={process.env["VITE_URL_APP_DASHBOARD"] + "/register"}>
+          <Link href={import.meta.env.PUBLIC_URL_APP_DASHBOARD + "/register"}>
             <div
               style={{
                 display: "grid",
