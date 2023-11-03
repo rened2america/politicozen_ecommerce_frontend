@@ -17,7 +17,7 @@ export default component$(() => {
       </div> */}
       <Link
         class={style.join}
-        href={process.env["VITE_URL_APP_DASHBOARD"] + "/login"}
+        href={import.meta.env.VITE_URL_APP_DASHBOARD + "/login"}
       >
         Join
       </Link>
@@ -25,7 +25,7 @@ export default component$(() => {
       {/* <button
         onClick$={() => {
           window.location.replace(
-            process.env["VITE_URL_APP_DASHBOARD"] + "/login"
+            import.meta.env.VITE_URL_APP_DASHBOARD + "/login"
           );
         }}
       >

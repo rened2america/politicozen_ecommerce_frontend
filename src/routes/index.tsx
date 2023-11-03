@@ -21,8 +21,8 @@ export default component$(() => {
         }}
       >
         <Banner />
-        {/* Variable: {process.env["VITE_URL_BACKEND"]}
-        Type: {typeof process.env["VITE_URL_BACKEND"]} */}
+        {/* Variable: {import.meta.env.VITE_URL_BACKEND}
+        Type: {typeof import.meta.env.VITE_URL_BACKEND} */}
         <HomeSearch />
         {/* <SectionProducts /> */}
         <SectionArtists />

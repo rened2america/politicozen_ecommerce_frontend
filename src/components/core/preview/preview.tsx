@@ -36,6 +36,9 @@ export const Preview = component$((props: any) => {
                 class="css-xf3ahq"
               >
                 <Image
+                  style={{
+                    objectFit: "cover",
+                  }}
                   src={img}
                   layout="constrained"
                   width={58}
@@ -51,6 +54,7 @@ export const Preview = component$((props: any) => {
         <Image
           style={{
             backgroundColor: "#f5f5f5",
+            objectFit: "cover",
           }}
           src={props.product.design[0].url}
           layout="constrained"

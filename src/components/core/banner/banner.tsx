@@ -44,7 +44,7 @@ export default component$(() => {
         Transform your art into earnings
       </div>
       <Link
-        href={process.env["VITE_URL_APP_DASHBOARD"] + "/register"}
+        href={import.meta.env.VITE_URL_APP_DASHBOARD + "/register"}
         style={{
           backgroundColor: "#1B1B1B",
           color: "white",
@@ -53,6 +53,7 @@ export default component$(() => {
           fontWeight: "600",
           borderRadius: "9999999px",
           marginTop: "24px",
+          cursor: "pointer",
         }}
       >
         More info

@@ -2,7 +2,7 @@ import { component$, useSignal } from "@builder.io/qwik";
 import HeaderLeft from "../header-left/header-left";
 import HeaderRight from "../header-right/header-right";
 import styles from "./header.module.css";
-import { useNavigate } from "@builder.io/qwik-city";
+import { Link, useNavigate } from "@builder.io/qwik-city";
 import { LuMenu } from "@qwikest/icons/lucide";
 export default component$(() => {
   const nav = useNavigate();
@@ -27,27 +27,9 @@ export default component$(() => {
               : { display: "none" }
           }
         >
-          <div
-            onClick$={() => {
-              nav("/artists");
-            }}
-          >
-            Artists store
-          </div>
-          <div
-            onClick$={() => {
-              nav("/search/?q=");
-            }}
-          >
-            Collections
-          </div>
-          <div
-            onClick$={() => {
-              nav("/how-it-works");
-            }}
-          >
-            How it works
-          </div>
+          <Link href="/artists">Artists store</Link>
+          <Link href="/search/?q=">Collections</Link>
+          <Link href="/how-it-works">How it works</Link>
         </div>
         <div class={styles["header-menu-mobile"]}>
           <LuMenu
