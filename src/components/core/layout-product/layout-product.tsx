@@ -1,4 +1,4 @@
-import { component$, $, useContext, useTask$ } from "@builder.io/qwik";
+import { component$, $, useContext } from "@builder.io/qwik";
 import style from "./layout-product.module.css";
 import { Preview } from "../preview/preview";
 import { CartContext } from "~/context/cart";
@@ -6,23 +6,24 @@ import { useLocation, useNavigate } from "@builder.io/qwik-city";
 
 export default component$((props: any) => {
   const cartList = useContext(CartContext);
+
   const nav = useNavigate();
   const loc = useLocation();
-  useTask$(async () => {
-    // A task without `track` any state effectively behaves like a `on mount` hook.
-    console.log("Runs once when the component mounts in the server OR client.");
-    console.log("nose", props.product);
-  });
 
   const addNewProductToCart = $(async () => {
     console.log("cartList", cartList.products);
+    const currentValue = props.product.design.find(
+      (desing: any) =>
+        desing.variant === loc.url.searchParams.get("variant") &&
+        desing.size === loc.url.searchParams.get("size")
+    );
+    console.log("currentValue", currentValue);
+    console.log("hola");
+
     //Verificar si ya existe el priceId
     const existPriceId = cartList.products.findIndex((product: any) => {
-      console.log(
-        "product.priceId ",
-        product.priceId === props.product.design[0].priceId
-      );
-      return product.priceId === props.product.design[0].priceId;
+      console.log("product.priceId ", product.priceId === currentValue.priceId);
+      return product.priceId === currentValue.priceId;
     });
     console.log("existPriceId", existPriceId);
     if (existPriceId != -1) {
@@ -30,24 +31,28 @@ export default component$((props: any) => {
       return;
     }
     cartList.products.push({
-      priceId: props.product.design[0].priceId,
+      priceId: currentValue.priceId,
       count: 1,
       title: props.product.title,
-      url: props.product.design[0].url,
-      variant: props.product.design[0].variant,
-      price: props.product.design[0].price,
-      size: props.product.design[0].size,
-      artistId: props.product.design[0].artistId,
+      url: currentValue.url,
+      variant: currentValue.variant,
+      price: currentValue.price,
+      size: currentValue.size,
+      artistId: currentValue.artistId,
     });
     cartList.numberProducts++;
 
     console.log(cartList.products);
   });
-
   return (
     <div class={style["product"]}>
       <div class={style["product-container"]}>
-        <Preview product={props.product} />
+        <Preview
+          product={props.product.design.find(
+            (desing: any) =>
+              desing.variant === loc.url.searchParams.get("variant")
+          )}
+        />
 
         <div class={style["product-information"]}>
           <h1 class={style["title"]}>{props.product.title}</h1>
@@ -119,9 +124,13 @@ export default component$((props: any) => {
                             const size =
                               loc.url.searchParams.get("size") || "S";
                             const productId = loc.params.slug;
-                            nav(
+                            console.log("se ejecuto", variant);
+                            window.location.replace(
                               `/product/${productId}/?variant=${variant}&size=${size}`
                             );
+                            // nav(
+                            //   `/product/${productId}/?variant=${variant}&size=${size}`
+                            // );
                           }}
                           class={[
                             style["content-value"],

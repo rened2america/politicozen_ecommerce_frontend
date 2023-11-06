@@ -1,18 +1,22 @@
-import { component$, useSignal } from "@builder.io/qwik";
+import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import styles from "./preview.module.css";
 import { Image } from "@unpic/qwik";
 
 export const Preview = component$((props: any) => {
-  console.log(props.product);
-  const radioValue = useSignal(props.product.design[0].url);
+  console.log("propData", props.product);
+  const radioValue = useSignal(props.product.url);
+  const listTest = [props.product];
+  console.log("radioValue.value", listTest);
 
-  const listTest = [props.product.design[0].url];
   return (
     <div class={styles["preview-container"]}>
       <div class={styles["preview-slider"]}>
         {listTest.map((img: any) => {
+          console.log("img", img);
           return (
-            <div class={styles[img === radioValue.value ? "img-border" : ""]}>
+            <div
+              class={styles[img.url === radioValue.value ? "img-border" : ""]}
+            >
               <input
                 style={{
                   borderRadius: "8px",
@@ -29,7 +33,7 @@ export const Preview = component$((props: any) => {
               />
               <label
                 onClick$={() => {
-                  radioValue.value = img;
+                  radioValue.value = img.url;
                   console.log("radioValue.value", radioValue.value);
                 }}
                 for="skuAndSize__29695257"
@@ -39,7 +43,7 @@ export const Preview = component$((props: any) => {
                   style={{
                     objectFit: "cover",
                   }}
-                  src={img}
+                  src={img.url}
                   layout="constrained"
                   width={58}
                   height={58}
@@ -56,7 +60,7 @@ export const Preview = component$((props: any) => {
             backgroundColor: "#f5f5f5",
             objectFit: "cover",
           }}
-          src={props.product.design[0].url}
+          src={radioValue.value}
           layout="constrained"
           width={550}
           height={475}
