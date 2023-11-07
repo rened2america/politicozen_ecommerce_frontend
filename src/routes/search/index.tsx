@@ -50,7 +50,7 @@ export default component$(() => {
   return (
     <>
       <HeaderSearch searchText={term} />
-      <Pagination count={productData.value.count} />
+      <Pagination count={productData.value.count} refNav="search" max={12} />
       <LayoutSearch result={productData} />
     </>
   );

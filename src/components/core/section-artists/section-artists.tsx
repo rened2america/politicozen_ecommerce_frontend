@@ -1,68 +1,76 @@
-import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 import styles from "./section-artists.module.css";
+import { Link } from "@builder.io/qwik-city";
 
 export default component$(() => {
-  const widthUser = useSignal<null | number>(null);
-  useVisibleTask$(() => {
-    console.log("window.innerWidth", window.innerWidth);
-    widthUser.value = window.innerWidth;
-  });
   return (
     <div class={styles["section-container"]}>
       <div class={styles["title"]}>Popular artists</div>
       <div class={styles["content"]}>
-        <div class={styles["image-container"]}>
+        <Link
+          href={"/artist/Engin-Selcuk/?page=1"}
+          class={styles["image-container"]}
+        >
           <img
             width="270"
             height="340"
             class={styles["image-container-img-rounded"]}
-            src="https://politicozen.com/wp-content/uploads/Crying-1-400x400.jpg"
+            src="https://politicozen-prod.s3.us-east-2.amazonaws.com/1699307987211-Engin%20Selcuk-avatar"
             alt=""
           />
           <div class={styles["backgroundImageText"]}>
-            <div class={styles["img-container-text"]}>Ramzy Taweel</div>
+            <div class={styles["img-container-text"]}>Engin Selcuk</div>
             <div class={styles["img-container-text2"]}>Artist</div>
           </div>
-        </div>
-        <div class={styles["image-container"]}>
+        </Link>
+        <Link
+          href={"/artist/Saman-Torabi/?page=1"}
+          class={styles["image-container"]}
+        >
           <img
             width="270"
             height="340"
             class={styles["image-container-img-rounded"]}
-            src="https://politicozen.com/wp-content/uploads/Mohsen-Nouri-Najafin-400x400.jpg"
+            src="https://politicozen-prod.s3.us-east-2.amazonaws.com/1699310666999-Saman%20Torabi-avatar"
             alt=""
           />
           <div class={styles["backgroundImageText"]}>
-            <div class={styles["img-container-text"]}>Mohsen Najafi</div>
+            <div class={styles["img-container-text"]}>Saman Torabi</div>
             <div class={styles["img-container-text2"]}>Artist</div>
           </div>
-        </div>
-        <div class={styles["image-container"]}>
+        </Link>
+        <Link
+          href={"/artist/Wilfred-Hildonen/?page=1"}
+          class={styles["image-container"]}
+        >
           <img
             width="270"
             height="340"
             class={styles["image-container-img-rounded"]}
-            src="https://politicozen.com/wp-content/uploads/Wildred-Hildonen-400x400.jpg"
+            src="https://politicozen-prod.s3.us-east-2.amazonaws.com/1699302068137-Wilfred%20Hildonen-avatar"
             alt=""
           />
           <div class={styles["backgroundImageText"]}>
             <div class={styles["img-container-text"]}>Wilfred Hildonen</div>
             <div class={styles["img-container-text2"]}>Artist</div>
           </div>
-        </div>
-        <div class={styles["image-container"]}>
+        </Link>
+        <Link
+          href={"/artist/Dennis-Goris/?page=1"}
+          class={styles["image-container"]}
+        >
           <img
             width="270"
             height="340"
             class={styles["image-container-img-rounded"]}
-            src="https://politicozen.com/wp-content/uploads/Hicabi-Demirci-400x400.jpg"
+            src="https://politicozen-prod.s3.us-east-2.amazonaws.com/1699304542207-Dennis%20Goris-avatar"
             alt=""
           />
           <div class={styles["backgroundImageText"]}>
-            <div class={styles["img-container-text"]}>Hicabi De Merci</div>
+            <div class={styles["img-container-text"]}>Dennis Goris</div>
             <div class={styles["img-container-text2"]}>Artist</div>
           </div>
-        </div>
+        </Link>
         {/* <div class={styles["image-container"]}>
             <div data-hover="Description" class={styles["hovertext"]}>
               <img
@@ -99,21 +107,6 @@ export default component$(() => {
               <div class={styles["img-container-text"]}>Mehmet Zeber</div>
             </div>
           </div> */}
-        {widthUser.value && widthUser.value > 1550 ? (
-          <div class={styles["image-container"]}>
-            <img
-              width="270"
-              height="340"
-              class={styles["image-container-img-rounded"]}
-              src="https://politicozen.com/wp-content/uploads/Mehmet-Zeber-400x400.jpg"
-              alt=""
-            />
-            <div class={styles["backgroundImageText"]}>
-              <div class={styles["img-container-text"]}>Mehmet Zeber</div>
-              <div class={styles["img-container-text2"]}>Artist</div>
-            </div>
-          </div>
-        ) : null}
         {/* {widthUser.value && widthUser.value > 1550 ? (
             <div class={styles["image-container"]}>
               <div data-hover="Description" class={styles["hovertext"]}>

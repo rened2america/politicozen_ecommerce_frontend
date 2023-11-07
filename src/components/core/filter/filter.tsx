@@ -191,7 +191,7 @@ export default component$(() => {
               <input
                 checked={
                   filters?.filters?.tag?.find(
-                    (typeValue) => typeValue === "1810"
+                    (typeValue) => typeValue === "Political"
                   )
                     ? true
                     : false
@@ -207,19 +207,63 @@ export default component$(() => {
                   );
                   nav(`/search/${newUri}`);
                 }}
-                value="1810"
+                value="Political"
                 name="tag"
                 type="checkbox"
               />
-              <span>1810</span>
+              <span>Political</span>
             </label>
             <label class={style["label"]}>
-              <input name="tag" type="checkbox" />
-              <span>Rusia</span>
+              <input
+                checked={
+                  filters?.filters?.tag?.find(
+                    (typeValue) => typeValue === "Trump"
+                  )
+                    ? true
+                    : false
+                }
+                onChange$={(e) => {
+                  const newValue = e.target.value;
+                  console.log("newValue", newValue);
+                  const newUri = generateUrlQuery(
+                    filters.filters,
+                    filters.search,
+                    newValue,
+                    "tag"
+                  );
+                  nav(`/search/${newUri}`);
+                }}
+                value="Trump"
+                name="tag"
+                type="checkbox"
+              />
+              <span>Trump</span>
             </label>
             <label class={style["label"]}>
-              <input name="tag" type="checkbox" />
-              <span>China</span>
+              <input
+                checked={
+                  filters?.filters?.tag?.find(
+                    (typeValue) => typeValue === "War"
+                  )
+                    ? true
+                    : false
+                }
+                onChange$={(e) => {
+                  const newValue = e.target.value;
+                  console.log("newValue", newValue);
+                  const newUri = generateUrlQuery(
+                    filters.filters,
+                    filters.search,
+                    newValue,
+                    "tag"
+                  );
+                  nav(`/search/${newUri}`);
+                }}
+                value="War"
+                name="tag"
+                type="checkbox"
+              />
+              <span>War</span>
             </label>
           </div>
         </div>

@@ -21,17 +21,17 @@ export default component$(() => {
         <Link href={`/search/?q=Trump`}>
           <div class={styles["button"]}>Trump</div>
         </Link>
-        <Link href={`/search/?q=Creative`}>
-          <div class={styles["button"]}>Creative</div>
+        <Link href={`/search/?q=Crypto`}>
+          <div class={styles["button"]}>Crypto</div>
         </Link>
-        <Link href={`/search/?q=USA`}>
-          <div class={styles["button"]}>USA</div>
+        <Link href={`/search/?q=War`}>
+          <div class={styles["button"]}>War</div>
         </Link>
-        <Link href={`/search/?q=Army`}>
-          <div class={styles["button"]}>Army</div>
+        <Link href={`/search/?q=Cartoon`}>
+          <div class={styles["button"]}>Cartoon</div>
         </Link>
-        <Link href={`/search/?q=People`}>
-          <div class={styles["button"]}>People</div>
+        <Link href={`/search/?q=Ukraine`}>
+          <div class={styles["button"]}>Ukraine</div>
         </Link>
       </div>
     </div>
