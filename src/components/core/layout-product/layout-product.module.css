@@ -91,6 +91,7 @@
   display: grid;
   justify-items: center;
   align-items: center;
+  width: 60px;
 }
 .description-container {
   margin-top: 24px;

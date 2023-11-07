@@ -5,9 +5,10 @@ import Card from "~/components/core/card/card";
 import { LuTwitter, LuFacebook, LuInstagram } from "@qwikest/icons/lucide";
 import Pagination from "~/components/primitives/pagination/pagination";
 
-export const artist = routeLoader$(async ({ query, params }) => {
+export const useArtist = routeLoader$(async ({ query, params }) => {
   const page = query.get("page") || "";
   const { artist } = params;
+  console.log("artist", artist);
   // @ts-ignore
   const url = new URL(
     `/api/1/artist/store/${artist}/?page=${page}`,
@@ -20,7 +21,7 @@ export const artist = routeLoader$(async ({ query, params }) => {
 });
 
 export default component$(() => {
-  const getArtist = artist();
+  const getArtist = useArtist();
   console.log(getArtist);
   return (
     <div>
@@ -115,34 +116,51 @@ export default component$(() => {
               }}
             >
               {getArtist?.value?.artist?.facebook ? (
-                <Link
+                <a
                   style={{
                     cursor: "pointer",
                   }}
-                  href={getArtist?.value?.artist?.facebook}
+                  href={
+                    getArtist?.value?.artist?.facebook?.startsWith("http://") ||
+                    getArtist?.value?.artist?.facebook?.startsWith("https://")
+                      ? getArtist?.value?.artist?.facebook
+                      : `https://${getArtist?.value?.artist?.facebook}`
+                  }
                 >
                   <LuFacebook />
-                </Link>
+                </a>
               ) : null}
               {getArtist?.value?.artist?.twitter ? (
-                <Link
+                <a
                   style={{
                     cursor: "pointer",
                   }}
-                  href={getArtist?.value?.artist?.twitter}
+                  href={
+                    getArtist?.value?.artist?.twitter?.startsWith("http://") ||
+                    getArtist?.value?.artist?.twitter?.startsWith("https://")
+                      ? getArtist?.value?.artist?.twitter
+                      : `https://${getArtist?.value?.artist?.twitter}`
+                  }
                 >
                   <LuTwitter />
-                </Link>
+                </a>
               ) : null}
               {getArtist?.value?.artist?.instagram ? (
-                <Link
+                <a
                   style={{
                     cursor: "pointer",
                   }}
-                  href={getArtist?.value?.artist?.instagram}
+                  href={
+                    getArtist?.value?.artist?.instagram?.startsWith(
+                      "http://"
+                    ) ||
+                    getArtist?.value?.artist?.instagram?.startsWith("https://")
+                      ? getArtist?.value?.artist?.instagram
+                      : `https://${getArtist?.value?.artist?.instagram}`
+                  }
                 >
                   <LuInstagram />
-                </Link>
+                </a>
               ) : null}
             </div>
             {/* <div
@@ -177,7 +195,11 @@ export default component$(() => {
             width: "100%",
           }}
         >
-          <Pagination count={2} />
+          <Pagination
+            count={2}
+            refNav={`artist/${getArtist.value.artist.id}`}
+            max={12}
+          />
         </div>
         <div
           style={{
@@ -188,10 +210,17 @@ export default component$(() => {
           }}
         >
           {getArtist.value.products.map((product: any) => {
+            console.log("product", product);
             return (
               <Link
                 key={product.id}
-                href={`/product/${product.id}/?variant=white&size=S`}
+                href={`/product/${product.id}/?variant=white&size=${
+                  product.types.length > 0
+                    ? product?.types[0]?.value === "Mug"
+                      ? "11 oz"
+                      : "S"
+                    : "S"
+                }`}
               >
                 <Card product={product} />
               </Link>

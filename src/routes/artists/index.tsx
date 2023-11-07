@@ -28,7 +28,7 @@ export default component$(() => {
       >
         <Search />
       </div>
-      <Pagination count={getArtists.value.count} />
+      <Pagination count={getArtists.value.count} refNav="artists" max={30} />
       <div
         style={{
           display: "grid",
@@ -53,7 +53,7 @@ export default component$(() => {
                 cursor: "pointer",
               }}
               onClick$={() => {
-                nav(`/artist/${artist.id}/?page=1`);
+                nav(`/artist/${artist.name.replace(/ /g, "-")}/?page=1`);
               }}
             >
               {artist.avatar ? (

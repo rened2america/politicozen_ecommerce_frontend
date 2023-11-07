@@ -68,6 +68,7 @@
 .image-container {
   height: 340px;
   position: relative;
+  cursor: pointer;
 }
 
 .title {
