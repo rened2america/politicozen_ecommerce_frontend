@@ -1,4 +1,11 @@
-import { component$, $, useContext } from "@builder.io/qwik";
+import {
+  component$,
+  $,
+  useContext,
+  useTask$,
+  useStore,
+  useSignal,
+} from "@builder.io/qwik";
 import style from "./layout-product.module.css";
 import { Preview } from "../preview/preview";
 import { CartContext } from "~/context/cart";
@@ -6,7 +13,10 @@ import { useLocation, useNavigate } from "@builder.io/qwik-city";
 
 export default component$((props: any) => {
   const cartList = useContext(CartContext);
-
+  const newProduct = useStore({
+    product: {},
+  });
+  const changeColor = useSignal("");
   const nav = useNavigate();
   const loc = useLocation();
 
@@ -44,15 +54,34 @@ export default component$((props: any) => {
 
     console.log(cartList.products);
   });
+
+  const searchValueDesign = $(({ product, url }) => {
+    return product.design.find((desing: any) => desing.variant === url);
+  });
+
+  useTask$(async ({ track }) => {
+    track(() => loc.url.searchParams.get("variant"));
+    searchValueDesign({
+      product: props.product,
+      url: loc.url.searchParams.get("variant"),
+    }).then((res) => {
+      newProduct.product = res;
+      console.log("resl", res);
+    });
+    // A task without `track` any state effectively behaves like a `on mount` hook.
+    console.log("Runs once when the component mounts in the server OR client.");
+  });
+
   return (
     <div class={style["product"]}>
       <div class={style["product-container"]}>
-        <Preview
+        {/* <Preview
           product={props.product.design.find(
             (desing: any) =>
               desing.variant === loc.url.searchParams.get("variant")
           )}
-        />
+        /> */}
+        <Preview product={newProduct.product} />
 
         <div class={style["product-information"]}>
           <h1 class={style["title"]}>{props.product.title}</h1>
@@ -125,7 +154,8 @@ export default component$((props: any) => {
                               loc.url.searchParams.get("size") || "S";
                             const productId = loc.params.slug;
                             console.log("se ejecuto", variant);
-                            window.location.replace(
+                            changeColor.value = variant;
+                            nav(
                               `/product/${productId}/?variant=${variant}&size=${size}`
                             );
                             // nav(

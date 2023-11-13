@@ -5,7 +5,6 @@ import Card from "../card/card";
 import { Link } from "@builder.io/qwik-city";
 
 export default component$((props: any) => {
-  console.log("va", props.result.value.products);
   return (
     <div class={style["search-container"]}>
       <Filter />

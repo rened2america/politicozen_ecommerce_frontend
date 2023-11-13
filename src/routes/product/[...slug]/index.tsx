@@ -9,7 +9,7 @@ export const useProductOneData = routeLoader$(async ({ params, query }) => {
 
   // const search = query.get("q") || "";
   const { slug } = params;
-
+  console.log("useProductOneData se ejecuto");
   const url = new URL(
     `/api/1/product/${slug}?variant=${variant}&size=${size}`,
     import.meta.env.VITE_URL_BACKEND

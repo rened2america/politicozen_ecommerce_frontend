@@ -43,7 +43,7 @@ export const Preview = component$((props: any) => {
                   style={{
                     objectFit: "cover",
                   }}
-                  src={img.url}
+                  src={props.product.url}
                   layout="constrained"
                   width={58}
                   height={58}
@@ -60,7 +60,7 @@ export const Preview = component$((props: any) => {
             backgroundColor: "#f5f5f5",
             objectFit: "cover",
           }}
-          src={radioValue.value}
+          src={props.product.url}
           layout="constrained"
           width={550}
           height={475}
