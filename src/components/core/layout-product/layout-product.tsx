@@ -55,9 +55,11 @@ export default component$((props: any) => {
     console.log(cartList.products);
   });
 
-  const searchValueDesign = $(({ product, url }) => {
-    return product.design.find((desing: any) => desing.variant === url);
-  });
+  const searchValueDesign = $(
+    ({ product, url }: { product: any; url: any }) => {
+      return product.design.find((desing: any) => desing.variant === url);
+    }
+  );
 
   useTask$(async ({ track }) => {
     track(() => loc.url.searchParams.get("variant"));
