@@ -78,7 +78,14 @@ export default component$(() => {
               }}
               key={product.priceId}
             >
-              <Image src={product.url} width={96} height={83} />
+              <Image
+                style={{
+                  objectFit: "cover",
+                }}
+                src={product.url}
+                width={96}
+                height={83}
+              />
               <div>{product.title}</div>
               <div>Quantity: {product.count} </div>
               <div>Color: {product.variant}</div>

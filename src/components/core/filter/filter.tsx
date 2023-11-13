@@ -285,17 +285,16 @@ export default component$(() => {
                 }}
                 checked={
                   filters?.filters?.artist?.find(
-                    (typeValue: any) =>
-                      typeValue.name === "Rene Alberto Meza Escamilla"
+                    (typeValue: any) => typeValue.name === "Engin-Selcuk"
                   )
                     ? true
                     : false
                 }
-                value="Rene Alberto Meza Escamilla"
+                value="Engin-Selcuk"
                 name="artist"
                 type="checkbox"
               />
-              <span>Rene Meza</span>
+              <span>Engin Selcuk</span>
             </label>
             <label class={style["label"]}>
               <input
@@ -307,21 +306,20 @@ export default component$(() => {
                     newValue,
                     "artist"
                   );
-                  console.log(newUri);
                   nav(`/search/${newUri}`);
                 }}
                 checked={
-                  filters?.filters?.artist?.find(
-                    (typeValue: any) => typeValue.name === "Rene Meza"
-                  )
+                  filters?.filters?.artist?.find((typeValue: any) => {
+                    return typeValue.name === "Saman-Torabi";
+                  })
                     ? true
                     : false
                 }
-                value="Rene Meza"
+                value="Saman-Torabi"
                 name="artist"
                 type="checkbox"
               />
-              <span>Rene A</span>
+              <span>Saman Torabi</span>
             </label>
             <Link class={style["button-load-more"]} href={`/artists`}>
               <div
