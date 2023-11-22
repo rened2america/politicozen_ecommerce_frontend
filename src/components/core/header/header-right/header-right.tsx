@@ -8,7 +8,7 @@ import { Link, useNavigate } from "@builder.io/qwik-city";
 export default component$(() => {
   const cart = useContext(CartContext);
   const navigation = useNavigate();
-  console.log("cart.numberProducts", cart.numberProducts);
+  console.log("cart.numberProducts", cart);
   return (
     <div class={style["header-right-container"]}>
       {/* <div class={style.group}>

@@ -9,7 +9,7 @@ import {
 import style from "./layout-product.module.css";
 import { Preview } from "../preview/preview";
 import { CartContext } from "~/context/cart";
-import { useLocation, useNavigate } from "@builder.io/qwik-city";
+import { Link, useLocation, useNavigate } from "@builder.io/qwik-city";
 
 export default component$((props: any) => {
   const cartList = useContext(CartContext);
@@ -36,10 +36,13 @@ export default component$((props: any) => {
       return product.priceId === currentValue.priceId;
     });
     console.log("existPriceId", existPriceId);
+    cartList.numberProducts++;
+
     if (existPriceId != -1) {
       cartList.products[existPriceId].count++;
       return;
     }
+
     cartList.products.push({
       priceId: currentValue.priceId,
       count: 1,
@@ -50,7 +53,6 @@ export default component$((props: any) => {
       size: currentValue.size,
       artistId: currentValue.artistId,
     });
-    cartList.numberProducts++;
 
     console.log(cartList.products);
   });
@@ -73,6 +75,8 @@ export default component$((props: any) => {
     // A task without `track` any state effectively behaves like a `on mount` hook.
     console.log("Runs once when the component mounts in the server OR client.");
   });
+
+  console.log(props.product);
 
   return (
     <div class={style["product"]}>
@@ -103,6 +107,31 @@ export default component$((props: any) => {
               );
             })}
           </h2>
+          <h3
+            style={{
+              fontSize: "14px",
+              fontWeight: "700",
+            }}
+          >
+            <span
+              style={{
+                fontWeight: "500",
+              }}
+            >
+              by
+            </span>{" "}
+            <Link
+              style={{
+                cursor: "pointer",
+              }}
+              href={`/artist/${props.product.artist.name.replace(
+                / /g,
+                "-"
+              )}/?page=1`}
+            >
+              {props.product.artist.name}
+            </Link>
+          </h3>
           <h3 class={style["price"]}>${props.product.design[0].price}</h3>
           <div class={style["size-content"]}>
             <div>Select Size</div>

@@ -18,6 +18,16 @@ export const useArtist = routeLoader$(async ({ query }) => {
 export default component$(() => {
   const getArtists = useArtist();
   const nav = useNavigate();
+
+  console.log(
+    Array.from({ length: 3 }, (_, i) =>
+      getArtists.value.artist.slice(
+        i * Math.ceil(getArtists.value.artist.length / 3),
+        (i + 1) * Math.ceil(getArtists.value.artist.length / 3)
+      )
+    ).length
+  );
+
   return (
     <>
       <div
@@ -31,69 +41,72 @@ export default component$(() => {
       <Pagination count={getArtists.value.count} refNav="artists" max={30} />
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit,minmax(216px, 1fr))",
+          display: "flex",
+          // gridTemplateColumns: "repeat(auto-fit,minmax(216px, 1fr))",
           padding: "48px 136px",
-          justifyContent: "space-between",
-          justifyItems: "center",
+          justifyContent: "center",
+          fontSize: "24px",
+          fontWeight: "500",
+          // justifyItems: "center",
         }}
       >
-        {getArtists.value.artist.map((artist: any) => {
+        {Array.from({ length: 3 }, (_, i) =>
+          getArtists.value.artist.slice(
+            i * Math.ceil(getArtists.value.artist.length / 3),
+            (i + 1) * Math.ceil(getArtists.value.artist.length / 3)
+          )
+        ).map((column, index) => {
           return (
             <div
               style={{
-                borderRadius: "144px",
-                width: "136px",
-                height: "136px",
-                padding: "32px 32px",
-                display: "grid",
-                gridTemplateRows: "1fr 40px",
-                justifyItems: "center",
-                gap: "16px",
-                cursor: "pointer",
+                padding: "36px 36px",
               }}
-              onClick$={() => {
-                nav(`/artist/${artist.name.replace(/ /g, "-")}/?page=1`);
-              }}
+              key={index}
             >
-              {artist.avatar ? (
-                <Image
-                  src={artist.avatar}
-                  width={136}
-                  height={136}
-                  alt={artist.name}
-                  style={{
-                    borderRadius: "144px",
-                  }}
-                />
-              ) : (
+              {column.map((artist, index) => (
                 <div
                   style={{
-                    width: "136px",
-                    height: "136px",
-                    fontSize: "24px",
-                    display: "grid",
-                    alignItems: "center",
-                    justifyItems: "center",
-                    backgroundColor: "#f7f8f8",
-                    borderRadius: "136px",
-                    fontWeight: "700",
+                    padding: "24px 0",
+                    cursor: "pointer",
                   }}
+                  onClick$={() => {
+                    nav(`/artist/${artist.name.replace(/ /g, "-")}/?page=1`);
+                  }}
+                  key={index}
                 >
-                  {artist.name.split(" ")[0][0].toUpperCase()}
-                  {artist.name.split(" ")[1][0].toUpperCase()}
+                  {artist.name}
                 </div>
-              )}
-              <div
-                style={{
-                  fontSize: "14px",
-                  fontWeight: "500",
-                }}
-              >
-                {artist.name}
-              </div>
+              ))}
             </div>
           );
+          // return (
+          //   <div
+          //     style={{
+          //       borderRadius: "144px",
+          //       width: "136px",
+          //       height: "136px",
+          //       padding: "32px 32px",
+          //       display: "flex",
+          //       flex: 1,
+          //       flexDirection: "column",
+          //       // justifyItems: "center",
+          //       gap: "16px",
+          //       cursor: "pointer",
+          //     }}
+          //     onClick$={() => {
+          //       nav(`/artist/${artist.name.replace(/ /g, "-")}/?page=1`);
+          //     }}
+          //   >
+          //     <div
+          //       style={{
+          //         fontSize: "14px",
+          //         fontWeight: "500",
+          //       }}
+          //     >
+          //       {artist.name}
+          //     </div>
+          //   </div>
+          // );
         })}
       </div>
     </>
