@@ -1,6 +1,5 @@
 import { component$ } from "@builder.io/qwik";
 import { routeLoader$, useNavigate } from "@builder.io/qwik-city";
-import { Image } from "@unpic/qwik";
 import Search from "~/components/primitives/input/search/search";
 import Pagination from "~/components/primitives/pagination/pagination";
 
@@ -63,7 +62,7 @@ export default component$(() => {
               }}
               key={index}
             >
-              {column.map((artist, index) => (
+              {column.map((artist: any, index: any) => (
                 <div
                   style={{
                     padding: "24px 0",
