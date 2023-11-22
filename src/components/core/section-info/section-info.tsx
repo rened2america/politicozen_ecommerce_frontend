@@ -6,14 +6,14 @@ const artistSellers = [
     name: "Saman Torabi",
     text: "PoliticoZen is not your ordinary e-commerce platform. It’s a sanctuary for art lovers and political enthusiasts alike. The unique blend of artistic imagery on their merchandise speaks volumes. The website is user-friendly, and the quality of the products received was top-notch. A highly recommended place for those looking to make a statement with their purchases.",
     imgUrl:
-      "https://politicozen.com/wp-content/uploads/Saman-Torabi-400x400.jpg",
+      "https://politicozen-prod.s3.us-east-2.amazonaws.com/1699310666999-Saman%20Torabi-avatar",
   },
   {
     id: 2,
     name: "Mohsen Najafi",
     text: "The fusion of artistry and practicality is what makes PoliticoZen stand out. The artistically designed products offer a fresh perspective on everyday items. Fast shipping and a seamless shopping experience make it a go-to place for unique finds.",
     imgUrl:
-      "https://politicozen.com/wp-content/uploads/Mohsen-Nouri-Najafin-400x400.jpg",
+      "https://politicozen-prod.s3.us-east-2.amazonaws.com/1699316275156-Mohsen%20Najafi-avatar",
   },
   {
     id: 3,
