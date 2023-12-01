@@ -2,8 +2,8 @@ import {
   component$,
   $,
   useContext,
-  useTask$,
-  useStore,
+  //   useTask$,
+  //   useStore,
   useSignal,
 } from "@builder.io/qwik";
 import style from "./layout-product.module.css";
@@ -15,20 +15,23 @@ import CardArt from "../card-art/card-art";
 
 export default component$((props: any) => {
   const cartList = useContext(CartContext);
-  const newProduct = useStore({
-    product: {},
-  });
+  //   const newProduct = useStore({
+  //     product: {},
+  //   });
   const changeColor = useSignal("");
+  const changeProduct = useSignal("");
   const nav = useNavigate();
   const loc = useLocation();
 
   const addNewProductToCart = $(async () => {
     console.log("cartList", cartList.products);
-    const currentValue = props.product.design.find(
-      (desing: any) =>
-        desing.variant === loc.url.searchParams.get("variant") &&
-        desing.size === loc.url.searchParams.get("size")
-    );
+    // const currentValue = props.product.design.find(
+    //   (desing: any) =>
+    //     desing.variant === loc.url.searchParams.get("variant") &&
+    //     desing.size === loc.url.searchParams.get("size")
+    // );
+
+    const currentValue = props.currentDesign;
     console.log("currentValue", currentValue);
     console.log("hola");
 
@@ -59,26 +62,11 @@ export default component$((props: any) => {
     console.log(cartList.products);
   });
 
-  const searchValueDesign = $(
-    ({ product, url }: { product: any; url: any }) => {
-      return product.design.find((desing: any) => desing.variant === url);
-    }
-  );
-
-  useTask$(async ({ track }) => {
-    track(() => loc.url.searchParams.get("variant"));
-    searchValueDesign({
-      product: props.product,
-      url: loc.url.searchParams.get("variant"),
-    }).then((res) => {
-      newProduct.product = res;
-      console.log("resl", res);
-    });
-    // A task without `track` any state effectively behaves like a `on mount` hook.
-    console.log("Runs once when the component mounts in the server OR client.");
-  });
-
-  console.log("props.groupRelation", props.groupRelation);
+  //   const searchValueDesign = $(
+  //     ({ product, url }: { product: any; url: any }) => {
+  //       return product.design.find((desing: any) => desing.variant === url);
+  //     }
+  //   );
 
   return (
     <div class={style["product"]}>
@@ -89,25 +77,27 @@ export default component$((props: any) => {
               desing.variant === loc.url.searchParams.get("variant")
           )}
         /> */}
-        <Preview product={newProduct.product} />
-
+        {props.currentProduct && <Preview product={props.currentDesign} />}
         <div class={style["product-information"]}>
-          <h1 class={style["title"]}>{props.product.title}</h1>
+          <h1 class={style["title"]}>
+            {props.currentProduct && props.currentProduct.title}
+          </h1>
           <h2 class={style["tag"]}>
-            {props.product.tag.map((tag: any) => {
-              return (
-                <div
-                  style={{
-                    border: "1px solid black",
-                    borderRadius: "8px",
-                    padding: "8px 16px",
-                  }}
-                  key={tag.id}
-                >
-                  {tag.value}
-                </div>
-              );
-            })}
+            {props.currentProduct &&
+              props.currentProduct.tag.map((tag: any) => {
+                return (
+                  <div
+                    style={{
+                      border: "1px solid black",
+                      borderRadius: "8px",
+                      padding: "8px 16px",
+                    }}
+                    key={tag.id}
+                  >
+                    {tag.value}
+                  </div>
+                );
+              })}
           </h2>
           <h3
             style={{
@@ -126,29 +116,36 @@ export default component$((props: any) => {
               style={{
                 cursor: "pointer",
               }}
-              href={`/artist/${props.product.artist.name.replace(
-                / /g,
-                "-"
-              )}/?page=1`}
+              //   href={`/artist/${props.product.artist.name.replace(
+              //     / /g,
+              //     "-"
+              //   )}/?page=1`}
             >
-              {props.product.artist.name}
+              Rene Meza
             </Link>
           </h3>
-          <h3 class={style["price"]}>${props.product.design[0].price}</h3>
+          <h3 class={style["price"]}>
+            ${props.currentProduct && props.currentDesign.price}
+          </h3>
           <div class={style["size-content"]}>
             <div>Select Size</div>
             <div class={style["size-content-table"]}>
-              {props.product
-                ? props.product.sizes.map((size: any) => {
+              {props.currentProduct
+                ? props.currentProduct.sizes.map((size: any) => {
                     return (
                       <div
+                        style={{
+                          cursor: "pointer",
+                        }}
                         onClick$={() => {
                           const sizeSelect = size.value;
                           const variant =
                             loc.url.searchParams.get("variant") || "white";
+                          const product = loc.url.searchParams.get("product");
+
                           const productId = loc.params.slug;
                           nav(
-                            `/product/${productId}/?variant=${variant}&size=${sizeSelect}`
+                            `/product/${productId}/?variant=${variant}&size=${sizeSelect}&product=${product}`
                           );
                         }}
                         class={[
@@ -164,7 +161,13 @@ export default component$((props: any) => {
                           class={style["visually-hidden"]}
                           value="29695257:XS"
                         />
-                        <label for="skuAndSize__29695257" class="css-xf3ahq">
+                        <label
+                          style={{
+                            cursor: "pointer",
+                          }}
+                          for="skuAndSize__29695257"
+                          class="css-xf3ahq"
+                        >
                           {size.value}
                         </label>
                       </div>
@@ -173,23 +176,27 @@ export default component$((props: any) => {
                 : null}
             </div>
           </div>
-          {props.product.colors.length > 0 ? (
+          {props.currentProduct && props.currentProduct.colors.length > 0 ? (
             <div class={style["color-container"]}>
               <div>Color</div>
               <div class={style["content-color"]}>
-                {props.product
-                  ? props.product.colors.map((color: any) => {
+                {props.currentProduct
+                  ? props.currentProduct.colors.map((color: any) => {
                       return (
                         <div
+                          style={{
+                            cursor: "pointer",
+                          }}
                           onClick$={() => {
                             const variant = color.value.toLowerCase();
                             const size =
                               loc.url.searchParams.get("size") || "S";
+                            const product = loc.url.searchParams.get("product");
                             const productId = loc.params.slug;
                             console.log("se ejecuto", variant);
                             changeColor.value = variant;
                             nav(
-                              `/product/${productId}/?variant=${variant}&size=${size}`
+                              `/product/${productId}/?variant=${variant}&size=${size}&product=${product}`
                             );
                             // nav(
                             //   `/product/${productId}/?variant=${variant}&size=${size}`
@@ -209,7 +216,13 @@ export default component$((props: any) => {
                             class={style["visually-hidden"]}
                             value="29695257:XS"
                           />
-                          <label for="skuAndSize__29695257" class="css-xf3ahq">
+                          <label
+                            style={{
+                              cursor: "pointer",
+                            }}
+                            for="skuAndSize__29695257"
+                            class="css-xf3ahq"
+                          >
                             {color.value}
                           </label>
                         </div>
@@ -228,9 +241,65 @@ export default component$((props: any) => {
           <div class={style["description-container"]}>
             <div class={style["description-title"]}>Description</div>
             <div class={style["description-content"]}>
-              {props.product.description}
+              {props.currentProduct && props.currentProduct.description}
             </div>
           </div>
+        </div>
+        <div>
+          {props.allProducts.map((product: any) => {
+            return product.types.map((type: any) => {
+              return (
+                <div
+                  style={{
+                    cursor: "pointer",
+                    fontWeight: "500",
+                    fontSize: "14px",
+                  }}
+                  onClick$={() => {
+                    const productType = type.value;
+                    // const size = loc.url.searchParams.get("size") || "S";
+                    const variant =
+                      loc.url.searchParams.get("variant") || "white";
+                    const productId = loc.params.slug;
+                    console.log("se ejecuto", variant);
+
+                    changeProduct.value = productType;
+                    if (productType === "Mug") {
+                      nav(
+                        `/product/${productId}/?variant=white&size=11%20oz&product=${productType}`
+                      );
+                    } else {
+                      nav(
+                        `/product/${productId}/?variant=white&size=S&product=${productType}`
+                      );
+                    }
+                  }}
+                  class={[
+                    style["content-value"],
+                    type.value === loc.url.searchParams.get("product")
+                      ? style["img-border"]
+                      : "",
+                  ]}
+                >
+                  <input
+                    name="skuAndSize"
+                    type="radio"
+                    class={style["visually-hidden"]}
+                    value="29695257:XS"
+                  />
+                  <label
+                    style={{
+                      cursor: "pointer",
+                    }}
+                    for="skuAndSize__29695257"
+                    class="css-xf3ahq"
+                  >
+                    {type.value}
+                  </label>
+                </div>
+              );
+            });
+          })}
         </div>
       </div>
       <div
@@ -252,7 +321,10 @@ export default component$((props: any) => {
       >
         {props?.groupRelation &&
           props.groupRelation.map((product: any) => {
-            console.log("esto esta en el array", product);
+            console.log(
+              "esto esta en el array",
+              product.product[0]?.types[0]?.value
+            );
             return (
               <Link
                 key={product.product[0].id}
@@ -262,7 +334,7 @@ export default component$((props: any) => {
                       ? "11 oz"
                       : "S"
                     : "S"
-                }&product=${product.product[0]?.types[0]?.value}`}
+                }`}
               >
                 <CardArt image={product} />
               </Link>

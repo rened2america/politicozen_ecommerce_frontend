@@ -1,16 +1,16 @@
-import { component$, useSignal } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 import styles from "./preview.module.css";
 import { Image } from "@unpic/qwik";
 
 export const Preview = component$((props: any) => {
-  console.log("propData", props.product);
-  const radioValue = useSignal(props.product.url);
-  const listTest = [props.product];
-  console.log("radioValue.value", listTest);
+  // console.log("propData", props.product);
+  // const radioValue = useSignal(props.product.url);
+  // const listTest = [props.product];
+  // console.log("radioValue.value", listTest);
 
   return (
     <div class={styles["preview-container"]}>
-      <div class={styles["preview-slider"]}>
+      {/* <div class={styles["preview-slider"]}>
         {listTest.map((img: any) => {
           console.log("img", img);
           return (
@@ -53,7 +53,7 @@ export const Preview = component$((props: any) => {
             </div>
           );
         })}
-      </div>
+      </div> */}
       <div class={styles["preview-image"]}>
         <Image
           style={{
