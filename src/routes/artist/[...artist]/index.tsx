@@ -1,9 +1,10 @@
 import { component$ } from "@builder.io/qwik";
 import { Link, routeLoader$ } from "@builder.io/qwik-city";
 import { Image } from "@unpic/qwik";
-import Card from "~/components/core/card/card";
+// import Card from "~/components/core/card/card";
 import { LuTwitter, LuFacebook, LuInstagram } from "@qwikest/icons/lucide";
 import Pagination from "~/components/primitives/pagination/pagination";
+import CardArt from "~/components/core/card-art/card-art";
 
 export const useArtist = routeLoader$(async ({ query, params }) => {
   const page = query.get("page") || "";
@@ -20,8 +21,21 @@ export const useArtist = routeLoader$(async ({ query, params }) => {
   return artistResult;
 });
 
+export const useGropRelationByArtist = routeLoader$(async ({ params }) => {
+  const { artist } = params;
+  const url = new URL(
+    `/api/1/product/groupRelation/${artist}`,
+    import.meta.env.VITE_URL_BACKEND
+  );
+  const res = await fetch(url);
+  const product = (await res.json()) as any;
+  return product.groupRelation;
+});
+
 export default component$(() => {
   const getArtist = useArtist();
+  const groupRelation = useGropRelationByArtist();
+
   console.log(getArtist);
   return (
     <div>
@@ -209,23 +223,29 @@ export default component$(() => {
             width: "1000px",
           }}
         >
-          {getArtist.value.products.map((product: any) => {
-            console.log("product", product);
-            return (
-              <Link
-                key={product.id}
-                href={`/product/${product.id}/?variant=white&size=${
-                  product.types.length > 0
-                    ? product?.types[0]?.value === "Mug"
-                      ? "11 oz"
+          {groupRelation.value &&
+            groupRelation.value.map((product: any) => {
+              console.log(
+                "esto esta en el array",
+                product.product[0]?.types[0]?.value
+              );
+              return (
+                <Link
+                  key={product.product[0].id}
+                  href={`/product/${
+                    product.product[0].id
+                  }/?variant=white&size=${
+                    product.product[0].types.length > 0
+                      ? product.product[0]?.types[0]?.value === "Mug"
+                        ? "11 oz"
+                        : "S"
                       : "S"
-                    : "S"
-                }`}
-              >
-                <Card product={product} />
-              </Link>
-            );
-          })}
+                  }`}
+                >
+                  <CardArt image={product} />
+                </Link>
+              );
+            })}
         </div>
       </div>
     </div>

@@ -4,11 +4,11 @@
   gap: 16px;
   border-radius: 16px;
 }
-.preview-slider {
+/* .preview-slider {
   display: grid;
   grid-template-rows: repeat(auto-fit, 60px);
   gap: 16px;
-}
+} */
 .preview-slider-container-img {
   border-radius: 8px 8px 8px 8px;
 }

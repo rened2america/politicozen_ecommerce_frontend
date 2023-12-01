@@ -20,7 +20,7 @@ export default component$((props: any) => {
                         ? "11 oz"
                         : "S"
                       : "S"
-                  }`}
+                  }&product=${product?.types[0]?.value}`}
                 >
                   <Card product={product} />
                 </Link>

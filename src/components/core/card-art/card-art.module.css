@@ -1,0 +1,57 @@
+.card {
+  width: 250px;
+  cursor: pointer;
+  /* padding: 12px 24px; */
+  /* border-radius: 5px; */
+}
+
+.card-img {
+  /* border-radius: 5px 5px 0 0; */
+  object-fit: cover;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  /* padding: 12px 24px; */
+}
+
+.container {
+  padding: 8px 4px;
+  height: 120px;
+  display: grid;
+  grid-template-rows: repeat(auto-fit, 32px);
+  margin-top: 8px;
+  align-content: start;
+  border-radius: 5px;
+}
+
+.title {
+  font-size: 16px;
+  margin: 0px;
+  font-family: "Poppins-Medium";
+}
+.tag {
+  color: #767677;
+  font-family: "Poppins-Medium";
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.price {
+  font-size: 16px;
+  color: #111111;
+  font-weight: 700;
+  font-family: "Poppins-Medium";
+  margin-top: 8px;
+}
+h4 {
+  all: unset;
+}
+h5 {
+  all: unset;
+}
+a {
+  all: unset;
+}

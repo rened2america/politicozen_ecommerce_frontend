@@ -5,7 +5,7 @@
 }
 .product-container {
   display: grid;
-  grid-template-columns: 1fr 450px;
+  grid-template-columns: 1fr 450px 100px;
   justify-items: center;
   margin-top: 36px;
   max-width: 1200px;
@@ -91,7 +91,7 @@
   display: grid;
   justify-items: center;
   align-items: center;
-  width: 60px;
+  width: 80px;
 }
 .description-container {
   margin-top: 24px;
