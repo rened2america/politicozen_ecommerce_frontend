@@ -7,7 +7,6 @@ export const Preview = component$((props: any) => {
   // const radioValue = useSignal(props.product.url);
   // const listTest = [props.product];
   // console.log("radioValue.value", listTest);
-
   return (
     <div class={styles["preview-container"]}>
       {/* <div class={styles["preview-slider"]}>

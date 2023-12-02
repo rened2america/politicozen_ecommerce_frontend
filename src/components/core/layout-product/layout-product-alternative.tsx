@@ -19,7 +19,6 @@ export default component$((props: any) => {
   //     product: {},
   //   });
   const changeColor = useSignal("");
-  const changeProduct = useSignal("");
   const nav = useNavigate();
   const loc = useLocation();
 
@@ -51,33 +50,22 @@ export default component$((props: any) => {
     cartList.products.push({
       priceId: currentValue.priceId,
       count: 1,
-      title: props.product.title,
+      title: props.currentProduct.title,
       url: currentValue.url,
       variant: currentValue.variant,
       price: currentValue.price,
       size: currentValue.size,
       artistId: currentValue.artistId,
     });
-
-    console.log(cartList.products);
   });
 
-  //   const searchValueDesign = $(
-  //     ({ product, url }: { product: any; url: any }) => {
-  //       return product.design.find((desing: any) => desing.variant === url);
-  //     }
-  //   );
+  const sizeOrder = ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"];
+  const colorOrder = ["White", "Blue", "Beige", "Red", "Black"];
 
   return (
     <div class={style["product"]}>
       <div class={style["product-container"]}>
-        {/* <Preview
-          product={props.product.design.find(
-            (desing: any) =>
-              desing.variant === loc.url.searchParams.get("variant")
-          )}
-        /> */}
-        {props.currentProduct && <Preview product={props.currentDesign} />}
+        {props.currentDesign && <Preview product={props.currentDesign} />}
         <div class={style["product-information"]}>
           <h1 class={style["title"]}>
             {props.currentProduct && props.currentProduct.title}
@@ -116,12 +104,12 @@ export default component$((props: any) => {
               style={{
                 cursor: "pointer",
               }}
-              //   href={`/artist/${props.product.artist.name.replace(
-              //     / /g,
-              //     "-"
-              //   )}/?page=1`}
+              href={`/artist/${props.groupProduct.artist.name.replace(
+                / /g,
+                "-"
+              )}/?page=1`}
             >
-              Rene Meza
+              {props.groupProduct.artist.name}
             </Link>
           </h3>
           <h3 class={style["price"]}>
@@ -131,81 +119,31 @@ export default component$((props: any) => {
             <div>Select Size</div>
             <div class={style["size-content-table"]}>
               {props.currentProduct
-                ? props.currentProduct.sizes.map((size: any) => {
-                    return (
-                      <div
-                        style={{
-                          cursor: "pointer",
-                        }}
-                        onClick$={() => {
-                          const sizeSelect = size.value;
-                          const variant =
-                            loc.url.searchParams.get("variant") || "white";
-                          const product = loc.url.searchParams.get("product");
-
-                          const productId = loc.params.slug;
-                          nav(
-                            `/product/${productId}/?variant=${variant}&size=${sizeSelect}&product=${product}`
-                          );
-                        }}
-                        class={[
-                          style["content-value"],
-                          size.value === loc.url.searchParams.get("size")
-                            ? style["img-border"]
-                            : "",
-                        ]}
-                      >
-                        <input
-                          name="skuAndSize"
-                          type="radio"
-                          class={style["visually-hidden"]}
-                          value="29695257:XS"
-                        />
-                        <label
-                          style={{
-                            cursor: "pointer",
-                          }}
-                          for="skuAndSize__29695257"
-                          class="css-xf3ahq"
-                        >
-                          {size.value}
-                        </label>
-                      </div>
-                    );
-                  })
-                : null}
-            </div>
-          </div>
-          {props.currentProduct && props.currentProduct.colors.length > 0 ? (
-            <div class={style["color-container"]}>
-              <div>Color</div>
-              <div class={style["content-color"]}>
-                {props.currentProduct
-                  ? props.currentProduct.colors.map((color: any) => {
+                ? props.currentProduct.sizes
+                    .sort(
+                      (a: any, b: any) =>
+                        sizeOrder.indexOf(a.value) - sizeOrder.indexOf(b.value)
+                    )
+                    .map((size: any) => {
                       return (
                         <div
                           style={{
                             cursor: "pointer",
                           }}
                           onClick$={() => {
-                            const variant = color.value.toLowerCase();
-                            const size =
-                              loc.url.searchParams.get("size") || "S";
+                            const sizeSelect = size.value;
+                            const variant =
+                              loc.url.searchParams.get("variant") || "white";
                             const product = loc.url.searchParams.get("product");
+
                             const productId = loc.params.slug;
-                            console.log("se ejecuto", variant);
-                            changeColor.value = variant;
                             nav(
-                              `/product/${productId}/?variant=${variant}&size=${size}&product=${product}`
+                              `/product/${productId}/?variant=${variant}&size=${sizeSelect}&product=${product}`
                             );
-                            // nav(
-                            //   `/product/${productId}/?variant=${variant}&size=${size}`
-                            // );
                           }}
                           class={[
                             style["content-value"],
-                            color.value.toLowerCase() ===
-                            loc.url.searchParams.get("variant")
+                            size.value === loc.url.searchParams.get("size")
                               ? style["img-border"]
                               : "",
                           ]}
@@ -223,11 +161,73 @@ export default component$((props: any) => {
                             for="skuAndSize__29695257"
                             class="css-xf3ahq"
                           >
-                            {color.value}
+                            {size.value}
                           </label>
                         </div>
                       );
                     })
+                : null}
+            </div>
+          </div>
+          {props.currentProduct && props.currentProduct.colors.length > 0 ? (
+            <div class={style["color-container"]}>
+              <div>Color</div>
+              <div class={style["content-color"]}>
+                {props.currentProduct
+                  ? props.currentProduct.colors
+                      .sort(
+                        (a: any, b: any) =>
+                          colorOrder.indexOf(a.value) -
+                          colorOrder.indexOf(b.value)
+                      )
+                      .map((color: any) => {
+                        return (
+                          <div
+                            style={{
+                              cursor: "pointer",
+                            }}
+                            onClick$={() => {
+                              const variant = color.value.toLowerCase();
+                              const size =
+                                loc.url.searchParams.get("size") || "S";
+                              const product =
+                                loc.url.searchParams.get("product");
+                              const productId = loc.params.slug;
+                              console.log("se ejecuto", variant);
+                              changeColor.value = variant;
+                              nav(
+                                `/product/${productId}/?variant=${variant}&size=${size}&product=${product}`
+                              );
+                              // nav(
+                              //   `/product/${productId}/?variant=${variant}&size=${size}`
+                              // );
+                            }}
+                            class={[
+                              style["content-value"],
+                              color.value.toLowerCase() ===
+                              loc.url.searchParams.get("variant")
+                                ? style["img-border"]
+                                : "",
+                            ]}
+                          >
+                            <input
+                              name="skuAndSize"
+                              type="radio"
+                              class={style["visually-hidden"]}
+                              value="29695257:XS"
+                            />
+                            <label
+                              style={{
+                                cursor: "pointer",
+                              }}
+                              for="skuAndSize__29695257"
+                              class="css-xf3ahq"
+                            >
+                              {color.value}
+                            </label>
+                          </div>
+                        );
+                      })
                   : null}
               </div>
             </div>
@@ -255,21 +255,15 @@ export default component$((props: any) => {
                     fontWeight: "500",
                     fontSize: "14px",
                   }}
-                  onClick$={() => {
+                  onClick$={async () => {
                     const productType = type.value;
-                    // const size = loc.url.searchParams.get("size") || "S";
-                    const variant =
-                      loc.url.searchParams.get("variant") || "white";
                     const productId = loc.params.slug;
-                    console.log("se ejecuto", variant);
-
-                    changeProduct.value = productType;
                     if (productType === "Mug") {
-                      nav(
+                      await nav(
                         `/product/${productId}/?variant=white&size=11%20oz&product=${productType}`
                       );
                     } else {
-                      nav(
+                      await nav(
                         `/product/${productId}/?variant=white&size=S&product=${productType}`
                       );
                     }
@@ -328,13 +322,13 @@ export default component$((props: any) => {
             return (
               <Link
                 key={product.product[0].id}
-                href={`/product/${product.product[0].id}/?variant=white&size=${
+                href={`/product/${product.id}/?variant=white&size=${
                   product.product[0].types.length > 0
                     ? product.product[0]?.types[0]?.value === "Mug"
                       ? "11 oz"
                       : "S"
                     : "S"
-                }`}
+                }&product=${product.product[0]?.types[0]?.value}`}
               >
                 <CardArt image={product} />
               </Link>

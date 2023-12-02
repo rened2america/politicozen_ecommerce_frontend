@@ -14,7 +14,7 @@ export default component$((props: any) => {
               return (
                 <Link
                   key={product.id}
-                  href={`/product/${product.id}/?variant=white&size=${
+                  href={`/product/${product.group.id}/?variant=white&size=${
                     product.types.length > 0
                       ? product?.types[0]?.value === "Mug"
                         ? "11 oz"
