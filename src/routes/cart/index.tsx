@@ -10,7 +10,7 @@ import { CartContext } from "~/context/cart";
 export default component$(() => {
   const cart = useContext(CartContext);
   const Buy = useSignal(false);
-  console.log(cart.products);
+  console.log("datossss", cart);
   useResource$(async ({ track }) => {
     track(() => Buy.value);
     console.log("Buy.value", cart);
@@ -33,6 +33,7 @@ export default component$(() => {
       console.log("getPaymentParse", getPaymentParse);
       Buy.value = false;
     }
+    return;
   });
 
   if (cart?.products?.length === 0) {

@@ -29,6 +29,7 @@ export const useGropRelationByArtist = routeLoader$(async ({ params }) => {
   );
   const res = await fetch(url);
   const product = (await res.json()) as any;
+  console.log("product.groupRelation", product.groupRelation);
   return product.groupRelation;
 });
 
@@ -36,7 +37,6 @@ export default component$(() => {
   const getArtist = useArtist();
   const groupRelation = useGropRelationByArtist();
 
-  console.log(getArtist);
   return (
     <div>
       <div
@@ -225,22 +225,17 @@ export default component$(() => {
         >
           {groupRelation.value &&
             groupRelation.value.map((product: any) => {
-              console.log(
-                "esto esta en el array",
-                product.product[0]?.types[0]?.value
-              );
+              console.log("esto esta en el array", product.product[0]);
               return (
                 <Link
                   key={product.product[0].id}
-                  href={`/product/${
-                    product.product[0].id
-                  }/?variant=white&size=${
+                  href={`/product/${product.id}/?variant=white&size=${
                     product.product[0].types.length > 0
                       ? product.product[0]?.types[0]?.value === "Mug"
                         ? "11 oz"
                         : "S"
                       : "S"
-                  }`}
+                  }&product=${product.product[0]?.types[0]?.value}`}
                 >
                   <CardArt image={product} />
                 </Link>
