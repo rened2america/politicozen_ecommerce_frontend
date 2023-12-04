@@ -1,7 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { routeLoader$, useNavigate } from "@builder.io/qwik-city";
 import Search from "~/components/primitives/input/search/search";
-import Pagination from "~/components/primitives/pagination/pagination";
 
 export const useArtist = routeLoader$(async ({ query }) => {
   const page = query.get("page") || "";
