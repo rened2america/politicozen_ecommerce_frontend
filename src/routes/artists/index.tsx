@@ -1,7 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { routeLoader$, useNavigate } from "@builder.io/qwik-city";
 import Search from "~/components/primitives/input/search/search";
-import Pagination from "~/components/primitives/pagination/pagination";
 
 export const useArtist = routeLoader$(async ({ query }) => {
   const page = query.get("page") || "";
@@ -18,15 +17,6 @@ export default component$(() => {
   const getArtists = useArtist();
   const nav = useNavigate();
 
-  console.log(
-    Array.from({ length: 3 }, (_, i) =>
-      getArtists.value.artist.slice(
-        i * Math.ceil(getArtists.value.artist.length / 3),
-        (i + 1) * Math.ceil(getArtists.value.artist.length / 3)
-      )
-    ).length
-  );
-
   return (
     <>
       <div
@@ -37,7 +27,6 @@ export default component$(() => {
       >
         <Search />
       </div>
-      <Pagination count={getArtists.value.count} refNav="artists" max={30} />
       <div
         style={{
           display: "flex",
