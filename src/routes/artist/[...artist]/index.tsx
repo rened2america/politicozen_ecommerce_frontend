@@ -117,7 +117,8 @@ export default component$(() => {
                 fontSize: "32px",
                 fontWeight: "500",
                 display: "grid",
-                gridTemplateRows: "48px 24px 16px 32px",
+                gridTemplateRows: "minmax(48px,1fr) 24px 16px 32px",
+                gap: "8px",
               }}
             >
               <div>{getArtist.value.artist.name} </div>
@@ -232,7 +233,6 @@ export default component$(() => {
             }}
           >
             {groupRelation.value.map((product: any) => {
-              console.log("esto esta en el array", groupRelation.value.length);
               return (
                 <Link
                   style={{
