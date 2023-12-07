@@ -77,10 +77,7 @@ export default component$(() => {
             }}
           >
             <li
-              style={{
-                cursor: "pointer",
-                listStyleType: "none",
-              }}
+              class={styles["btn-nav"]}
               onClick$={() => {
                 nav("/search/?q=");
               }}
@@ -88,9 +85,7 @@ export default component$(() => {
               Collections
             </li>
             <li
-              style={{
-                cursor: "pointer",
-              }}
+              class={styles["btn-nav"]}
               onClick$={() => {
                 nav("/");
               }}
@@ -98,9 +93,7 @@ export default component$(() => {
               <HeaderLeft />
             </li>
             <li
-              style={{
-                cursor: "pointer",
-              }}
+              class={styles["btn-nav"]}
               onClick$={() => {
                 nav("/artists");
               }}

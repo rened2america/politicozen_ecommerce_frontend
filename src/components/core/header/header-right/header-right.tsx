@@ -32,17 +32,18 @@ export default component$(() => {
         Join
       </button> */}
       <div
+        class={style["badgeto"]}
         onClick$={() => {
           console.log("se ejecuto");
           navigation("/cart");
         }}
-        style={{
-          color: "#303538",
-          fontSize: "24px",
-          display: "grid",
-          position: "relative",
-          cursor: "pointer",
-        }}
+        // style={{
+        //   color: "#303538",
+        //   fontSize: "24px",
+        //   display: "grid",
+        //   position: "relative",
+        //   cursor: "pointer",
+        // }}
       >
         <LuShoppingBag />
         {cart.numberProducts > 0 ? (

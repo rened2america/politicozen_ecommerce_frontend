@@ -56,12 +56,12 @@ export const Preview = component$((props: any) => {
       <div class={styles["preview-image"]}>
         <Image
           style={{
-            backgroundColor: "#f5f5f5",
-            objectFit: "cover",
+            width: "auto",
           }}
           src={props.product.url}
-          layout="constrained"
-          width={550}
+          layout="fullWidth"
+          media="(max-width: 550px)"
+          width={350}
           height={475}
           alt="A lovely bath"
         />

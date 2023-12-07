@@ -18,7 +18,7 @@
   display: none;
 }
 
-.hiw {
+/* .hiw {
   display: grid;
   justify-self: start;
   align-items: center;
@@ -33,6 +33,63 @@
   border-radius: 9999999px;
   height: 48px;
   align-self: center;
+} */
+
+.hiw {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  background-color: black;
+  width: 136px;
+  justify-self: center;
+  align-items: center;
+  align-self: center;
+
+  color: white;
+  text-align: center;
+  border: none;
+  border-radius: 9999999px;
+  position: relative;
+  cursor: pointer;
+  height: 48px;
+  text-decoration: none;
+  display: grid;
+  transition: background-color 1s ease-in-out;
+  transition: color 1s;
+}
+
+.hiw:hover {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+}
+
+.btn-nav {
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  font-weight: 800;
+  color: #111;
+  cursor: pointer;
+  line-height: 1.9;
+}
+
+.btn-nav:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #111;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.btn-nav:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 .home-nav {

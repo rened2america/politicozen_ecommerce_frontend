@@ -42,14 +42,15 @@ export default component$(() => {
       <div
         style={{
           display: "grid",
-          gridTemplateRows: "300px 200px 100px 1fr",
+          gridTemplateRows: "500px 100px 1fr",
           justifyItems: "center",
         }}
       >
         <div
           style={{
-            width: "1028px",
-            height: "300px",
+            maxWidth: "1028px",
+            width: "100%",
+            maxHeight: "300px",
             borderRadius: "16px",
           }}
         >
@@ -57,13 +58,12 @@ export default component$(() => {
             //
             <Image
               src={getArtist.value.artist.banner}
-              layout="constrained"
-              width={1028}
+              layout="fullWidth"
               height={300}
-              style={{
-                borderRadius: "16px",
-                objectFit: "cover",
-              }}
+              // style={{
+              //   borderRadius: "16px",
+              //   objectFit: "cover",
+              // }}
               alt="banner"
             />
           ) : (
@@ -75,109 +75,114 @@ export default component$(() => {
               }}
             ></div>
           )}
-        </div>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "250px 1fr",
-            justifyItems: "start",
-            alignItems: "center",
-            width: "1028px",
-            marginTop: "16px",
-          }}
-        >
-          {!getArtist?.value?.artist?.avatar ? (
-            <div
-              style={{
-                height: "156px",
-                width: "156px",
-                fontSize: "32px",
-                borderRadius: "156px",
-                display: "grid",
-                placeItems: "center",
-                border: "3px solid black",
-              }}
-            >
-              {getArtist.value.artist.name.slice(0, 2)}
-            </div>
-          ) : (
-            <Image
-              src={getArtist.value.artist.avatar}
-              width={156}
-              height={156}
-              style={{
-                borderRadius: "156px",
-                display: "grid",
-                justifySelf: "center",
-              }}
-            />
-          )}
 
           <div
             style={{
-              fontSize: "32px",
-              fontWeight: "500",
               display: "grid",
-              gridTemplateRows: "48px 24px 16px 32px",
+              gridTemplateColumns: "250px 1fr",
+              justifyItems: "start",
+              alignItems: "center",
+              marginTop: "16px",
             }}
           >
-            <div>{getArtist.value.artist.name} </div>
+            {!getArtist?.value?.artist?.avatar ? (
+              <div
+                style={{
+                  height: "156px",
+                  width: "156px",
+                  fontSize: "32px",
+                  borderRadius: "156px",
+                  display: "grid",
+                  placeItems: "center",
+                  border: "3px solid black",
+                }}
+              >
+                {getArtist.value.artist.name.slice(0, 2)}
+              </div>
+            ) : (
+              <Image
+                src={getArtist.value.artist.avatar}
+                width={156}
+                height={156}
+                style={{
+                  borderRadius: "156px",
+                  display: "grid",
+                  justifySelf: "center",
+                }}
+              />
+            )}
+
             <div
               style={{
+                fontSize: "32px",
+                fontWeight: "500",
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fit,24px)",
-                fontSize: "16px",
+                gridTemplateRows: "48px 24px 16px 32px",
               }}
             >
-              {getArtist?.value?.artist?.facebook ? (
-                <a
-                  style={{
-                    cursor: "pointer",
-                  }}
-                  href={
-                    getArtist?.value?.artist?.facebook?.startsWith("http://") ||
-                    getArtist?.value?.artist?.facebook?.startsWith("https://")
-                      ? getArtist?.value?.artist?.facebook
-                      : `https://${getArtist?.value?.artist?.facebook}`
-                  }
-                >
-                  <LuFacebook />
-                </a>
-              ) : null}
-              {getArtist?.value?.artist?.twitter ? (
-                <a
-                  style={{
-                    cursor: "pointer",
-                  }}
-                  href={
-                    getArtist?.value?.artist?.twitter?.startsWith("http://") ||
-                    getArtist?.value?.artist?.twitter?.startsWith("https://")
-                      ? getArtist?.value?.artist?.twitter
-                      : `https://${getArtist?.value?.artist?.twitter}`
-                  }
-                >
-                  <LuTwitter />
-                </a>
-              ) : null}
-              {getArtist?.value?.artist?.instagram ? (
-                <a
-                  style={{
-                    cursor: "pointer",
-                  }}
-                  href={
-                    getArtist?.value?.artist?.instagram?.startsWith(
-                      "http://"
-                    ) ||
-                    getArtist?.value?.artist?.instagram?.startsWith("https://")
-                      ? getArtist?.value?.artist?.instagram
-                      : `https://${getArtist?.value?.artist?.instagram}`
-                  }
-                >
-                  <LuInstagram />
-                </a>
-              ) : null}
-            </div>
-            {/* <div
+              <div>{getArtist.value.artist.name} </div>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit,24px)",
+                  fontSize: "16px",
+                }}
+              >
+                {getArtist?.value?.artist?.facebook ? (
+                  <a
+                    style={{
+                      cursor: "pointer",
+                    }}
+                    href={
+                      getArtist?.value?.artist?.facebook?.startsWith(
+                        "http://"
+                      ) ||
+                      getArtist?.value?.artist?.facebook?.startsWith("https://")
+                        ? getArtist?.value?.artist?.facebook
+                        : `https://${getArtist?.value?.artist?.facebook}`
+                    }
+                  >
+                    <LuFacebook />
+                  </a>
+                ) : null}
+                {getArtist?.value?.artist?.twitter ? (
+                  <a
+                    style={{
+                      cursor: "pointer",
+                    }}
+                    href={
+                      getArtist?.value?.artist?.twitter?.startsWith(
+                        "http://"
+                      ) ||
+                      getArtist?.value?.artist?.twitter?.startsWith("https://")
+                        ? getArtist?.value?.artist?.twitter
+                        : `https://${getArtist?.value?.artist?.twitter}`
+                    }
+                  >
+                    <LuTwitter />
+                  </a>
+                ) : null}
+                {getArtist?.value?.artist?.instagram ? (
+                  <a
+                    style={{
+                      cursor: "pointer",
+                    }}
+                    href={
+                      getArtist?.value?.artist?.instagram?.startsWith(
+                        "http://"
+                      ) ||
+                      getArtist?.value?.artist?.instagram?.startsWith(
+                        "https://"
+                      )
+                        ? getArtist?.value?.artist?.instagram
+                        : `https://${getArtist?.value?.artist?.instagram}`
+                    }
+                  >
+                    <LuInstagram />
+                  </a>
+                ) : null}
+              </div>
+              {/* <div
               style={{
                 fontSize: "16px",
                 fontWeight: "500",
@@ -185,25 +190,27 @@ export default component$(() => {
             >
               {getArtist.value.artist.nationality} Mexico
             </div> */}
-            <div
-              style={{
-                fontSize: "16px",
-                fontWeight: "500",
-              }}
-            >
-              Biography
-            </div>
-            <div
-              style={{
-                fontSize: "14px",
-                fontWeight: "500",
-                margin: "8px 0",
-              }}
-            >
-              {getArtist.value.artist.bio}
+              <div
+                style={{
+                  fontSize: "16px",
+                  fontWeight: "500",
+                }}
+              >
+                Biography
+              </div>
+              <div
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "500",
+                  margin: "8px 0",
+                }}
+              >
+                {getArtist.value.artist.bio}
+              </div>
             </div>
           </div>
         </div>
+
         <div
           style={{
             width: "100%",
@@ -215,19 +222,22 @@ export default component$(() => {
             max={12}
           />
         </div>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, 330px)",
-            justifyContent: "space-between",
-            width: "1000px",
-          }}
-        >
-          {groupRelation.value &&
-            groupRelation.value.map((product: any) => {
-              console.log("esto esta en el array", product.product[0]);
+        {groupRelation.value && (
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat( auto-fit, minmax(330px, 1fr) )",
+              justifyContent: "center",
+              width: "100%",
+            }}
+          >
+            {groupRelation.value.map((product: any) => {
+              console.log("esto esta en el array", groupRelation.value.length);
               return (
                 <Link
+                  style={{
+                    justifySelf: "center",
+                  }}
                   key={product.product[0].id}
                   href={`/product/${product.id}/?variant=white&size=${
                     product.product[0].types.length > 0
@@ -241,7 +251,8 @@ export default component$(() => {
                 </Link>
               );
             })}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
