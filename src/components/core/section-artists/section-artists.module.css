@@ -5,6 +5,8 @@
   background-color: white;
   justify-content: center;
   margin: 48px 0; */
+
+  margin: 48px 0;
 }
 
 .image-container-top {
@@ -76,7 +78,7 @@
   font-size: 48px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
-  margin: 24px 0;
+  margin: 48px 0;
 }
 
 .img-container-text {

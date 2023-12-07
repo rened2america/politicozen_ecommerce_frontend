@@ -5,70 +5,72 @@ import { Link } from "@builder.io/qwik-city";
 export default component$(() => {
   return (
     <div class={styles["section-container"]}>
-      <div class={styles["title"]}>Popular artists</div>
+      <div class={styles["title"]}>Popular Cartoons</div>
       <div class={styles["content"]}>
         <Link
-          href={"/artist/Engin-Selcuk/?page=1"}
+          href={"/product/10/?variant=white&size=S&product=Sweatshirt"}
           class={styles["image-container"]}
         >
           <img
             width="270"
             height="340"
             class={styles["image-container-img-rounded"]}
-            src="https://politicozen-prod.s3.us-east-2.amazonaws.com/1699307987211-Engin%20Selcuk-avatar"
-            alt=""
+            src="https://politicozen-prod.s3.us-east-2.amazonaws.com/1701909992098-Halit%20Kurtulmus%20Aytoslu-Art"
+            alt="Writer in trouble"
           />
           <div class={styles["backgroundImageText"]}>
-            <div class={styles["img-container-text"]}>Engin Selcuk</div>
-            <div class={styles["img-container-text2"]}>Artist</div>
+            <div class={styles["img-container-text"]}>Writer in trouble</div>
+            <div class={styles["img-container-text2"]}>
+              Halit Kurtulmus Aytoslu
+            </div>
           </div>
         </Link>
         <Link
-          href={"/artist/Saman-Torabi/?page=1"}
+          href={"/product/16/?variant=white&size=S&product=Shirt"}
           class={styles["image-container"]}
         >
           <img
             width="270"
             height="340"
             class={styles["image-container-img-rounded"]}
-            src="https://politicozen-prod.s3.us-east-2.amazonaws.com/1699310666999-Saman%20Torabi-avatar"
-            alt=""
+            src="https://politicozen-prod.s3.us-east-2.amazonaws.com/1701915571955-Engin%20Selcuk-Art"
+            alt="Locked Head"
           />
           <div class={styles["backgroundImageText"]}>
-            <div class={styles["img-container-text"]}>Saman Torabi</div>
-            <div class={styles["img-container-text2"]}>Artist</div>
+            <div class={styles["img-container-text"]}>Locked Head</div>
+            <div class={styles["img-container-text2"]}>Engin Selcuk</div>
           </div>
         </Link>
         <Link
-          href={"/artist/Wilfred-Hildonen/?page=1"}
+          href={"/product/20/?variant=white&size=S&product=Shirt"}
           class={styles["image-container"]}
         >
           <img
             width="270"
             height="340"
             class={styles["image-container-img-rounded"]}
-            src="https://politicozen-prod.s3.us-east-2.amazonaws.com/1699302068137-Wilfred%20Hildonen-avatar"
-            alt=""
+            src="https://politicozen-prod.s3.us-east-2.amazonaws.com/1701915749299-Engin%20Selcuk-Art"
+            alt="Thief Love"
           />
           <div class={styles["backgroundImageText"]}>
-            <div class={styles["img-container-text"]}>Wilfred Hildonen</div>
-            <div class={styles["img-container-text2"]}>Artist</div>
+            <div class={styles["img-container-text"]}>Thief Love</div>
+            <div class={styles["img-container-text2"]}>Engin Selcuk</div>
           </div>
         </Link>
         <Link
-          href={"/artist/Dennis-Goris/?page=1"}
+          href={"/product/3/?variant=white&size=S&product=Shirt"}
           class={styles["image-container"]}
         >
           <img
             width="270"
             height="340"
             class={styles["image-container-img-rounded"]}
-            src="https://politicozen-prod.s3.us-east-2.amazonaws.com/1699304542207-Dennis%20Goris-avatar"
-            alt=""
+            src="https://politicozen-prod.s3.us-east-2.amazonaws.com/1701467617719-Wilfred%20Hildonen-Art"
+            alt="Wanted"
           />
           <div class={styles["backgroundImageText"]}>
-            <div class={styles["img-container-text"]}>Dennis Goris</div>
-            <div class={styles["img-container-text2"]}>Artist</div>
+            <div class={styles["img-container-text"]}>Wanted</div>
+            <div class={styles["img-container-text2"]}>Wilfred Hildonen</div>
           </div>
         </Link>
         {/* <div class={styles["image-container"]}>

@@ -27,7 +27,7 @@ export default component$(() => {
           fontWeight: "600",
         }}
       >
-        Over 100 artist al ready earning!
+        Over 100 artist already earning!
       </div>
       <h1 class={styles["banner-title"]}>
         Cartooning Just Got a Lot Cooler (And Lucrative)!

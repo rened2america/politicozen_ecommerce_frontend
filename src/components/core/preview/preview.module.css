@@ -1,8 +1,17 @@
 .preview-container {
   display: grid;
-  grid-template-columns: 60px 500px;
+  grid-template-columns: 500px;
   gap: 16px;
   border-radius: 16px;
+}
+
+@media (max-width: 1150px) {
+  /* .preview-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    border-radius: 16px;
+  } */
 }
 /* .preview-slider {
   display: grid;

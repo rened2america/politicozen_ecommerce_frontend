@@ -6,7 +6,7 @@
   display: grid;
   grid-template-columns: 125px 125px 125px 125px 125px;
 }
-@media (max-width: 800px) {
+/* @media (max-width: 800px) {
   .group-search-buttons {
     color: #303538;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -16,7 +16,7 @@
     grid-template-columns: 125px 125px;
     grid-template-rows: 1fr 1fr 1fr;
   }
-}
+} */
 
 .group-search-buttons div {
   border-radius: 16px;
@@ -39,4 +39,18 @@
 .button {
   color: #303538;
   cursor: pointer;
+  transition: border 0.5s;
+}
+
+.button:hover {
+  border: 2px solid black;
+}
+
+.scroll-tags {
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.scroll-tags::-webkit-scrollbar {
+  display: none;
 }

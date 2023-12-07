@@ -305,14 +305,7 @@ export default component$((props: any) => {
       >
         Products Relation
       </div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          width: "80%",
-          gap: "24px",
-        }}
-      >
+      <div class={style["relation-arts"]}>
         {props?.groupRelation &&
           props.groupRelation.map((product: any) => {
             console.log(
@@ -321,6 +314,10 @@ export default component$((props: any) => {
             );
             return (
               <Link
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                }}
                 key={product.product[0].id}
                 href={`/product/${product.id}/?variant=white&size=${
                   product.product[0].types.length > 0
