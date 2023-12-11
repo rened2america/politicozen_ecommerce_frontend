@@ -1,6 +1,7 @@
 import { component$, useStylesScoped$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 import styles from "./how-it-works.css";
+import { Image } from "@unpic/qwik";
 
 export default component$(() => {
   useStylesScoped$(styles);
@@ -10,29 +11,69 @@ export default component$(() => {
       <article class="content">
         <h2 class="subtitle">Step-by-Step Guide</h2>
         <ol class="steps-list">
-          <li>
-            <strong>Sign Up & Set Up:</strong> Register with us to create your
-            unique artist profile. It’s your space; personalize it!
+          <li
+            style={{
+              display: "grid",
+              justifyItems: "center",
+            }}
+          >
+            <Image src="/howitworks/login.png" width="270" height="150" />
+            <div>
+              <strong>Sign Up & Set Up:</strong> Register with us to create your
+              unique artist profile. It’s your space; personalize it!
+            </div>
           </li>
-          <li>
-            <strong>Upload Your Artwork:</strong> Have a piece that resonated
-            well or sparked debate? It's perfect for your merch! Simply upload
-            your artwork onto our platform. No technical skills needed!
+          <li
+            style={{
+              display: "grid",
+              justifyItems: "center",
+            }}
+          >
+            <Image src="/howitworks/uploadArt.png" width="270" height="150" />
+            <div>
+              <strong>Upload Your Artwork:</strong> Have a piece that resonated
+              well or sparked debate? It's perfect for your merch! Simply upload
+              your artwork onto our platform. No technical skills needed!
+            </div>
           </li>
-          <li>
-            <strong>Choose Your Merch:</strong> From T-shirts to mugs, select
-            from a range of quality products to feature your art. Create a
-            diverse storefront with items your followers will love!
+          <li
+            style={{
+              display: "grid",
+              justifyItems: "center",
+            }}
+          >
+            <Image src="/howitworks/merch.png" width="270" height="150" />
+            <div>
+              <strong>Choose Your Merch:</strong> From T-shirts to mugs, select
+              from a range of quality products to feature your art. Create a
+              diverse storefront with items your followers will love!
+            </div>
           </li>
-          <li>
-            <strong>Customize Your Store:</strong> This is your stage, your
-            platform! Customize your storefront within PoliticoZen.com. Make it
-            truly yours!
+          <li
+            style={{
+              display: "grid",
+              justifyItems: "center",
+            }}
+          >
+            <Image src="/howitworks/store.png" width="270" height="150" />
+            <div>
+              <strong>Customize Your Store:</strong> This is your stage, your
+              platform! Customize your storefront within PoliticoZen.com. Make
+              it truly yours!
+            </div>
           </li>
-          <li>
-            <strong>Promote & Sell:</strong> Share your personalized store link
-            on all social media platforms, blogs, websites—wherever your
-            audience is. The more you promote, the more you earn!
+          <li
+            style={{
+              display: "grid",
+              justifyItems: "center",
+            }}
+          >
+            <Image src="/howitworks/money.png" width="270" height="150" />
+            <div>
+              <strong>Promote & Sell:</strong> Share your personalized store
+              link on all social media platforms, blogs, websites—wherever your
+              audience is. The more you promote, the more you earn!
+            </div>
           </li>
         </ol>
 
