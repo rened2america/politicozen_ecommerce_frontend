@@ -239,9 +239,8 @@ export default component$(() => {
                     <LuCircleDollarSign
                       style={{
                         fontSize: "32px",
-                        // color: "black",
+                        color: "black",
                         alignSelf: "end",
-                        color: "#46915c",
                       }}
                     />
                     <strong>Earn Money</strong>
