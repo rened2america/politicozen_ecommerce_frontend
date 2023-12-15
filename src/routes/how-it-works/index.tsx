@@ -14,7 +14,9 @@ export default component$(() => {
   useStylesScoped$(styles);
   return (
     <section class="how-it-works">
-      <h1 class="main-title">How Does It Work?</h1>
+      <h1 class="main-title">
+        Unleash creativity, launch your Shop, make your mark!
+      </h1>
       <article class="content">
         <div class="article-container">
           <div
@@ -29,7 +31,8 @@ export default component$(() => {
               width="282"
               height="450"
             /> */}
-            <Image src="/howitworks/store.png" width="300" height="200" />
+
+            <Image src="/howitworks/store.png" width="300" height="184" />
           </div>
           <ol class="steps-list">
             <li
@@ -51,6 +54,8 @@ export default component$(() => {
                 >
                   Step 1
                 </div>
+                <Image src="/howitworks/input.gif" width="240" height="110" />
+
                 <div
                   style={{
                     fontSize: "20px",
@@ -59,7 +64,6 @@ export default component$(() => {
                 >
                   Sign Up & Set Up
                 </div>
-                <p>Register with us to create your unique artist profile.</p>
               </div>
             </li>
             <li
@@ -81,6 +85,8 @@ export default component$(() => {
                 >
                   Step 2
                 </div>
+                <Image src="/howitworks/drag3.gif" width="300" height="200" />
+
                 <div
                   style={{
                     fontSize: "20px",
@@ -89,10 +95,6 @@ export default component$(() => {
                 >
                   Upload Your Artwork
                 </div>
-                <p>
-                  Simply upload your artwork onto our platform. No technical
-                  skills needed!
-                </p>
               </div>
             </li>
             <li
@@ -114,6 +116,8 @@ export default component$(() => {
                 >
                   Step 3
                 </div>
+                <Image src="/howitworks/merch.gif" width="260" height="200" />
+
                 <div
                   style={{
                     fontSize: "20px",
@@ -122,10 +126,6 @@ export default component$(() => {
                 >
                   Choose Your Merch
                 </div>
-                <p>
-                  Create a diverse storefront with items your followers will
-                  love!
-                </p>
               </div>
             </li>
             <li
@@ -147,6 +147,8 @@ export default component$(() => {
                 >
                   Step 4
                 </div>
+                <Image src="/howitworks/design2.gif" width="500" height="200" />
+
                 <div
                   style={{
                     fontSize: "20px",
@@ -155,9 +157,6 @@ export default component$(() => {
                 >
                   Customize Your Store
                 </div>
-                <p>
-                  This is your stage, your platform! Customize your storefront.
-                </p>
               </div>
             </li>
             <li
@@ -187,10 +186,6 @@ export default component$(() => {
                 >
                   Promote & Sell
                 </div>
-                <p>
-                  Share your personalized store link on all social media
-                  platforms, blogs, websites—wherever your audience is.
-                </p>
               </div>
             </li>
           </ol>
@@ -199,7 +194,6 @@ export default component$(() => {
           style={{
             padding: "32px",
             display: "grid",
-            justifyContent: "center",
             width: "100%",
             boxSizing: "border-box",
           }}
@@ -212,10 +206,26 @@ export default component$(() => {
                 justifyItems: "center",
               }}
             >
-              <LuShoppingBag style={{ fontSize: "32px", color: "#46915c" }} />
-              <strong>Hassle-Free E-commerce</strong> Forget the complications
-              of logistics, printing, or customer service; we handle that. You
-              focus on creating!
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <LuShoppingBag
+                      style={{
+                        fontSize: "32px",
+                        color: "black",
+                        alignSelf: "end",
+                      }}
+                    />
+                    <strong>Easy Online Selling</strong>
+                  </div>
+                  <div class="flip-card-back">
+                    <p>
+                      We take care of shipping, printing, and customer service.
+                      Just focus on creating art.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </li>
             <li
               style={{
@@ -223,12 +233,27 @@ export default component$(() => {
                 justifyItems: "center",
               }}
             >
-              <LuCircleDollarSign
-                style={{ fontSize: "32px", color: "#46915c" }}
-              />
-              <strong>Generous Earnings</strong> For each product sold, you
-              pocket 25% of the sale. No hidden costs; your creativity deserves
-              to be rewarded.
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <LuCircleDollarSign
+                      style={{
+                        fontSize: "32px",
+                        // color: "black",
+                        alignSelf: "end",
+                        color: "#46915c",
+                      }}
+                    />
+                    <strong>Earn Money</strong>
+                  </div>
+                  <div class="flip-card-back">
+                    <p>
+                      You get 25% of the sales from your products. No hidden
+                      fees.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </li>
             <li
               style={{
@@ -236,10 +261,26 @@ export default component$(() => {
                 justifyItems: "center",
               }}
             >
-              <LuUsers style={{ fontSize: "32px", color: "#46915c" }} />
-              <strong>Community & Collaboration</strong> Be part of a vibrant
-              network of political cartoonists. Collaborate, learn, and grow
-              together!
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <LuUsers
+                      style={{
+                        fontSize: "32px",
+                        color: "black",
+                        alignSelf: "end",
+                      }}
+                    />
+                    <strong>Community & Collaboration</strong>
+                  </div>
+                  <div class="flip-card-back">
+                    <p>
+                      Be part of a vibrant network of political cartoonists.
+                      Collaborate, learn, and grow together!
+                    </p>
+                  </div>
+                </div>
+              </div>
             </li>
             <li
               style={{
@@ -247,10 +288,26 @@ export default component$(() => {
                 justifyItems: "center",
               }}
             >
-              <LuLineChart style={{ fontSize: "32px", color: "#46915c" }} />
-              <strong>Real-Time Analytics</strong> Track your store’s
-              performance with easy-to-understand analytics. Stay informed and
-              strategize effectively for more sales!
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <LuLineChart
+                      style={{
+                        fontSize: "32px",
+                        color: "black",
+                        alignSelf: "end",
+                      }}
+                    />
+                    <strong>Track Your Success</strong>
+                  </div>
+                  <div class="flip-card-back">
+                    <p>
+                      Use simple analytics to see how your store is doing and
+                      plan for more sales.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </li>
             <li
               style={{
@@ -258,10 +315,26 @@ export default component$(() => {
                 justifyItems: "center",
               }}
             >
-              <LuShieldCheck style={{ fontSize: "32px", color: "#46915c" }} />
-              <strong>Secure Payments</strong> Receive your earnings safely
-              through our trusted payment system. You create, you sell, you
-              earn. It's that simple!
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <LuShieldCheck
+                      style={{
+                        fontSize: "32px",
+                        color: "black",
+                        alignSelf: "end",
+                      }}
+                    />
+                    <strong>Get Paid Safely</strong>
+                  </div>
+                  <div class="flip-card-back">
+                    <p>
+                      Your earnings are securely transferred through our trusted
+                      payment system.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </li>
           </ul>
         </div>

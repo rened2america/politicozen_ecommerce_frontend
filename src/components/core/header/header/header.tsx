@@ -27,8 +27,8 @@ export default component$(() => {
               : { display: "none" }
           }
         >
-          <Link href="/artists">Artists store</Link>
-          <Link href="/search/?q=">Collections</Link>
+          <Link href="/artists">Artists</Link>
+          <Link href="/categories">Categories</Link>
           <Link href="/how-it-works">How it works</Link>
         </div>
         <div class={styles["header-menu-mobile"]}>
@@ -79,10 +79,10 @@ export default component$(() => {
             <li
               class={styles["btn-nav"]}
               onClick$={() => {
-                nav("/search/?q=");
+                nav("/categories");
               }}
             >
-              Collections
+              Categories
             </li>
             <li
               class={styles["btn-nav"]}
@@ -98,7 +98,7 @@ export default component$(() => {
                 nav("/artists");
               }}
             >
-              Artists store
+              Artists
             </li>
           </ul>
         </nav>
