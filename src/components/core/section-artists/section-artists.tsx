@@ -2,12 +2,38 @@ import { component$ } from "@builder.io/qwik";
 import styles from "./section-artists.module.css";
 import { Link } from "@builder.io/qwik-city";
 
-export default component$(() => {
+export default component$((prosp: any) => {
   return (
     <div class={styles["section-container"]}>
       <div class={styles["title"]}>Popular Cartoons</div>
       <div class={styles["content"]}>
-        <Link
+        {prosp.arts.map((art: any) => {
+          return (
+            <Link
+              key={art.id}
+              href={`/product/${art.id}/?variant=white&size=${
+                art.product[0].types[0].value === "Mug" ? "11 oz" : "S"
+              }&product=${art.product[0].types[0].value}`}
+              class={styles["image-container"]}
+            >
+              <img
+                width="200"
+                height="250"
+                class={styles["image-container-img-rounded"]}
+                src={art.urlImage}
+                alt={art.name}
+              />
+              <div class={styles["backgroundImageText"]}>
+                <div class={styles["img-container-text"]}>{art.name}</div>
+                <div class={styles["img-container-text2"]}>
+                  {art.artist.name}
+                </div>
+              </div>
+            </Link>
+          );
+        })}
+
+        {/* <Link
           href={"/product/10/?variant=white&size=S&product=Sweatshirt"}
           class={styles["image-container"]}
         >
@@ -72,7 +98,7 @@ export default component$(() => {
             <div class={styles["img-container-text"]}>Wanted</div>
             <div class={styles["img-container-text2"]}>Wilfred Hildonen</div>
           </div>
-        </Link>
+        </Link> */}
         {/* <div class={styles["image-container"]}>
             <div data-hover="Description" class={styles["hovertext"]}>
               <img

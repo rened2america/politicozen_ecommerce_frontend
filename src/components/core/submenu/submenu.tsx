@@ -12,10 +12,10 @@ export default component$(() => {
             cursor: "pointer",
           }}
           onClick$={() => {
-            nav("/search/?q=");
+            nav("/categories");
           }}
         >
-          Collections
+          Categories
         </li>
         <li
           style={{
@@ -25,7 +25,7 @@ export default component$(() => {
             nav("/artists");
           }}
         >
-          Artists store
+          Artists
         </li>
         <li
           style={{
