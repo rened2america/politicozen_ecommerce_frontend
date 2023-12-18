@@ -25,14 +25,14 @@ export default component$(() => {
               justifyItems: "center",
             }}
           >
-            <h2 class="subtitle">Step-by-Step Guide</h2>
-            {/* <Image
-              src="https://printify.com/wp-content/uploads/2023/04/Create-Your-Pop-Up-Store-With-Printify.jpg"
-              width="282"
-              height="450"
-            /> */}
-
-            <Image src="/howitworks/store.png" width="300" height="184" />
+            <h2
+              class="subtitle"
+              style={{
+                color: "#ece8de",
+              }}
+            >
+              Step-by-Step Guide
+            </h2>
           </div>
           <ol class="steps-list">
             <li
@@ -44,26 +44,36 @@ export default component$(() => {
               <div
                 style={{
                   display: "grid",
+                  width: "180px",
+                  backgroundColor: "#ece8de",
+                  gridTemplateRows: "40px 1fr 40px",
+                  borderRadius: "8px",
+                  padding: "24px",
+                  justifyItems: "center",
                 }}
               >
                 <div
                   style={{
-                    fontWeight: "800",
-                    color: "#77DF95",
-                  }}
-                >
-                  Step 1
-                </div>
-                <Image src="/howitworks/input.gif" width="240" height="110" />
-
-                <div
-                  style={{
-                    fontSize: "20px",
+                    fontSize: "16px",
                     fontWeight: "700",
+                    color: "#111",
                   }}
                 >
                   Sign Up & Set Up
                 </div>
+                <Image
+                  src="/howitworks/flame-1235.png"
+                  width="200"
+                  height="200"
+                />
+                <div
+                  style={{
+                    fontWeight: "800",
+                    color: "#3a7b4d",
+                  }}
+                >
+                  Step 1
+                </div>
               </div>
             </li>
             <li
@@ -75,26 +85,32 @@ export default component$(() => {
               <div
                 style={{
                   display: "grid",
+                  width: "180px",
+                  backgroundColor: "#ece8de",
+                  gridTemplateRows: "40px 1fr 40px",
+                  borderRadius: "8px",
+                  padding: "24px",
+                  justifyItems: "center",
                 }}
               >
                 <div
                   style={{
-                    fontWeight: "800",
-                    color: "#77DF95",
-                  }}
-                >
-                  Step 2
-                </div>
-                <Image src="/howitworks/drag3.gif" width="300" height="200" />
-
-                <div
-                  style={{
-                    fontSize: "20px",
+                    fontSize: "16px",
                     fontWeight: "700",
+                    color: "#111",
                   }}
                 >
                   Upload Your Artwork
                 </div>
+                <Image src="/howitworks/upload.png" width="200" height="200" />
+                <div
+                  style={{
+                    fontWeight: "800",
+                    color: "#3a7b4d",
+                  }}
+                >
+                  Step 2
+                </div>
               </div>
             </li>
             <li
@@ -106,26 +122,36 @@ export default component$(() => {
               <div
                 style={{
                   display: "grid",
+                  width: "180px",
+                  backgroundColor: "#ece8de",
+                  gridTemplateRows: "40px 1fr 40px",
+                  borderRadius: "8px",
+                  padding: "24px",
+                  justifyItems: "center",
                 }}
               >
                 <div
                   style={{
-                    fontWeight: "800",
-                    color: "#77DF95",
-                  }}
-                >
-                  Step 3
-                </div>
-                <Image src="/howitworks/merch.gif" width="260" height="200" />
-
-                <div
-                  style={{
-                    fontSize: "20px",
+                    fontSize: "16px",
                     fontWeight: "700",
+                    color: "#111",
                   }}
                 >
                   Choose Your Merch
                 </div>
+                <Image
+                  src="/howitworks/selectStore.png"
+                  width="200"
+                  height="200"
+                />
+                <div
+                  style={{
+                    fontWeight: "800",
+                    color: "#3a7b4d",
+                  }}
+                >
+                  Step 3
+                </div>
               </div>
             </li>
             <li
@@ -137,26 +163,32 @@ export default component$(() => {
               <div
                 style={{
                   display: "grid",
+                  width: "180px",
+                  backgroundColor: "#ece8de",
+                  gridTemplateRows: "40px 1fr 40px",
+                  borderRadius: "8px",
+                  padding: "24px",
+                  justifyItems: "center",
                 }}
               >
                 <div
                   style={{
-                    fontWeight: "800",
-                    color: "#77DF95",
-                  }}
-                >
-                  Step 4
-                </div>
-                <Image src="/howitworks/design2.gif" width="500" height="200" />
-
-                <div
-                  style={{
-                    fontSize: "20px",
+                    fontSize: "16px",
                     fontWeight: "700",
+                    color: "#111",
                   }}
                 >
                   Customize Your Store
                 </div>
+                <Image src="/howitworks/choose.png" width="200" height="200" />
+                <div
+                  style={{
+                    fontWeight: "800",
+                    color: "#3a7b4d",
+                  }}
+                >
+                  Step 4
+                </div>
               </div>
             </li>
             <li
@@ -168,23 +200,31 @@ export default component$(() => {
               <div
                 style={{
                   display: "grid",
+                  width: "180px",
+                  backgroundColor: "#ece8de",
+                  gridTemplateRows: "40px 1fr 40px",
+                  borderRadius: "8px",
+                  padding: "24px",
+                  justifyItems: "center",
                 }}
               >
                 <div
                   style={{
-                    fontWeight: "800",
-                    color: "#77DF95",
-                  }}
-                >
-                  Step 5
-                </div>
-                <div
-                  style={{
-                    fontSize: "20px",
+                    fontSize: "16px",
                     fontWeight: "700",
+                    color: "#111",
                   }}
                 >
                   Promote & Sell
+                </div>
+                <Image src="/howitworks/promote.png" width="200" height="200" />
+                <div
+                  style={{
+                    fontWeight: "800",
+                    color: "#3a7b4d",
+                  }}
+                >
+                  Step 5
                 </div>
               </div>
             </li>
