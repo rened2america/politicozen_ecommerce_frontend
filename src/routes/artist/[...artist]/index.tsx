@@ -243,7 +243,9 @@ export default component$(() => {
                     product.product[0].types.length > 0
                       ? product.product[0]?.types[0]?.value === "Mug"
                         ? "11 oz"
-                        : "S"
+                        : product.product[0]?.types[0]?.value === "Poster"
+                        ? `17"x25.5"`
+                        : `11"x14"`
                       : "S"
                   }&product=${product.product[0]?.types[0]?.value}`}
                 >
