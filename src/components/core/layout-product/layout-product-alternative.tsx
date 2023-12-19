@@ -137,6 +137,11 @@ export default component$((props: any) => {
                             const product = loc.url.searchParams.get("product");
 
                             const productId = loc.params.slug;
+                            if (product === "Poster" || product === "Canvas") {
+                              nav(
+                                `/product/${productId}/?size=${sizeSelect}&product=${product}`
+                              );
+                            }
                             nav(
                               `/product/${productId}/?variant=${variant}&size=${sizeSelect}&product=${product}`
                             );
@@ -263,9 +268,21 @@ export default component$((props: any) => {
                         `/product/${productId}/?variant=white&size=11%20oz&product=${productType}`
                       );
                     } else {
-                      await nav(
-                        `/product/${productId}/?variant=white&size=S&product=${productType}`
-                      );
+                      if (productType === "Poster") {
+                        await nav(
+                          `/product/${productId}/?size=17"x25.5"&product=${productType}`
+                        );
+                      }
+                      if (productType === "Canvas") {
+                        await nav(
+                          `/product/${productId}/?size=11"x14"&product=${productType}`
+                        );
+                      }
+                      if (productType != "Canvas" && productType != "Poster") {
+                        await nav(
+                          `/product/${productId}/?variant=white&size=S&product=${productType}`
+                        );
+                      }
                     }
                   }}
                   class={[
