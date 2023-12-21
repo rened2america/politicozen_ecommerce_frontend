@@ -34,7 +34,13 @@ export default component$(() => {
           width: "80%",
         }}
       >
-        <div>1.- Terms</div>
+        <div
+          style={{
+            fontSize: "24px",
+          }}
+        >
+          1.- Terms
+        </div>
         <div>
           The materials contained in this Website are protected by copyright and
           trademark law. By accessing this Website, accessible from
@@ -43,7 +49,13 @@ export default component$(() => {
           agreement with any applicable local laws. If you disagree with these
           terms, you are prohibited from accessing this site.
         </div>
-        <div>2.-Use a License</div>
+        <div
+          style={{
+            fontSize: "24px",
+          }}
+        >
+          2.-Use a License
+        </div>
         <div>
           Permission is granted to temporarily download one copy of the
           materials on PoliticoZen’s Website for personal, non-commercial
@@ -87,7 +99,13 @@ export default component$(() => {
           Service have been created with the help of the Terms Of Service
           Generator.
         </div>
-        <div>3.-Disclaimer</div>
+        <div
+          style={{
+            fontSize: "24px",
+          }}
+        >
+          3.-Disclaimer
+        </div>
         <div>
           All the materials on PoliticoZen’s Website are provided “as is.”
           PoliticoZen makes no warranties, whether expressed or implied,
@@ -96,7 +114,13 @@ export default component$(() => {
           of the materials on its Website or otherwise relating to such
           materials or any sites linked to this Website.
         </div>
-        <div>4.-Limitations</div>
+        <div
+          style={{
+            fontSize: "24px",
+          }}
+        >
+          4.-Limitations
+        </div>
         <div>
           PoliticoZen or its suppliers will not be held accountable for any
           damages that will arise with the use or inability to use the materials
@@ -106,7 +130,13 @@ export default component$(() => {
           limitations on implied warranties or limitations of liability for
           incidental damages. These limitations may not apply to you.
         </div>
-        <div>5.-Revisions and Errata</div>
+        <div
+          style={{
+            fontSize: "24px",
+          }}
+        >
+          5.-Revisions and Errata
+        </div>
         <div>
           The materials appearing on PoliticoZen’s Website may include
           technical, typographical, or photographic errors. PoliticoZen will not
@@ -116,7 +146,13 @@ export default component$(() => {
           time without notice.
         </div>
 
-        <div>6.-Links</div>
+        <div
+          style={{
+            fontSize: "24px",
+          }}
+        >
+          6.-Links
+        </div>
         <div>
           PoliticoZen has not reviewed all of the sites linked to its Website
           and is not responsible for the contents of any such linked site. The
@@ -124,16 +160,34 @@ export default component$(() => {
           site. The use of any related website is at the user’s own risk.
         </div>
 
-        <div>7.-Site Terms of Use Modifications</div>
+        <div
+          style={{
+            fontSize: "24px",
+          }}
+        >
+          7.-Site Terms of Use Modifications
+        </div>
         <div>
           PoliticoZen may revise these Terms of Use for its Website without
           prior notice. By using this Website, you agree to be bound by the
           current version of these Terms and Conditions of Use.
         </div>
 
-        <div>8.- Your Privacy</div>
+        <div
+          style={{
+            fontSize: "24px",
+          }}
+        >
+          8.- Your Privacy
+        </div>
         <div>Please read our Privacy Policy.</div>
-        <div>9.- Governing Law</div>
+        <div
+          style={{
+            fontSize: "24px",
+          }}
+        >
+          9.- Governing Law
+        </div>
         <div>
           The laws of ph shall govern any claim related to PoliticoZen’s Website
           without regard to its conflict of law provisions.

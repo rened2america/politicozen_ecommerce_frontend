@@ -1,9 +1,6 @@
 import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import Search from "~/components/primitives/input/search/search";
 import styles from "./home-search.module.css";
-import { Link } from "@builder.io/qwik-city";
-import ArrowLeftFull from "~/components/primitives/Icons/arrowLeft/arrowLeftFull";
-import ArrowRightFull from "~/components/primitives/Icons/arrowRight/arrowRightFull";
 export default component$(() => {
   const refScroll = useSignal<Element>();
   const plus = useSignal(89);
