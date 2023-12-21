@@ -11,7 +11,15 @@
 .main-title {
   font-size: 72px;
   font-weight: 400;
-  padding: 40px;
+  padding: 0px 40px;
+  text-align: center;
+  line-height: 76px;
+}
+
+.main-subtitle {
+  font-size: 56px;
+  font-weight: 400;
+  padding: 0 40px;
   text-align: center;
   line-height: 76px;
 }
@@ -24,13 +32,12 @@
   display: grid;
   gap: 24px;
   padding: 0 40px;
-  justify-items: self-start;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(228px, 230px));
 }
 .article-container {
   /* background-color: #203741; #fbf7ed */
   background-color: #203741;
-
   padding: 60px 0;
   color: white;
   width: 100%;
@@ -171,7 +178,6 @@
   text-align: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .flip-card:hover .flip-card-inner {
@@ -186,6 +192,7 @@
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   padding: 16px;
+  border-radius: 8px;
 }
 
 .flip-card-front {

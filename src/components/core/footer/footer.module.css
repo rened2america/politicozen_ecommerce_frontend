@@ -1,6 +1,6 @@
 .footer-container {
   display: grid;
-  grid-template-rows: 1fr 100px;
+  grid-template-rows: 150px 100px;
   color: #727b81;
 }
 .footer-bottom {

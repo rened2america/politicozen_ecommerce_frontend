@@ -47,7 +47,7 @@ export const Footer = component$(() => {
             <div>FAQ</div>
           </div>
         </div>
-        <div class={styles["footer-top-thirt"]}>
+        {/* <div class={styles["footer-top-thirt"]}>
           <div class={styles["footer-top-thirt-header"]}>Artists</div>
           <div class={styles["footer-top-thirt-content"]}>
             <div
@@ -60,11 +60,18 @@ export const Footer = component$(() => {
             </div>
             <div>Shop Benefits</div>
           </div>
-        </div>
+        </div> */}
         <div class={styles["footer-top-four"]}>
           <div class={styles["footer-top-four-header"]}>Contact</div>
           <div class={styles["footer-top-four-content"]}>
-            <div>chi@politicozen.com</div>
+            <Link
+              style={{
+                textDecoration: "none",
+              }}
+              href="mailto:chi@politicozen.com"
+            >
+              chi@politicozen.com
+            </Link>
             <div>+1 408-835-0739</div>
           </div>
         </div>

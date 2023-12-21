@@ -28,13 +28,14 @@ export default component$(() => {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat( auto-fit, minmax(330px, 1fr) )",
+          gridTemplateColumns: "repeat( auto-fit, minmax(330px, 350px) )",
           justifyContent: "center",
           width: "100%",
           marginTop: "32px",
           gap: "24px",
           padding: "40px",
           boxSizing: "border-box",
+          cursor: "pointer",
         }}
       >
         {getCategories.value.categories.map(
