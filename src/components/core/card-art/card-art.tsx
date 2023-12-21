@@ -1,24 +1,38 @@
 import { component$ } from "@builder.io/qwik";
-import style from "./card-art.module.css";
+import styles from "./card-art.module.css";
 
 export default component$((props: any) => {
   return (
-    <div class={style.card}>
+    <div class={styles["image-container"]}>
       <img
-        class={style["card-img"]}
-        src={props.image.urlImage}
-        alt="Avatar"
-        width="250"
+        width="212"
         height="250"
+        class={styles["image-container-img-rounded"]}
+        src={props.image.urlImage}
+        alt={props.image.name}
       />
-      <h2
-        style={{
-          fontSize: "16px",
-          fontWeight: "500",
-        }}
-      >
-        {props.image.name}
-      </h2>
+      <div class={styles["backgroundImageText"]}>
+        <div class={styles["img-container-text"]}>{props.image.name}</div>
+      </div>
     </div>
   );
+  // return (
+  //   <div class={style.card}>
+  //     <img
+  //       class={style["card-img"]}
+  //       src={props.image.urlImage}
+  //       alt="Avatar"
+  //       width="250"
+  //       height="250"
+  //     />
+  //     <h2
+  //       style={{
+  //         fontSize: "16px",
+  //         fontWeight: "500",
+  //       }}
+  //     >
+  //       {props.image.name}
+  //     </h2>
+  //   </div>
+  // );
 });
