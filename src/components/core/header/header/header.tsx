@@ -49,6 +49,21 @@ export default component$(() => {
           </div>
         </div>
         <div
+          class={styles["btn-nav"]}
+          onClick$={() => {
+            nav("/");
+          }}
+          style={{
+            display: "grid",
+            justifySelf: "center",
+            alignSelf: "center",
+            height: "50px",
+            marginTop: "8px",
+          }}
+        >
+          <HeaderLeft />
+        </div>
+        <div
           class={styles["hiw"]}
           onClick$={() => {
             nav("/how-it-works");
@@ -87,10 +102,10 @@ export default component$(() => {
             <li
               class={styles["btn-nav"]}
               onClick$={() => {
-                nav("/");
+                nav("/search/?q=");
               }}
             >
-              <HeaderLeft />
+              Products
             </li>
             <li
               class={styles["btn-nav"]}

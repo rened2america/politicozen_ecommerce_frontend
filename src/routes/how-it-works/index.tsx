@@ -288,8 +288,8 @@ export default component$(() => {
                   </div>
                   <div class="flip-card-back">
                     <p>
-                      You get 25% of the sales from your products. No hidden
-                      fees.
+                      You get <strong>40% </strong>of the sales from your
+                      products. No hidden fees.
                     </p>
                   </div>
                 </div>

@@ -1,6 +1,6 @@
 .header-container {
   display: grid;
-  grid-template-columns: 150px 1fr 150px;
+  grid-template-columns: 50px 150px 1fr 150px;
   height: 100px;
   padding: 0 40px;
 }
