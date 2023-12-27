@@ -46,7 +46,8 @@ export default component$(() => {
             fontWeight: "500",
           }}
         >
-          The cartoonist will earn up to 25% royalties on their merchandise.
+          The cartoonist will earn up to <strong>40% </strong>royalties on their
+          merchandise.
         </div>
       </div>
       <div
