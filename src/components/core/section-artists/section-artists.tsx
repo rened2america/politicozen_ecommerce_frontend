@@ -5,7 +5,7 @@ import { Link } from "@builder.io/qwik-city";
 export default component$((prosp: any) => {
   return (
     <div class={styles["section-container"]}>
-      <div class={styles["title"]}>Most recent upload</div>
+      <div class={styles["title"]}>Most Recent Uploads</div>
       <div class={styles["content"]}>
         {prosp.arts.map((art: any) => {
           return (
