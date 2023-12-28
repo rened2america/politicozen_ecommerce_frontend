@@ -1,9 +1,9 @@
 import { createContextId } from "@builder.io/qwik";
 
 export type TFilter = {
-  types: Array<"Shirt" | "Hoodie" | "Mug">;
-  tag: Array<"Political" | "Trump" | "War">;
-  artist: Array<"Alex Johnson" | "Jane Smith" | "John Doe">;
+  types: Array<"Shirt" | "Hoodie" | "Mug" | "Canvas" | "Poster">;
+  tag: Array<"Art" | "Political" | "Love">;
+  artist: Array<"Hamit Gis" | "Wilfred Hildonen" | "Engin Selcuk">;
 };
 export interface filterProductState {
   filters: TFilter;

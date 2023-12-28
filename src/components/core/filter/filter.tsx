@@ -182,6 +182,56 @@ export default component$(() => {
               />
               <span>Shirt</span>
             </label>
+            <label class={style["label"]}>
+              <input
+                checked={
+                  filters?.filters?.types?.find(
+                    (typeValue) => typeValue === "Canvas"
+                  )
+                    ? true
+                    : false
+                }
+                name="productType"
+                value="Canvas"
+                type="checkbox"
+                onChange$={(e) => {
+                  const newValue = e.target.value;
+                  const newUri = generateUrlQuery(
+                    filters.filters,
+                    filters.search,
+                    newValue,
+                    "types"
+                  );
+                  nav(`/search/${newUri}`);
+                }}
+              />
+              <span>Canvas</span>
+            </label>
+            <label class={style["label"]}>
+              <input
+                checked={
+                  filters?.filters?.types?.find(
+                    (typeValue) => typeValue === "Poster"
+                  )
+                    ? true
+                    : false
+                }
+                name="productType"
+                value="Poster"
+                type="checkbox"
+                onChange$={(e) => {
+                  const newValue = e.target.value;
+                  const newUri = generateUrlQuery(
+                    filters.filters,
+                    filters.search,
+                    newValue,
+                    "types"
+                  );
+                  nav(`/search/${newUri}`);
+                }}
+              />
+              <span>Poster</span>
+            </label>
           </div>
         </div>
         <div class={style["section"]}>
@@ -217,7 +267,7 @@ export default component$(() => {
               <input
                 checked={
                   filters?.filters?.tag?.find(
-                    (typeValue) => typeValue === "Trump"
+                    (typeValue) => typeValue === "Art"
                   )
                     ? true
                     : false
@@ -233,17 +283,17 @@ export default component$(() => {
                   );
                   nav(`/search/${newUri}`);
                 }}
-                value="Trump"
+                value="Art"
                 name="tag"
                 type="checkbox"
               />
-              <span>Trump</span>
+              <span>Art</span>
             </label>
             <label class={style["label"]}>
               <input
                 checked={
                   filters?.filters?.tag?.find(
-                    (typeValue) => typeValue === "War"
+                    (typeValue) => typeValue === "Love"
                   )
                     ? true
                     : false
@@ -259,12 +309,21 @@ export default component$(() => {
                   );
                   nav(`/search/${newUri}`);
                 }}
-                value="War"
+                value="Love"
                 name="tag"
                 type="checkbox"
               />
-              <span>War</span>
+              <span>Love</span>
             </label>
+            <Link class={style["button-load-more"]} href={`/categories`}>
+              <div
+                style={{
+                  cursor: "pointer",
+                }}
+              >
+                Load more...
+              </div>
+            </Link>
           </div>
         </div>
         <div class={style["section"]}>
@@ -285,12 +344,12 @@ export default component$(() => {
                 }}
                 checked={
                   filters?.filters?.artist?.find(
-                    (typeValue: any) => typeValue.name === "Engin-Selcuk"
+                    (typeValue: any) => typeValue.name === "Engin Selcuk"
                   )
                     ? true
                     : false
                 }
-                value="Engin-Selcuk"
+                value="Engin Selcuk"
                 name="artist"
                 type="checkbox"
               />
@@ -310,12 +369,12 @@ export default component$(() => {
                 }}
                 checked={
                   filters?.filters?.artist?.find((typeValue: any) => {
-                    return typeValue.name === "Saman-Torabi";
+                    return typeValue.name === "Saman Torabi";
                   })
                     ? true
                     : false
                 }
-                value="Saman-Torabi"
+                value="Saman Torabi"
                 name="artist"
                 type="checkbox"
               />
