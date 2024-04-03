@@ -14,10 +14,19 @@ export default component$((props: any) => {
               return (
                 <Link
                   key={product.id}
-                  href={`/product/${product.group.id}/?variant=white&size=${
+                  href={`/product/${product.group.id}/?${
+                    product?.types[0]?.value === "Poster" ||
+                    product?.types[0]?.value === "Canvas"
+                      ? ""
+                      : "variant=white&"
+                  }size=${
                     product.types.length > 0
                       ? product?.types[0]?.value === "Mug"
                         ? "11 oz"
+                        : product?.types[0]?.value === "Poster"
+                        ? `17"x25.5"`
+                        : product?.types[0]?.value === "Canvas"
+                        ? `11"x14"`
                         : "S"
                       : "S"
                   }&product=${product?.types[0]?.value}`}

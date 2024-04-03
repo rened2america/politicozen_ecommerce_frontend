@@ -11,9 +11,10 @@ export default component$((prosp: any) => {
           return (
             <Link
               key={art.id}
-              href={`/product/${art.id}/?variant=white&size=${
-                art.product[0].types[0].value === "Mug" ? "11 oz" : "S"
-              }&product=${art.product[0].types[0].value}`}
+              // href={`/product/${art.id}/?variant=white&size=${
+              //   art.product[0].types[0].value === "Mug" ? "11 oz" : "S"
+              // }&product=${art.product[0].types[0].value}`}
+              href={`/product/${art.id}/?size=17"x25.5"&product=Poster`}
               class={styles["image-container"]}
             >
               <img
