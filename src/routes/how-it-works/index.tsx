@@ -14,7 +14,7 @@ export default component$(() => {
   useStylesScoped$(styles);
   return (
     <section class="how-it-works">
-      <h1 class="main-title">Welcome to politicozen</h1>
+      <h1 class="main-title">Social Reality Punching Back</h1>
       <h2 class="main-subtitle">
         Unleash creativity, launch your Shop, make your mark!
       </h2>

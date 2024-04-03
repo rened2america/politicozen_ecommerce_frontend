@@ -325,10 +325,6 @@ export default component$((props: any) => {
       <div class={style["relation-arts"]}>
         {props?.groupRelation &&
           props.groupRelation.map((product: any) => {
-            console.log(
-              "esto esta en el array",
-              product.product[0]?.types[0]?.value
-            );
             return (
               <Link
                 style={{
@@ -336,13 +332,7 @@ export default component$((props: any) => {
                   justifyContent: "center",
                 }}
                 key={product.product[0].id}
-                href={`/product/${product.id}/?variant=white&size=${
-                  product.product[0].types.length > 0
-                    ? product.product[0]?.types[0]?.value === "Mug"
-                      ? "11 oz"
-                      : "S"
-                    : "S"
-                }&product=${product.product[0]?.types[0]?.value}`}
+                href={`/product/${product.id}/?size=17"x25.5"&product=Poster`}
               >
                 <CardArt image={product} />
               </Link>
