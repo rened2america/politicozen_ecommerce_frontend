@@ -235,7 +235,7 @@ export default component$(() => {
           </div>
         </div>
         <div class={style["section"]}>
-          <h1 class={style.title}>Theme</h1>
+          <h1 class={style.title}>Categories</h1>
           <div class={style["filter-list"]}>
             <label class={style["label"]}>
               <input

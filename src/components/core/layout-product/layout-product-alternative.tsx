@@ -176,7 +176,7 @@ export default component$((props: any) => {
           </div>
           {props.currentProduct && props.currentProduct.colors.length > 0 ? (
             <div class={style["color-container"]}>
-              <div>Color</div>
+              <div>Select Color</div>
               <div class={style["content-color"]}>
                 {props.currentProduct
                   ? props.currentProduct.colors
