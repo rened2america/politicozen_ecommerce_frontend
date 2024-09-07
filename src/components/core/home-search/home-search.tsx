@@ -32,8 +32,6 @@ export default component$(() => {
   });
 
   return (
-    <div class={styles["home-search-container"]}>
-      <Search />
-    </div>
+    <Search />
   );
 });

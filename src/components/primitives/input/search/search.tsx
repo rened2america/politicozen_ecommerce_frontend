@@ -10,18 +10,13 @@ export default component$(() => {
       }}
       action="/search"
     >
-      <div class={styles["input-search-container"]}>
-        <div class={styles["icon-search"]}>
-          <HiMagnifyingGlassMini />
-        </div>
-        <input
-          class={styles["input-search"]}
-          type="search"
-          placeholder="Search all artist or products"
-          name="q"
-          default-value={""}
-        />
-      </div>
+      <input
+        class="p-4 w-full lg:w-[500px] md:w-[400px] text-12px md:text-15px lg:text-xl rounded-2xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FFDA79] transition duration-300"
+        type="search"
+        placeholder="Search all artist or products"
+        name="q"
+        default-value={""}
+      />
     </form>
   );
 });

@@ -1,4 +1,12 @@
 /**
+ * Tailwind CSS imports
+ * View the full documentation at https://tailwindcss.com
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
  * WHAT IS THIS FILE?
  *
  * Globally applied styles. No matter which components are in the page or matching route,
@@ -71,4 +79,127 @@ html {
 body {
   padding: 0;
   line-height: inherit;
+}
+
+.most-recent {
+  position: relative;
+}
+.most-recent::before {
+  content: '';
+  position: absolute;
+  height: 470px;
+  width: calc(100% - 150px);
+  right: 0;
+  top: 0;
+  background: #fff;
+  z-index: 0;
+  border-top-left-radius: 100px;
+}
+
+@media screen and (max-width: 2560px) {
+  .acma {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media screen and (max-width: 1378px) {
+  .ruby {
+   grid-template-columns: 1fr 1fr;
+  }
+  .acma {
+    grid-template-columns: 1fr 1fr;
+  }
+  .most-recent {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 1140px) {
+  .ruby {
+   grid-template-columns: 1fr 1fr;
+  }
+  .most-recent::before{
+    width: 100%;
+    margin-left: 0;
+    border-top-left-radius: 0px;
+  }
+  .luffy {
+    margin-left: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .acma0{
+    margin-left: 0;
+  }
+  .ruby0{
+    margin-left: 0;
+  }
+  .res1 {
+    grid-template-columns: 1fr 1fr;
+   }
+   .res0{
+     margin-left: 0;
+   }
+}
+@media only screen and (max-width: 970px) {
+  .acma {
+    grid-template-columns: 1fr;
+    height: 865px;
+  }
+  .acma0{
+    margin-left: 0;
+  }
+  .main{
+    width: 40rem;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .ruby {
+   grid-template-columns: 1fr;
+  }
+  .most-recent::before{
+    width: 100%;
+    margin-left: 0;
+    border-top-left-radius: 0px;
+  }
+  .ruby0{
+    margin-left: 0;
+  }
+  .main{
+    width: 100%;
+  }
+  .prcard{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (max-width: 650px) {
+  .res1 {
+   grid-template-columns: 1fr;
+  }
+  .res0{
+    margin-left: 0;
+    width:100%;
+  }
+  .acma0{
+    flex-direction: column;
+    align-items: center;
+  }
+  .acma{
+    padding-left: 1.5rem;
+    margin-top: 2rem;
+    grid-template-columns: 1fr 1fr;
+    width: auto;
+    height: 400px;
+  }
+  .sidebar{
+    height: 390px;
+  }
+}
+@media only screen and (max-width: 470px) {
+  .selectsize{
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .acma {
+    height: 400px;
+  }
 }
