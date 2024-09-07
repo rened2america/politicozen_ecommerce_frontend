@@ -1,10 +1,4 @@
 import { component$ } from "@builder.io/qwik";
-import styles from "./footer.module.css";
-import Logo from "~/components/primitives/logo/logo";
-import { Instagram } from "../icons/instagram";
-import { Twitter } from "../icons/twitter";
-import { Facebook } from "../icons/facebook";
-import { Tiktok } from "../icons/tiktok";
 import { Link, useNavigate } from "@builder.io/qwik-city";
 
 export const Footer = component$(() => {

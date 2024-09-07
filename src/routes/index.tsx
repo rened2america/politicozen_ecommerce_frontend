@@ -1,7 +1,6 @@
 import { component$, useContextProvider, useStore } from "@builder.io/qwik";
 import { routeLoader$ } from "@builder.io/qwik-city";
 
-import Banner from "~/components/core/banner/banner";
 import HomeSearch from "~/components/core/home-search/home-search";
 import SectionArtists from "~/components/core/section-artists/section-artists";
 import SectionInfo from "~/components/core/section-info/section-info";

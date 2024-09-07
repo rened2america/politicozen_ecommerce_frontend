@@ -1,6 +1,4 @@
 import { component$ } from "@builder.io/qwik";
-import styles from "./search.module.css";
-import { HiMagnifyingGlassMini } from "@qwikest/icons/heroicons";
 export default component$(() => {
   return (
     <form
