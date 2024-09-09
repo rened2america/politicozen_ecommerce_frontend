@@ -1,126 +1,114 @@
 import { component$, useSignal } from "@builder.io/qwik";
-import HeaderLeft from "../header-left/header-left";
-import HeaderRight from "../header-right/header-right";
-import styles from "./header.module.css";
 import { Link, useNavigate } from "@builder.io/qwik-city";
-import { LuMenu } from "@qwikest/icons/lucide";
+import ArrowRight from "~/components/primitives/Icons/arrowRight/arrowRight";
+import Logo from "~/components/primitives/logo/logo";
+
+
+
+
 export default component$(() => {
-  const nav = useNavigate();
   const openMenu = useSignal(false);
+
+
+
+  const routes = [
+    { name: "Home", href: "/" },
+    { name: "Categories", href: "/categories" },
+    { name: "Artists", href: "/artists" },
+  ];
+
   return (
-    <>
-      <header class={styles["header-container"]}>
-        <div
-          style={
-            openMenu.value
-              ? {
-                  position: "absolute",
-                  width: "80%",
-                  height: "120px",
-                  top: "80px",
-                  backgroundColor: "#f1f1f1",
-                  display: "grid",
-                  justifyItems: "center",
-                  padding: "8px 8px",
-                  gap: "24px",
-                }
-              : { display: "none" }
-          }
-        >
-          <Link href="/artists">Artists</Link>
-          <Link href="/categories">Categories</Link>
-          <Link href="/how-it-works">How it works</Link>
+    <nav class="relative w-full font-medium drop-shadow-md">
+      <div class="flex justify-between items-center w-full h-20 px-4 text-white bg-[#FFFFFF] nav">
+        <div>
+          <h1 class="text-5xl font-signature ml-2">
+            <a
+              class="link-underline link-underline-black"
+              href="/"
+            >
+              <Logo />
+            </a>
+          </h1>
         </div>
-        <div class={styles["header-menu-mobile"]}>
-          <LuMenu
-            onClick$={() => {
-              openMenu.value = !openMenu.value;
-            }}
-          />
-          <div
-            style={{
-              cursor: "pointer",
-            }}
-            onClick$={() => {
-              nav("/");
-            }}
-          >
-            <HeaderLeft />
+        <div class="flex items-center gap-4">
+          {/* Desktop Navigation Links */}
+          <div class="hidden lg:flex flex-grow justify-center items-center space-x-4">
+            {routes.map(({ name, href }, index) => (
+              <Link
+                key={index}
+                class="nav-links px-4 cursor-pointer capitalize font-semibold text-gray-500 hover:scale-105 duration-200 link-underline"
+                href={href}
+              >
+                {name}
+              </Link>
+            ))}
+          </div>
+          <div class="flex gap-2">
+            <Link
+              class="xs:text-[10px] xs:h-[40px] border border-gray-800 hover:border-gray-500 hover:text-gray-500 rounded-full uppercase
+               text-gray-800 p-2 w-full sm:w-[211px] flex justify-evenly items-center gap-2 text-sm md:text-[16px]"
+              href={"/how-it-works"}
+            >
+              How it Works{" "} <ArrowRight />
+            </Link>
+            <Link
+              class="xs:text-[10px] xs:h-[40px] rounded-full text-black uppercase bg-[#FFDA79] hover:bg-yellow-400 p-2 w-full sm:w-[142px] flex justify-evenly items-center gap-2 text-sm md:text-[16px] shadow-[10px_10px_20px_-5px] shadow-slate-300"
+              href={`${process.env.PUBLIC_URL_APP_DASHBOARD}/login`}>
+
+              JOIN{" "} <ArrowRight />
+            </Link>
+          </div>
+          {/* Mobile Menu Button */}
+          <div class="lg:hidden flex-grow flex justify-end">
+            <button
+              type="button"
+              onClick$={() => openMenu.value = true}
+              class="text-zinc-900 hover:text-rose-600 focus:outline-none focus:text-rose-600"
+            >
+              <span class="sr-only">Open main menu</span>
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                {openMenu.value ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </button>
           </div>
         </div>
-        <div
-          class={styles["btn-nav"]}
-          onClick$={() => {
-            nav("/");
-          }}
-          style={{
-            display: "grid",
-            justifySelf: "center",
-            alignSelf: "center",
-            height: "50px",
-            marginTop: "8px",
-          }}
-        >
-          <HeaderLeft />
+      </div>
+      {/* Mobile Menu Items */}
+      {openMenu.value && (
+        <div class="lg:hidden absolute top-full left-0 w-full bg-white z-20 text-center">
+          <div class="py-2 space-y-1">
+            {routes.map((route, index) => (
+              <Link
+                key={index}
+                href={route.href}
+                class="nav-links px-4 py-2 block cursor-pointer capitalize font-medium text-gray-500 hover:scale-105 duration-200 link-underline"
+              >
+                {route.name}
+              </Link>
+            ))}
+          </div>
         </div>
-        <div
-          class={styles["hiw"]}
-          onClick$={() => {
-            nav("/how-it-works");
-          }}
-        >
-          How it works
-        </div>
-
-        <nav class={styles["home-nav"]}>
-          <ul
-            style={{
-              display: "grid",
-              gridTemplateColumns: "100px 100px 100px",
-              listStyle: "none",
-              alignItems: "center",
-              justifyItems: "center",
-              fontSize: "14px",
-              fontFamily: "Verdana, Geneva, Tahoma, sans-serif",
-              fontWeight: "700",
-              color: "#1B1B1B",
-              justifyContent: "center",
-              listStyleType: "none",
-              paddingInlineStart: "0px",
-              marginBlockStart: "0px",
-              marginBlockEnd: "0px",
-            }}
-          >
-            <li
-              class={styles["btn-nav"]}
-              onClick$={() => {
-                nav("/categories");
-              }}
-            >
-              Categories
-            </li>
-            <li
-              class={styles["btn-nav"]}
-              onClick$={() => {
-                nav("/search/?q=");
-              }}
-            >
-              Products
-            </li>
-            <li
-              class={styles["btn-nav"]}
-              onClick$={() => {
-                nav("/artists");
-              }}
-            >
-              Artists
-            </li>
-          </ul>
-        </nav>
-        <div class={styles["header-right"]}>
-          <HeaderRight />
-        </div>
-      </header>
-    </>
+      )}
+    </nav>
   );
 });
