@@ -1,5 +1,5 @@
 import { component$, useSignal } from "@builder.io/qwik";
-import { Link, useNavigate } from "@builder.io/qwik-city";
+import { Link } from "@builder.io/qwik-city";
 import ArrowRight from "~/components/primitives/Icons/arrowRight/arrowRight";
 import Logo from "~/components/primitives/logo/logo";
 
