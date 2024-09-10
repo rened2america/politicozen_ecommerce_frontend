@@ -30,7 +30,7 @@ export default component$(() => {
         Over 100 artist already earning!
       </div>
       <h1 class={styles["banner-title"]}>
-        Cartooning Just Got a Lot Cooler (And Lucrative)!
+        Social reality punching back!
       </h1>
       <div
         style={{

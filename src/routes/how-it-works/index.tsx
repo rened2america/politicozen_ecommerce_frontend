@@ -407,7 +407,7 @@ export default component$(() => {
             Twitter
           </a>
           ,{" "}
-          <a class="underline" href="https://www.instagram.com/politicozen/">
+          <a class="underline" href="https://www.instagram.com/PoliticoZen/">
             Instagram
           </a>
           , and for{" "}

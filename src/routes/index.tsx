@@ -44,8 +44,8 @@ export default component$(() => {
               </div>
             </div>
             <div class="my-6">
-              <p class="text-3xl md:text-5xl lg:text-6xl font-black font-bold  leading-tight">
-                Cartooning Just <br /> Got a lot Cooler <br /> (And Lucrative)!
+              <p class="text-3xl md:text-5xl lg:text-6xl font-bold  leading-tight">
+                Social reality <br/> punching back!
               </p>
             </div>
             <div>

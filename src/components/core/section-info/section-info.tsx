@@ -24,7 +24,7 @@ export default component$(() => {
       <div class="w-full h-full flex justify-center flex-col">
         <div class="lg:text-[60px] md:text-[40px] sm:text-[30px]  font-black flex justify-center">
           <span>They sell</span>
-          <span class="text-[#FFDA79] pl-3">on politicozen</span>
+          <span class="text-[#FFDA79] pl-3">on PoliticoZen</span>
         </div>
         <div class="flex justify-center items-center">
           <div class="lg:text-[150px] md:text-[120px] sm:text-[50px] font-black text-[#1A2445] opacity-[0.05] leading-[150px]">
