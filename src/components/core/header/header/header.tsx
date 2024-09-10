@@ -45,14 +45,14 @@ export default component$(() => {
           </div>
           <div class="flex gap-2">
             <Link
-              class="xs:text-[10px] xs:h-[40px] border border-gray-800 hover:border-gray-500 hover:text-gray-500 rounded-full uppercase
+              class="xs:text-[10px] xs:h-[40px] border border-gray-800 hover:border-gray-500 hover:text-gray-500 cursor-pointer rounded-full uppercase
                text-gray-800 p-2 w-full sm:w-[211px] flex justify-evenly items-center gap-2 text-sm md:text-[16px]"
               href={"/how-it-works"}
             >
               How it Works{" "} <ArrowRight />
             </Link>
             <Link
-              class="xs:text-[10px] xs:h-[40px] rounded-full text-black uppercase bg-[#FFDA79] hover:bg-yellow-400 p-2 w-full sm:w-[142px] flex justify-evenly items-center gap-2 text-sm md:text-[16px] shadow-[10px_10px_20px_-5px] shadow-slate-300"
+              class="xs:text-[10px] xs:h-[40px] rounded-full text-black uppercase bg-[#FFDA79] hover:bg-yellow-400 cursor-pointer p-2 w-full sm:w-[142px] flex justify-evenly items-center gap-2 text-sm md:text-[16px] shadow-[10px_10px_20px_-5px] shadow-slate-300"
               href={`${process.env.PUBLIC_URL_APP_DASHBOARD}/login`}>
 
               JOIN{" "} <ArrowRight />
