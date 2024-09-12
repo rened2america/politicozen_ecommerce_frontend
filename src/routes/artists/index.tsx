@@ -24,7 +24,7 @@ export default component$(() => {
         <div class="res0 flex justify-center flex-wrap items-start pb-[25px] relative z-[1] ml-[11rem]">
           <div class="res1 lg:grid-cols-3 grid gap-6 pb-16">
             {getArtists.value.artist.map((artist: any, index: number) => (
-              <div class=" lg:w-[310px] lg:h-[60px] drop-shadow-sm ">
+              <div key={index} class=" lg:w-[310px] lg:h-[60px] drop-shadow-sm ">
                 <button class="res3 rounded-full border border-[#DDDDDD] w-64 h-full"
                   onClick$={() => nav(`/artist/${artist.name.replace(/ /g, "-")}/?page=1`)}>
                   <div class="justify-start flex items-center px-4 gap-4">
