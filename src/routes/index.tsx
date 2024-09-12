@@ -27,7 +27,7 @@ export default component$(() => {
     <>
       <div
         style={{
-          backgroundImage: `url('./background.png')`,
+          backgroundImage: `url('/background.png')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           height: '1210px', // Adjusted height to be dynamic
@@ -45,7 +45,7 @@ export default component$(() => {
             </div>
             <div class="my-6">
               <p class="text-3xl md:text-5xl lg:text-6xl font-bold  leading-tight">
-                Social reality <br/> punching back!
+                Social reality <br /> punching back!
               </p>
             </div>
             <div>
