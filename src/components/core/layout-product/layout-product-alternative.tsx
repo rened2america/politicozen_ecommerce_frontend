@@ -7,11 +7,12 @@ import {
   useSignal,
 } from "@builder.io/qwik";
 import style from "./layout-product.module.css";
-import { Preview } from "../preview/preview";
 import { CartContext } from "~/context/cart";
 import { Link, useLocation, useNavigate } from "@builder.io/qwik-city";
 // import { Image } from "@unpic/qwik";
-import CardArt from "../card-art/card-art";
+import { Image } from "@unpic/qwik";
+import ArrowRight from "~/components/primitives/Icons/arrowRight/arrowRight";
+import Card from "../card-art/card-art";
 
 export default component$((props: any) => {
   const cartList = useContext(CartContext);
@@ -63,282 +64,207 @@ export default component$((props: any) => {
   const colorOrder = ["White", "Blue", "Beige", "Red", "Black"];
 
   return (
-    <div class={style["product"]}>
-      <div class={style["product-container"]}>
-        {props.currentDesign && <Preview product={props.currentDesign} />}
-        <div class={style["product-information"]}>
-          <h1 class={style["title"]}>
-            {props.currentProduct && props.currentProduct.title}
-          </h1>
-          <h2 class={style["tag"]}>
-            {props.currentProduct &&
-              props.currentProduct.tag.map((tag: any) => {
-                return (
-                  <div
-                    style={{
-                      border: "1px solid black",
-                      borderRadius: "8px",
-                      padding: "8px 16px",
-                    }}
-                    key={tag.id}
-                  >
-                    {tag.value}
-                  </div>
-                );
-              })}
-          </h2>
-          <h3
-            style={{
-              fontSize: "14px",
-              fontWeight: "700",
-            }}
-          >
-            <span
-              style={{
-                fontWeight: "500",
-              }}
-            >
-              by
-            </span>{" "}
-            <Link
-              style={{
-                cursor: "pointer",
-              }}
-              href={`/artist/${props.groupProduct.artist.name.replace(
-                / /g,
-                "-"
-              )}/?page=1`}
-            >
-              {props.groupProduct.artist.name}
-            </Link>
-          </h3>
-          <h3 class={style["price"]}>
-            ${props.currentProduct && props.currentDesign.price}
-          </h3>
-          <div class={style["size-content"]}>
-            <div>Select Size</div>
-            <div class={style["size-content-table"]}>
-              {props.currentProduct
-                ? props.currentProduct.sizes
-                    .sort(
-                      (a: any, b: any) =>
-                        sizeOrder.indexOf(a.value) - sizeOrder.indexOf(b.value)
-                    )
-                    .map((size: any) => {
-                      return (
-                        <div
-                          style={{
-                            cursor: "pointer",
-                          }}
-                          onClick$={() => {
-                            const sizeSelect = size.value;
-                            const variant =
-                              loc.url.searchParams.get("variant") || "white";
-                            const product = loc.url.searchParams.get("product");
-
-                            const productId = loc.params.slug;
-                            if (product === "Poster" || product === "Canvas") {
-                              nav(
-                                `/product/${productId}/?size=${sizeSelect}&product=${product}`
-                              );
-                            }
-                            nav(
-                              `/product/${productId}/?variant=${variant}&size=${sizeSelect}&product=${product}`
-                            );
-                          }}
-                          class={[
-                            style["content-value"],
-                            size.value === loc.url.searchParams.get("size")
-                              ? style["img-border"]
-                              : "",
-                          ]}
-                        >
-                          <input
-                            name="skuAndSize"
-                            type="radio"
-                            class={style["visually-hidden"]}
-                            value="29695257:XS"
-                          />
-                          <label
-                            style={{
-                              cursor: "pointer",
-                            }}
-                            for="skuAndSize__29695257"
-                            class="css-xf3ahq"
-                          >
-                            {size.value}
-                          </label>
-                        </div>
-                      );
-                    })
-                : null}
-            </div>
+    <section class="py-16  px-0">
+      <div class="flex justify-center item-center ">
+        <div class="bg-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12">
+          <div class="relative  h-80 md:h-[570px] lg:w-[500px] ">
+            {props.currentDesign &&
+              <div class="relative w-full h-full rounded-3xl overflow-hidden">
+                <Image
+                  src={props.currentDesign.url}
+                  alt="Product Image"
+                  layout="fill"
+                  class="object-cover w-full h-full"
+                  width={2400}
+                  height={3600}
+                />
+              </div>
+            }
           </div>
-          {props.currentProduct && props.currentProduct.colors.length > 0 ? (
-            <div class={style["color-container"]}>
-              <div>Select Color</div>
-              <div class={style["content-color"]}>
-                {props.currentProduct
-                  ? props.currentProduct.colors
-                      .sort(
-                        (a: any, b: any) =>
-                          colorOrder.indexOf(a.value) -
-                          colorOrder.indexOf(b.value)
-                      )
-                      .map((color: any) => {
-                        return (
-                          <div
-                            style={{
-                              cursor: "pointer",
-                            }}
-                            onClick$={() => {
-                              const variant = color.value.toLowerCase();
-                              const size =
-                                loc.url.searchParams.get("size") || "S";
-                              const product =
-                                loc.url.searchParams.get("product");
-                              const productId = loc.params.slug;
-                              console.log("se ejecuto", variant);
-                              changeColor.value = variant;
-                              nav(
-                                `/product/${productId}/?variant=${variant}&size=${size}&product=${product}`
-                              );
-                              // nav(
-                              //   `/product/${productId}/?variant=${variant}&size=${size}`
-                              // );
-                            }}
-                            class={[
-                              style["content-value"],
-                              color.value.toLowerCase() ===
-                              loc.url.searchParams.get("variant")
-                                ? style["img-border"]
-                                : "",
-                            ]}
-                          >
-                            <input
-                              name="skuAndSize"
-                              type="radio"
-                              class={style["visually-hidden"]}
-                              value="29695257:XS"
-                            />
-                            <label
+          <div class="flex flex-col gap-4 lg:w-[450px] p-[1rem]">
+            <h1 class="text-3xl font-semibold">{props.currentProduct && props.currentProduct.title}</h1>
+            <p class="text-[16px] text-black font-medium">
+              by             <Link
+                class="cursor-pointer font-bold"
+                href={`/artist/${props.groupProduct.artist.name.replace(
+                  / /g,
+                  "-"
+                )}/?page=1`}
+              >
+                {props.groupProduct.artist.name}
+              </Link>
+            </p>
+            <div class="border-b ">
+              <p class="text-5xl pb-4 text-[#FFDA79] font-bold">${props.currentProduct && props.currentDesign.price}</p>
+            </div>
+            <div class="flex flex-col gap-5 w-full md:w-80 lg:w-96 flex-wrap">
+
+              <div class="flex justify-between gap-3 flex-col lg:flex-row">
+                <div class="flex flex-col w-full gap-2">
+                  <p class="font-semibold text-lg ">Select Size</p>
+                  <div class="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-4 gap-3 w-full font-semibold">
+                    {props.currentProduct
+                      ? props.currentProduct.sizes
+                        .sort(
+                          (a: any, b: any) =>
+                            sizeOrder.indexOf(a.value) - sizeOrder.indexOf(b.value)
+                        )
+                        .map((size: any) => {
+                          return (
+                            <div
                               style={{
                                 cursor: "pointer",
                               }}
-                              for="skuAndSize__29695257"
-                              class="css-xf3ahq"
+                              onClick$={() => {
+                                const sizeSelect = size.value;
+                                const variant =
+                                  loc.url.searchParams.get("variant") || "white";
+                                const product = loc.url.searchParams.get("product");
+
+                                const productId = loc.params.slug;
+                                if (product === "Poster" || product === "Canvas") {
+                                  nav(
+                                    `/product/${productId}/?size=${sizeSelect}&product=${product}`
+                                  );
+                                }
+                                nav(
+                                  `/product/${productId}/?variant=${variant}&size=${sizeSelect}&product=${product}`
+                                );
+                              }}
+                              class={[
+                                style["content-value"],
+                                size.value === loc.url.searchParams.get("size")
+                                  ? "rounded-full py-2 bg-[#FFDA79] text-base shadow-[15px_10px_20px_-2px] shadow-slate-300"
+                                  : "rounded-full py-2 border text-base font-medium text-[#636363] border-[#636363]",
+                              ]}
                             >
-                              {color.value}
-                            </label>
-                          </div>
-                        );
-                      })
-                  : null}
+                              <input
+                                name="skuAndSize"
+                                type="radio"
+                                class={style["visually-hidden"]}
+                                value="29695257:XS"
+                              />
+                              <label
+                                style={{
+                                  cursor: "pointer",
+                                }}
+                                for="skuAndSize__29695257"
+                                class="css-xf3ahq"
+                              >
+                                {size.value}
+                              </label>
+                            </div>
+                          );
+                        })
+                      : null}
+                  </div>
+                </div>
               </div>
+              {props.currentProduct.colors.length > 0 ? (
+                <div>
+                  <div class="flex flex-col w-full gap-2">
+                    <p class="font-semibold text-lg">Select Color</p>
+                    <div class="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-4 gap-2 w-full">
+                      {props.currentProduct.colors
+                        .sort(
+                          (a: any, b: any) =>
+                            colorOrder.indexOf(a.value) - colorOrder.indexOf(b.value)
+                        )
+                        .map((color: any) => {
+                          return (
+                            <button
+                              style={{
+                                cursor: "pointer",
+                              }}
+                              onClick$={() => {
+                                const variant = color.value.toLowerCase();
+                                const size = loc.url.searchParams.get("size") || "S";
+                                const product = loc.url.searchParams.get("product");
+                                const productId = loc.params.slug;
+                                changeColor.value = variant;
+                                nav(
+                                  `/product/${productId}/?variant=${variant}&size=${size}&product=${product}`
+                                );
+                              }}
+                              class={[
+                                style["content-value"],
+                                color.value.toLowerCase() ===
+                                  loc.url.searchParams.get("variant")
+                                  ? "rounded-full py-2 bg-[#FFDA79] text-base font-semibold shadow-[15px_10px_20px_-2px] shadow-slate-300"
+                                  : "rounded-full py-2 text-base text-[#636363] border font-medium border-[#636363]",
+                              ]}
+                            >
+                              <input
+                                name="skuAndSize"
+                                type="radio"
+                                class={style["visually-hidden"]}
+                                value="29695257:XS"
+                              />
+                              <label
+                                style={{
+                                  cursor: "pointer",
+                                }}
+                                for="skuAndSize__29695257"
+                                class="css-xf3ahq"
+                              >
+                                {color.value}
+                              </label>
+                            </button>
+                          );
+                        })}
+                    </div>
+                  </div>
+                </div>
+              ) : null}
             </div>
-          ) : null}
-          <button
-            onClick$={addNewProductToCart}
-            class={style["button-add-cart"]}
-          >
-            Add to cart
-          </button>
-          <div class={style["description-container"]}>
-            <div class={style["description-title"]}>Description</div>
-            <div class={style["description-content"]}>
-              {props.currentProduct && props.currentProduct.description}
-            </div>
+
+            <div class="my-6 bg-[#DDDDDD] h-[1px]" />
+
+            <button
+              onClick$={addNewProductToCart}
+              class="flex justify-between items-center  bg-[#FFDA79] text-[#000000] font-semibold p-4 rounded-full w-auto shadow-[15px_10px_20px_-2px] shadow-slate-300">
+              <span class="flex-grow">Add to Cart</span>
+              <ArrowRight />
+            </button>
+            {props.currentProduct.description &&
+              <div class="flex flex-col mt-10 gap-2 ">
+                <h2 class="text-lg font-bold">
+                  Description
+                </h2>
+                <p class="leading-6">
+                  {props.currentProduct.description}
+                </p>
+              </div>
+            }
           </div>
         </div>
-        <div>
-          {props.allProducts.map((product: any) => {
-            return product.types.map((type: any) => {
-              return (
-                <div
-                  style={{
-                    cursor: "pointer",
-                    fontWeight: "500",
-                    fontSize: "14px",
-                  }}
-                  onClick$={async () => {
-                    const productType = type.value;
-                    const productId = loc.params.slug;
-                    if (productType === "Mug") {
-                      await nav(
-                        `/product/${productId}/?variant=white&size=11%20oz&product=${productType}`
-                      );
-                    } else {
-                      if (productType === "Poster") {
-                        await nav(
-                          `/product/${productId}/?size=17"x25.5"&product=${productType}`
-                        );
-                      }
-                      if (productType === "Canvas") {
-                        await nav(
-                          `/product/${productId}/?size=11"x14"&product=${productType}`
-                        );
-                      }
-                      if (productType != "Canvas" && productType != "Poster") {
-                        await nav(
-                          `/product/${productId}/?variant=white&size=S&product=${productType}`
-                        );
-                      }
-                    }
-                  }}
-                  class={[
-                    style["content-value"],
-                    type.value === loc.url.searchParams.get("product")
-                      ? style["img-border"]
-                      : "",
-                  ]}
-                >
-                  <input
-                    name="skuAndSize"
-                    type="radio"
-                    class={style["visually-hidden"]}
-                    value="29695257:XS"
-                  />
-                  <label
-                    style={{
-                      cursor: "pointer",
-                    }}
-                    for="skuAndSize__29695257"
-                    class="css-xf3ahq"
-                  >
-                    {type.value}
-                  </label>
-                </div>
-              );
-            });
-          })}
-        </div>
       </div>
-      <div
-        style={{
-          fontSize: "20px",
-          padding: "24px 0",
-          fontWeight: "500",
-        }}
-      >
-        Products Relation
-      </div>
-      <div class={style["relation-arts"]}>
-        {props?.groupRelation &&
-          props.groupRelation.map((product: any) => {
-            return (
+      <div class="pt-32">
+        <div class="flex justify-center items-center mb-[25px] relative z-[1] flex-col">
+          <div class="flex mb-6">
+            <p class=" md:text-[60px] font-bold text-[30px]">Products </p>
+            <h2 class=" md:text-[60px] text-[#FFDA79] font-bold text-[30px] pl-2">
+              Relation
+            </h2>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-[1rem]">
+            {props?.groupRelation && props.groupRelation.map((product: any, index: number) => (
               <Link
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                }}
+                class="flex justify-center cursor-pointer"
                 key={product.product[0].id}
                 href={`/product/${product.id}/?size=17"x25.5"&product=Poster`}
               >
-                <CardArt image={product} />
+                <Card
+                  key={index}
+                  imageSrc={product.urlImage}
+                  title={product.name}
+                />
               </Link>
-            );
-          })}
+
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
+    </section >
   );
 });

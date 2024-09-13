@@ -9,18 +9,16 @@ export default component$((props: any) => {
         <div class="ruby0 flex justify-center items-center mb-[25px] relative z-[1] ml-[11rem] flex-wrap mx-auto">
           <div class="ruby grid pb-16 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {props.arts.map((art: any, index: number) => (
-              <div class={`card max-w-sm rounded-xl overflow-hidden shadow-lg border w-[270px] h-[390px]`}>
-                <Card
-                  key={index}
-                  imageSrc={art.urlImage}
-                  author={art.artist.name}
-                  title={art.name}
-                />
-              </div>
+              <Card
+                key={index}
+                imageSrc={art.urlImage}
+                author={art.artist.name}
+                title={art.name}
+              />
             ))}
           </div>
         </div>
-      </section>      
+      </section>
     </>
   );
 });

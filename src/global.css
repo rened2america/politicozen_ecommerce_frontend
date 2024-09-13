@@ -193,11 +193,6 @@ body {
     height: 390px;
   }
 }
-@media only screen and (max-width: 470px) {
-  .selectsize{
-    flex-direction: column;
-  }
-}
 @media only screen and (max-width: 320px) {
   .acma {
     height: 400px;
