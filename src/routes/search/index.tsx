@@ -1,10 +1,12 @@
 import { component$, useContext, useTask$ } from "@builder.io/qwik";
 import { routeLoader$, useLocation } from "@builder.io/qwik-city";
-import HeaderSearch from "~/components/core/header-search/header-search";
 import LayoutSearch from "~/components/core/layout-search/layout-search";
 import Pagination from "~/components/primitives/pagination/pagination";
 import { FilterContext } from "~/context/filter";
 import { generateStateFromUrlQuery } from "~/utils/generateStateFromUrlQuery";
+import { Sidebar } from "./SideBar";
+import CustomBanner from "~/components/core/custom-banner/custom-banner";
+
 export const useProductData = routeLoader$(async ({ query }) => {
   console.log("--ok--");
   console.log(query);
@@ -36,7 +38,7 @@ export const useProductData = routeLoader$(async ({ query }) => {
 
 export default component$(() => {
   const { url } = useLocation();
-  const term = url.searchParams.get("q") || "";
+  // const term = url.searchParams.get("q") || "";
   const productData = useProductData();
   const filtersGlobalState = useContext(FilterContext);
 
@@ -47,11 +49,49 @@ export default component$(() => {
     filtersGlobalState.search = search;
   });
 
+  // const state = useStore({
+  //   search: "",
+  // });
+  
+//   const handleChange = $(function handleChange(e:any) {
+//     state.search = e.target.value;
+// // console.log(search, "search");
+// });
+// const handleClick = $(function handleClick() {
+//   state.search = "";
+// });
+
+const sidebarData = {
+  productTypes: [
+    "Mug",
+    "Sweatshirt",
+    "Hoodie",
+    "Shirt",
+    "Canvas",
+    "Poster",
+  ],
+  categories: ["Political", "Art", "Love", "Vex", "Misc", "Neo"],
+  artists: [
+    "Engin Selcuk",
+    "Saman Torabi",
+    "Wilfred Hildonen",
+    "Jorge Sanchez Armas",
+    "Ali Ghanaat",
+  ],
+};
+
   return (
     <>
-      <HeaderSearch searchText={term} />
-      <Pagination count={productData.value.count} refNav="search" max={12} />
-      <LayoutSearch result={productData} />
+      {/* <HeaderSearch searchText={term} /> */}
+      <CustomBanner  enableSearch={true} header="Products"/>
+      <section class="most-recent pt-[160px] mt-[-450px] bg-transparent">
+        <div class="acma0 flex mb-[25px] relative z-[1] mx-auto justify-center p-[10px] ml-[11rem]">
+        <Sidebar data={sidebarData} />
+        <LayoutSearch result={productData} />
+        </div>
+        
+        <Pagination count={productData.value.count} refNav="search" max={12} />
+        </section>
     </>
   );
 });

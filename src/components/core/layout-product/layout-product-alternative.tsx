@@ -67,20 +67,21 @@ export default component$((props: any) => {
     <section class="py-16  px-0">
       <div class="flex justify-center item-center ">
         <div class="bg-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12">
-          <div class="relative  h-80 md:h-[570px] lg:w-[500px] ">
-            {props.currentDesign &&
-              <div class="relative w-full h-full rounded-3xl overflow-hidden">
+          <div class="relative h-80 md:h-[570px] lg:w-[500px]">
+            {props.currentDesign && (
+              <div class="relative w-full h-full rounded-3xl overflow-visible">
                 <Image
                   src={props.currentDesign.url}
                   alt="Product Image"
                   layout="fill"
-                  class="object-cover w-full h-full"
-                  width={2400}
-                  height={3600}
+                  class="object-contain w-96 h-96"
+                  width={1200}
+                  height={1800}
                 />
               </div>
-            }
+            )}
           </div>
+
           <div class="flex flex-col gap-4 lg:w-[450px] p-[1rem]">
             <h1 class="text-3xl font-semibold">{props.currentProduct && props.currentProduct.title}</h1>
             <p class="text-[16px] text-black font-medium">

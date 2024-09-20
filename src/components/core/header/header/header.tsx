@@ -12,7 +12,7 @@ export default component$(() => {
 
 
   const routes = [
-    { name: "Home", href: "/" },
+    { name: "Products", href: "/search" },
     { name: "Categories", href: "/categories" },
     { name: "Artists", href: "/artists" },
   ];
