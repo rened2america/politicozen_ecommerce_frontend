@@ -65,11 +65,11 @@ export default component$((props: any) => {
 
   return (
     <section class="py-16  px-0">
-      <div class="flex justify-center item-center ">
+      <div class="flex flex-col-reverse	md:flex-row	 justify-center item-center ">
         <div class="bg-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12">
           <div class="relative h-80 md:h-[570px] lg:w-[500px]">
             {props.currentDesign && (
-              <div class="relative w-full h-full rounded-3xl overflow-visible">
+              <div class="relative w-full h-full rounded-3xl overflow-visible flex justify-center sm:justify-start sm:ms-2">
                 <Image
                   src={props.currentDesign.url}
                   alt="Product Image"
@@ -80,6 +80,16 @@ export default component$((props: any) => {
                 />
               </div>
             )}
+            {props.currentProduct.description &&
+              <div class="flex flex-col gap-2 ">
+                <h2 class="text-lg font-bold">
+                  Description
+                </h2>
+                <p class="leading-6">
+                  {props.currentProduct.description}
+                </p>
+              </div>
+            }
           </div>
 
           <div class="flex flex-col gap-4 lg:w-[450px] p-[1rem]">
@@ -226,18 +236,70 @@ export default component$((props: any) => {
               class="flex justify-between items-center  bg-[#FFDA79] text-[#000000] font-semibold p-4 rounded-full w-auto shadow-[15px_10px_20px_-2px] shadow-slate-300">
               <span class="flex-grow">Add to Cart</span>
               <ArrowRight />
-            </button>
-            {props.currentProduct.description &&
-              <div class="flex flex-col mt-10 gap-2 ">
-                <h2 class="text-lg font-bold">
-                  Description
-                </h2>
-                <p class="leading-6">
-                  {props.currentProduct.description}
-                </p>
-              </div>
-            }
+            </button>            
           </div>
+        </div>
+        <div class="flex justify-center my-5 md:block">
+          {props.allProducts.map((product: any) => {
+            return product.types.map((type: any) => {
+              return (
+                <div
+                  style={{
+                    cursor: "pointer",
+                    fontWeight: "500",
+                    fontSize: "14px",
+                  }}
+                  onClick$={async () => {
+                    const productType = type.value;
+                    const productId = loc.params.slug;
+                    if (productType === "Mug") {
+                      await nav(
+                        `/product/${productId}/?variant=white&size=11%20oz&product=${productType}`
+                      );
+                    } else {
+                      if (productType === "Poster") {
+                        await nav(
+                          `/product/${productId}/?size=17"x25.5"&product=${productType}`
+                        );
+                      }
+                      if (productType === "Canvas") {
+                        await nav(
+                          `/product/${productId}/?size=11"x14"&product=${productType}`
+                        );
+                      }
+                      if (productType != "Canvas" && productType != "Poster") {
+                        await nav(
+                          `/product/${productId}/?variant=white&size=S&product=${productType}`
+                        );
+                      }
+                    }
+                  }}
+                  class={[
+                    style["content-value"],
+                    type.value === loc.url.searchParams.get("product")
+                      ? "rounded-full py-2 bg-[#FFDA79] text-base font-semibold shadow-[15px_10px_20px_-2px] shadow-slate-300"
+                      : "",
+                  ]}
+                >
+                  <input
+                    name="skuAndSize"
+                    type="radio"
+                    class={style["visually-hidden"]}
+                    value="29695257:XS"
+                  />
+                  <label
+                    style={{
+                      cursor: "pointer",
+                    }}
+                    for="skuAndSize__29695257"
+                    class="css-xf3ahq"
+                  >
+                    {type.value}
+                  </label>
+                </div>
+              );
+            });
+          })}
         </div>
       </div>
       <div class="pt-32">
