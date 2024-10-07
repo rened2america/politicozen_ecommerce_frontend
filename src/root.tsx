@@ -7,6 +7,7 @@ import {
 import { RouterHead } from "./components/router-head/router-head";
 
 import "./global.css";
+import { CartProvider } from "./context/cart-provider/cart-provider";
 
 export default component$(() => {
   /**
@@ -26,7 +27,9 @@ export default component$(() => {
         <RouterHead />
       </head>
       <body lang="en">
-        <RouterOutlet />
+        <CartProvider>
+          <RouterOutlet />
+        </CartProvider>
         <ServiceWorkerRegister />
       </body>
     </QwikCityProvider>

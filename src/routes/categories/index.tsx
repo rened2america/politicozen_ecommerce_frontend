@@ -1,7 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import { Link, routeLoader$ } from "@builder.io/qwik-city";
-import Search from "~/components/primitives/input/search/search";
-import { Image } from "@unpic/qwik";
+import CustomBanner from "~/components/core/custom-banner/custom-banner";
+import Card from "~/components/core/card-art/card-art";
 export const useCategories = routeLoader$(async () => {
   const url = new URL(
     `/api/1/product/categories`,
@@ -17,66 +17,30 @@ export default component$(() => {
 
   return (
     <>
-      <div
-        style={{
-          display: "grid",
-          justifyItems: "center",
-        }}
-      >
-        <Search />
-      </div>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat( auto-fit, minmax(330px, 350px) )",
-          justifyContent: "center",
-          width: "100%",
-          marginTop: "32px",
-          gap: "24px",
-          padding: "40px",
-          boxSizing: "border-box",
-          cursor: "pointer",
-        }}
-      >
-        {getCategories.value.categories.map(
-          (category: { id: number; value: string; products: any }) => {
-            return (
-              <div
-                key={category.id}
-                style={{
-                  position: "relative",
-                  borderRadius: "8px",
-                }}
-              >
-                <Link
-                  href={`${category.value}`}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    position: "absolute",
-                    borderRadius: "8px",
-                    color: "white",
-                    backgroundColor: "rgba(0, 0, 0, 0.5)",
-                    display: "grid",
-                    justifyItems: "center",
-                    alignItems: "center",
-                    fontSize: "24px",
-                    fontWeight: "700",
-                  }}
-                >
-                  {category.value}
-                </Link>
-                <Image
-                  layout="fullWidth"
-                  height="100"
-                  width="200"
-                  src={category.products[0].group.urlImage}
-                />
-              </div>
-            );
-          }
-        )}
-      </div>
+      <CustomBanner enableSearch={true} header="Categories" />
+      <section class="most-recent pt-20 mt-[-450px] bg-transparent">
+        <div class="ruby0 flex justify-center items-center mb-[25px] relative z-[1] ml-[11rem] flex-wrap mx-auto">
+          <div class="ruby grid gap-6 pb-16 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+            {getCategories.value.categories.map(
+              (category: { id: number; value: string; products: any }) => {
+                return (
+                  <Link
+                    key={category.id}
+                    href={`${category.value}`}
+                    class={`card rounded-xl overflow-hidden shadow-lg border w-fit h-fit cursor-pointer`}
+                  >
+                    <Card
+                      key={category.id}
+                      imageSrc={category.products[0].group.urlImage}
+                      title={category.value}
+                    />
+                  </Link>
+                );
+              }
+            )}
+          </div>
+        </div>
+      </section>
     </>
   );
 });

@@ -2,9 +2,7 @@ import { component$, useSignal } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 import ArrowRight from "~/components/primitives/Icons/arrowRight/arrowRight";
 import Logo from "~/components/primitives/logo/logo";
-
-
-
+import CartCount from "../../cartCount/cartCount";
 
 export default component$(() => {
   const openMenu = useSignal(false);
@@ -12,10 +10,13 @@ export default component$(() => {
 
 
   const routes = [
-    { name: "Products", href: "/search" },
-    { name: "Categories", href: "/categories" },
-    { name: "Artists", href: "/artists" },
+    { name: "PRODUCTS", href: "/search" },
+    { name: "CATEGORIES", href: "/categories" },
+    { name: "ARTISTS", href: "/artists" },
   ];
+
+  const PUBLIC_URL_APP_DASHBOARD = import.meta.env.PUBLIC_URL_APP_DASHBOARD
+
 
   return (
     <nav class="relative w-full font-medium drop-shadow-md">
@@ -53,10 +54,20 @@ export default component$(() => {
             </Link>
             <Link
               class="xs:text-[10px] xs:h-[40px] rounded-full text-black uppercase bg-[#FFDA79] hover:bg-yellow-400 cursor-pointer p-2 w-full sm:w-[142px] flex justify-evenly items-center gap-2 text-sm md:text-[16px] shadow-[10px_10px_20px_-5px] shadow-slate-300"
-              href={`${process.env.PUBLIC_URL_APP_DASHBOARD}/login`}>
+              href={`${PUBLIC_URL_APP_DASHBOARD}/login`}>
 
               JOIN{" "} <ArrowRight />
             </Link>
+            {/* <Link
+              class="nav-links text-xl cursor-pointer capitalize font-semibold text-gray-500 hover:scale-105 duration-200 link-underline"
+              href="/cart"
+            >
+              <LuShoppingBag size={56}/>
+              {cart.numberProducts > 0 ? (
+                <div >{cart.numberProducts}</div>
+              ) : null}
+            </Link> */}
+            <CartCount/>
           </div>
           {/* Mobile Menu Button */}
           <div class="lg:hidden flex-grow flex justify-end">

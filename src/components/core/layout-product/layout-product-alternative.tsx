@@ -5,59 +5,51 @@ import {
   //   useTask$,
   //   useStore,
   useSignal,
-} from "@builder.io/qwik";
-import style from "./layout-product.module.css";
-import { CartContext } from "~/context/cart";
-import { Link, useLocation, useNavigate } from "@builder.io/qwik-city";
-// import { Image } from "@unpic/qwik";
-import { Image } from "@unpic/qwik";
-import ArrowRight from "~/components/primitives/Icons/arrowRight/arrowRight";
-import Card from "../card-art/card-art";
+} from '@builder.io/qwik';
+import style from './layout-product.module.css';
+import { CartContext } from '~/context/cart';
+import { Link, useLocation, useNavigate } from '@builder.io/qwik-city';
+import { Image } from '@unpic/qwik';
+import ArrowRight from '~/components/primitives/Icons/arrowRight/arrowRight';
+import Card from '../card-art/card-art';
 
 export default component$((props: any) => {
-  const cartList = useContext(CartContext);
-  //   const newProduct = useStore({
-  //     product: {},
-  //   });
-  const changeColor = useSignal("");
+  const changeColor = useSignal('');
   const nav = useNavigate();
   const loc = useLocation();
 
-  const addNewProductToCart = $(async () => {
-    console.log("cartList", cartList.products);
-    // const currentValue = props.product.design.find(
-    //   (desing: any) =>
-    //     desing.variant === loc.url.searchParams.get("variant") &&
-    //     desing.size === loc.url.searchParams.get("size")
-    // );
+  const cartStore = useContext(CartContext);
 
-    const currentValue = props.currentDesign;
-    console.log("currentValue", currentValue);
-    console.log("hola");
+  const addNewProductToCart = $(() => {
+    const currentDesign = props.currentDesign;
+    const existingProduct = cartStore.products.find(
+      (product) => product.priceId === currentDesign.priceId
+    );
 
-    //Verificar si ya existe el priceId
-    const existPriceId = cartList.products.findIndex((product: any) => {
-      console.log("product.priceId ", product.priceId === currentValue.priceId);
-      return product.priceId === currentValue.priceId;
-    });
-    console.log("existPriceId", existPriceId);
-    cartList.numberProducts++;
-
-    if (existPriceId != -1) {
-      cartList.products[existPriceId].count++;
-      return;
+    if (existingProduct) {
+      // Update the count of the existing product
+      const updatedProducts = cartStore.products.map((product) =>
+        product.priceId === currentDesign.priceId
+          ? { ...product, count: product.count + 1 }
+          : product
+      );
+      cartStore.products = updatedProducts;
+      
+    } else {
+      // Add the new product to the cart
+      const newProduct = {
+        priceId: currentDesign.priceId,
+        count: 1,
+        title: props.currentProduct.title,
+        url: currentDesign.url,
+        variant: currentDesign.variant,
+        price: currentDesign.price,
+        size: currentDesign.size,
+        artistId: currentDesign.artistId,
+      };
+      cartStore.products = [...cartStore.products, newProduct];
+      cartStore.numberProducts++;
     }
-
-    cartList.products.push({
-      priceId: currentValue.priceId,
-      count: 1,
-      title: props.currentProduct.title,
-      url: currentValue.url,
-      variant: currentValue.variant,
-      price: currentValue.price,
-      size: currentValue.size,
-      artistId: currentValue.artistId,
-    });
   });
 
   const sizeOrder = ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"];
