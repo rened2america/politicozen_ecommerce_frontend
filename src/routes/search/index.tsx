@@ -71,13 +71,6 @@ const sidebarData = {
     "Poster",
   ],
   categories: ["Political", "Art", "Love", "Vex", "Misc", "Neo"],
-  artists: [
-    "Engin Selcuk",
-    "Saman Torabi",
-    "Wilfred Hildonen",
-    "Jorge Sanchez Armas",
-    "Ali Ghanaat",
-  ],
 };
 
   return (

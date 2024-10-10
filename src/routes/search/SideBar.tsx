@@ -1,5 +1,5 @@
 import { $, component$, useStore, useContext } from "@builder.io/qwik";
-import { useNavigate } from "@builder.io/qwik-city";
+import { Link, useNavigate } from "@builder.io/qwik-city";
 import { FilterContext } from "~/context/filter";
 import { generateUrlQuery } from "~/utils/generateUrlQuery";
 type FilterName = 'types' | 'tag' | 'artist';
@@ -7,9 +7,9 @@ type FilterName = 'types' | 'tag' | 'artist';
 export const Sidebar = component$(({ data }: any) => {
   return (
     <div class="sidebar w-64 p-4 bg-gray-100 rounded-lg h-[865px] overflow-y-auto custom-scrollbar">
+      <Link href="/artists" class="bold mb-6 cursor-pointer underline">View all artists..</Link>
       <Section name="types" title="Product Type" items={data.productTypes} />
       <Section name="tag" title="Categories" items={data.categories} />
-      <Section name="artist" title="Artist" items={data.artists} />
     </div>
   );
 });
