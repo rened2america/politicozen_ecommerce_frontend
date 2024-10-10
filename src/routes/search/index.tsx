@@ -66,7 +66,7 @@ const sidebarData = {
     "Mug",
     "Sweatshirt",
     "Hoodie",
-    "Shirt",
+    "T-Shirt",
     "Canvas",
     "Poster",
   ],
