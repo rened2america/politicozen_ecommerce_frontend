@@ -61,8 +61,8 @@ export default component$(() => {
       </div>
       <section class="most-recent pt-[160px] mt-[-250px] bg-transparent">
         <div class=" flex justify-center items-center mb-[25px] relative z-[1] xl:pl-[10rem]">
-          <p class="font-bold text-2xl sm:text-4xl md:text-5xl lg:text-6xl">Most Recent </p>
-          <h2 class="text-[#FFDA79] font-bold text-2xl sm:text-4xl md:text-5xl lg:text-6xl pl-4">Uploads</h2>
+          <p class="font-bold text-2xl sm:text-4xl md:text-5xl lg:text-6xl">Featured </p>
+          <h2 class="text-[#FFDA79] font-bold text-2xl sm:text-4xl md:text-5xl lg:text-6xl pl-4">Products</h2>
         </div>
       </section>
 

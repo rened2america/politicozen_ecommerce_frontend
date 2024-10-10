@@ -2,7 +2,7 @@ import { component$ } from "@builder.io/qwik";
 // import style from "./layout-search.module.css";
 // import Filter from "../filter/filter";
 import { Link } from "@builder.io/qwik-city";
-import { Card } from "~/routes/search/Card";
+import Card from "../card-art/card-art";
 
 export default component$((props: any) => {
   return (
@@ -31,15 +31,11 @@ export default component$((props: any) => {
                   }&product=${product?.types[0]?.value}`}
                   class={"cursor-pointer"}
               >
-                <div
-                  class={`card max-w-sm rounded-xl overflow-hidden shadow-lg border w-[270px] h-[390px]`}
-                >
                   <Card
                     imageSrc={product.design[0].url}
                     title={product.title}
                     price={product.price}
                   />
-                </div>
               </Link>
               // </div>
               // <Card product={product} className={`card max-w-sm rounded-xl overflow-hidden shadow-lg border w-[270px] h-[390px]`} />
