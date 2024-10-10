@@ -84,7 +84,7 @@ const sidebarData = {
     <>
       {/* <HeaderSearch searchText={term} /> */}
       <CustomBanner  enableSearch={true} header="Products"/>
-      <section class="most-recent pt-[160px] mt-[-450px] bg-transparent">
+      <section class="most-recent pt-[80px] mt-[-450px] bg-transparent">
         <div class="acma0 flex mb-[25px] relative z-[1] mx-auto justify-center p-[10px] ml-[11rem]">
         <Sidebar data={sidebarData} />
         <LayoutSearch result={productData} />

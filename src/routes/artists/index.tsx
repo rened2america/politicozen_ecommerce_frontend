@@ -28,7 +28,11 @@ export default component$(() => {
                 <button class="res3 rounded-full border border-[#DDDDDD] w-64 h-full"
                   onClick$={() => nav(`/artist/${artist.name.replace(/ /g, "-")}/?page=1`)}>
                   <div class="justify-start flex items-center px-4 gap-4">
-                    <img src="/checkMark.svg" width={20} height={20} />{" "}
+                    {artist.avatar ?
+                      <img src={artist.avatar} width={40} height={40} class="rounded-full" />
+                      :
+                      <img src="/logo/logo_black.webp" width={30} height={30} class="rounded-full" />
+                    }
                     <span class="text-[#868686] font-medium text-base text-ellipsis">
                       {artist.name}
                     </span>

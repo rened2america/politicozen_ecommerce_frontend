@@ -8,11 +8,11 @@ export default component$((props: any) => {
             style={{
                 backgroundImage: `url('/Banner.png')`,
             }}
-            class="w-full h-[960px] bg-cover bg-center"
+            class="w-full h-[800px] bg-cover bg-center"
         >
             <div class="container mx-auto h-full w-full flex justify-center">
                 <div class="flex flex-col gap-10">
-                    <div class="w-96 mt-44 text-center ">
+                    <div class="w-96 mt-24 text-center ">
                         <p class="text-6xl md:text-8xl leading-[60px] font-black flex justify-center ">
                             {props.header && props.header}
                         </p>

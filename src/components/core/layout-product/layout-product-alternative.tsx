@@ -73,7 +73,7 @@ export default component$((props: any) => {
               </div>
             )}
             {props.currentProduct.description &&
-              <div class="flex flex-col gap-2 ">
+              <div class="flex-col gap-2 hidden md:flex ps-5">
                 <h2 class="text-lg font-bold">
                   Description
                 </h2>
@@ -228,7 +228,17 @@ export default component$((props: any) => {
               class="flex justify-between items-center  bg-[#FFDA79] text-[#000000] font-semibold p-4 rounded-full w-auto shadow-[15px_10px_20px_-2px] shadow-slate-300">
               <span class="flex-grow">Add to Cart</span>
               <ArrowRight />
-            </button>            
+            </button>     
+            {props.currentProduct.description &&
+              <div class="flex flex-col gap-2 md:hidden mt-5">
+                <h2 class="text-lg font-bold">
+                  Description
+                </h2>
+                <p class="leading-6">
+                  {props.currentProduct.description}
+                </p>
+              </div>
+            }       
           </div>
         </div>
         <div class="flex justify-center my-5 md:block">
@@ -294,12 +304,12 @@ export default component$((props: any) => {
           })}
         </div>
       </div>
-      <div class="pt-32">
+      <div class="pt-40">
         <div class="flex justify-center items-center mb-[25px] relative z-[1] flex-col">
           <div class="flex mb-6">
-            <p class=" md:text-[60px] font-bold text-[30px]">Products </p>
-            <h2 class=" md:text-[60px] text-[#FFDA79] font-bold text-[30px] pl-2">
-              Relation
+            <p class=" md:text-[60px] font-bold text-[40px]">You May Also </p>
+            <h2 class=" md:text-[60px] text-[#FFDA79] font-bold text-[40px] pl-2">
+              Like
             </h2>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-[1rem]">
