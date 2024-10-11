@@ -47,10 +47,12 @@ export default component$(() => {
                   display: "grid",
                   width: "180px",
                   backgroundColor: "#ece8de",
-                  gridTemplateRows: "40px 1fr 40px",
+                  gridTemplateRows: "auto 1fr auto",
                   borderRadius: "8px",
                   padding: "24px",
                   justifyItems: "center",
+                  textAlign: "center",
+                  gap: "10px",
                 }}
               >
                 <div
@@ -66,6 +68,10 @@ export default component$(() => {
                   src="/howitworks/flame-1235.png"
                   width="200"
                   height="200"
+                  style={{
+                    alignSelf: "center",
+                    justifySelf: "center",
+                  }}
                 />
                 <div
                   style={{
@@ -88,10 +94,12 @@ export default component$(() => {
                   display: "grid",
                   width: "180px",
                   backgroundColor: "#ece8de",
-                  gridTemplateRows: "40px 1fr 40px",
+                  gridTemplateRows: "auto 1fr auto",
                   borderRadius: "8px",
                   padding: "24px",
                   justifyItems: "center",
+                  textAlign: "center",
+                  gap: "10px",
                 }}
               >
                 <div
@@ -103,7 +111,14 @@ export default component$(() => {
                 >
                   Upload Your Artwork
                 </div>
-                <Image src="/howitworks/upload.png" width="200" height="200" />
+                <Image src="/howitworks/upload.png" 
+                width="200" 
+                height="200" 
+                style={{
+                  alignSelf: "center",
+                  justifySelf: "center",
+                }}
+                />
                 <div
                   style={{
                     fontWeight: "800",
@@ -129,6 +144,7 @@ export default component$(() => {
                   borderRadius: "8px",
                   padding: "24px",
                   justifyItems: "center",
+                  textAlign: "center",
                   gap: "10px",
                 }}
               >
@@ -145,6 +161,10 @@ export default component$(() => {
                   src="/howitworks/selectStore.png"
                   width="200"
                   height="200"
+                  style={{
+                    alignSelf: "center",
+                    justifySelf: "center",
+                  }}
                 />
                 <div
                   style={{
@@ -167,10 +187,12 @@ export default component$(() => {
                   display: "grid",
                   width: "180px",
                   backgroundColor: "#ece8de",
-                  gridTemplateRows: "40px 1fr 40px",
+                  gridTemplateRows: "auto 1fr auto",
                   borderRadius: "8px",
                   padding: "24px",
                   justifyItems: "center",
+                  textAlign: "center",
+                  gap: "10px",
                 }}
               >
                 <div
@@ -182,7 +204,13 @@ export default component$(() => {
                 >
                   Customize Your Store
                 </div>
-                <Image src="/howitworks/choose.png" width="200" height="200" />
+                <Image src="/howitworks/choose.png"
+                  width="200"
+                  height="200"
+                  style={{
+                    alignSelf: "center",
+                    justifySelf: "center",
+                  }} />
                 <div
                   style={{
                     fontWeight: "800",
@@ -204,10 +232,12 @@ export default component$(() => {
                   display: "grid",
                   width: "180px",
                   backgroundColor: "#ece8de",
-                  gridTemplateRows: "40px 1fr 40px",
+                  gridTemplateRows: "auto 1fr auto",
                   borderRadius: "8px",
                   padding: "24px",
                   justifyItems: "center",
+                  textAlign: "center",  
+                  gap: "10px",
                 }}
               >
                 <div
@@ -219,7 +249,14 @@ export default component$(() => {
                 >
                   Promote & Sell
                 </div>
-                <Image src="/howitworks/promote.png" width="200" height="200" />
+                <Image src="/howitworks/promote.png"
+                  width="200"
+                  height="200"
+                  style={{
+                    alignSelf: "center",
+                    justifySelf: "center",
+                  }}
+                />
                 <div
                   style={{
                     fontWeight: "800",
