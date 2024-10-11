@@ -1,21 +1,27 @@
-import { component$ } from "@builder.io/qwik";
-import { Link, routeLoader$ } from "@builder.io/qwik-city";
+import { component$, useContext } from "@builder.io/qwik";
+import { Link } from "@builder.io/qwik-city";
 import CustomBanner from "~/components/core/custom-banner/custom-banner";
 import Card from "~/components/core/card-art/card-art";
-export const useCategories = routeLoader$(async () => {
-  const url = new URL(
-    `/api/1/product/categories`,
-    import.meta.env.VITE_URL_BACKEND
-  );
-  const res = await fetch(url);
-  const categories = (await res.json()) as any;
-  return categories;
-});
+import { FilterContext } from "~/context/filter";
+
+// To be used when we add categories table (political, etc...)
+// export const useCategories = routeLoader$(async () => {
+//   const url = new URL(
+//     `/api/1/product/categories`,
+//     import.meta.env.VITE_URL_BACKEND
+//   );
+//   const res = await fetch(url);
+//   const categories = (await res.json()) as any;
+//   return categories;
+// });
 
 export default component$(() => {
-  const getCategories = useCategories();
+  // const getCategories = useCategories();
+  
+  const filters = useContext(FilterContext);
+
   const categories = [
-    { value: "T-Shirt", url: "/T-Shirt.jpg" },
+    { value: "T-Shirt", url: "/T-Shirt.jpg", redirectUrl: `/search/?q=&filters={"types":["Sweatshirt"]}` },
     { value: "Mug", url: "/Mug.jpg" },
     { value: "Sweatshirt", url: "/Sweatshirt.jpg" },
     { value: "Hoodie", url: "/Hoodie.jpg" },
@@ -34,7 +40,7 @@ export default component$(() => {
                 return (
                   <Link
                     key={index}
-                    href={`${category.value}`}
+                    href={`/search/?q=&filters={"types":["${category.value}"]}`}
                     class={`card rounded-xl overflow-hidden shadow-lg border w-fit h-fit cursor-pointer`}
                   >
                     <Card
