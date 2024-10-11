@@ -47,7 +47,7 @@ export default component$(() => {
                   display: "grid",
                   width: "180px",
                   backgroundColor: "#ece8de",
-                  gridTemplateRows: "40px 1fr 40px",
+                  // gridTemplateRows: "40px 1fr 40px",
                   borderRadius: "8px",
                   padding: "24px",
                   justifyItems: "center",
@@ -88,7 +88,7 @@ export default component$(() => {
                   display: "grid",
                   width: "180px",
                   backgroundColor: "#ece8de",
-                  gridTemplateRows: "40px 1fr 40px",
+                  // gridTemplateRows: "40px 1fr 40px",
                   borderRadius: "8px",
                   padding: "24px",
                   justifyItems: "center",
@@ -125,7 +125,7 @@ export default component$(() => {
                   display: "grid",
                   width: "180px",
                   backgroundColor: "#ece8de",
-                  gridTemplateRows: "40px 1fr 40px",
+                  // gridTemplateRows: "40px 1fr 40px",
                   borderRadius: "8px",
                   padding: "24px",
                   justifyItems: "center",
@@ -166,7 +166,7 @@ export default component$(() => {
                   display: "grid",
                   width: "180px",
                   backgroundColor: "#ece8de",
-                  gridTemplateRows: "40px 1fr 40px",
+                  // gridTemplateRows: "40px 1fr 40px",
                   borderRadius: "8px",
                   padding: "24px",
                   justifyItems: "center",
@@ -203,7 +203,7 @@ export default component$(() => {
                   display: "grid",
                   width: "180px",
                   backgroundColor: "#ece8de",
-                  gridTemplateRows: "40px 1fr 40px",
+                  // gridTemplateRows: "40px 1fr 40px",
                   borderRadius: "8px",
                   padding: "24px",
                   justifyItems: "center",
@@ -389,7 +389,7 @@ export default component$(() => {
         </p>
         <div class="call-to-action">
           <Link href={import.meta.env.VITE_URL_APP_DASHBOARD + "/register"}>
-            <button class="signup-button">Get Started Now!</button>
+            <button class="rounded-full p-4 bg-[#FFDA79] hover:bg-yellow-400 text-base shadow-[15px_10px_20px_-2px] shadow-slate-300 transition-colors">Get Started Now!</button>
           </Link>
           {/* Más contenido aquí */}
         </div>
