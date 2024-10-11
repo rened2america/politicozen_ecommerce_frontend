@@ -1,8 +1,7 @@
-import { component$, useContext } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 import CustomBanner from "~/components/core/custom-banner/custom-banner";
 import Card from "~/components/core/card-art/card-art";
-import { FilterContext } from "~/context/filter";
 
 // To be used when we add categories table (political, etc...)
 // export const useCategories = routeLoader$(async () => {
@@ -18,7 +17,6 @@ import { FilterContext } from "~/context/filter";
 export default component$(() => {
   // const getCategories = useCategories();
   
-  const filters = useContext(FilterContext);
 
   const categories = [
     { value: "T-Shirt", url: "/T-Shirt.jpg", redirectUrl: `/search/?q=&filters={"types":["Sweatshirt"]}` },
