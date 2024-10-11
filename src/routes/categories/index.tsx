@@ -14,6 +14,14 @@ export const useCategories = routeLoader$(async () => {
 
 export default component$(() => {
   const getCategories = useCategories();
+  const categories = [
+    { value: "T-Shirt", url: "/T-Shirt.jpg" },
+    { value: "Mug", url: "/Mug.jpg" },
+    { value: "Sweatshirt", url: "/Sweatshirt.jpg" },
+    { value: "Hoodie", url: "/Hoodie.jpg" },
+    { value: "Poster", url: "/Poster.jpg" },
+    { value: "Canvas", url: "/Canvas.jpg" },
+  ]
 
   return (
     <>
@@ -21,17 +29,17 @@ export default component$(() => {
       <section class="most-recent pt-20 mt-[-450px] bg-transparent">
         <div class="ruby0 flex justify-center items-center mb-[25px] relative z-[1] ml-[11rem] flex-wrap mx-auto">
           <div class="ruby grid gap-6 pb-16 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
-            {getCategories.value.categories.map(
-              (category: { id: number; value: string; products: any }) => {
+            {categories.map(
+              (category: { value: string; url: any }, index: number) => {
                 return (
                   <Link
-                    key={category.id}
+                    key={index}
                     href={`${category.value}`}
                     class={`card rounded-xl overflow-hidden shadow-lg border w-fit h-fit cursor-pointer`}
                   >
                     <Card
-                      key={category.id}
-                      imageSrc={category.products[0].group.urlImage}
+                      key={index}
+                      imageSrc={category.url}
                       title={category.value}
                     />
                   </Link>
