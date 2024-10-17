@@ -1,82 +1,58 @@
 import { component$ } from "@builder.io/qwik";
-import { Link, routeLoader$ } from "@builder.io/qwik-city";
-import Search from "~/components/primitives/input/search/search";
-import { Image } from "@unpic/qwik";
-export const useCategories = routeLoader$(async () => {
-  const url = new URL(
-    `/api/1/product/categories`,
-    import.meta.env.VITE_URL_BACKEND
-  );
-  const res = await fetch(url);
-  const categories = (await res.json()) as any;
-  return categories;
-});
+import { Link } from "@builder.io/qwik-city";
+import CustomBanner from "~/components/core/custom-banner/custom-banner";
+import Card from "~/components/core/card-art/card-art";
+
+// To be used when we add categories table (political, etc...)
+// export const useCategories = routeLoader$(async () => {
+//   const url = new URL(
+//     `/api/1/product/categories`,
+//     import.meta.env.VITE_URL_BACKEND
+//   );
+//   const res = await fetch(url);
+//   const categories = (await res.json()) as any;
+//   return categories;
+// });
 
 export default component$(() => {
-  const getCategories = useCategories();
+  // const getCategories = useCategories();
+  
+
+  const categories = [
+    { value: "T-Shirt", url: "/T-Shirt.jpg", redirectUrl: `/search/?q=&filters={"types":["Sweatshirt"]}` },
+    { value: "Mug", url: "/Mug.jpg" },
+    { value: "Sweatshirt", url: "/Sweatshirt.jpg" },
+    { value: "Hoodie", url: "/Hoodie.jpg" },
+    { value: "Poster", url: "/Poster.jpg" },
+    { value: "Canvas", url: "/Canvas.jpg" },
+  ]
 
   return (
     <>
-      <div
-        style={{
-          display: "grid",
-          justifyItems: "center",
-        }}
-      >
-        <Search />
-      </div>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat( auto-fit, minmax(330px, 350px) )",
-          justifyContent: "center",
-          width: "100%",
-          marginTop: "32px",
-          gap: "24px",
-          padding: "40px",
-          boxSizing: "border-box",
-          cursor: "pointer",
-        }}
-      >
-        {getCategories.value.categories.map(
-          (category: { id: number; value: string; products: any }) => {
-            return (
-              <div
-                key={category.id}
-                style={{
-                  position: "relative",
-                  borderRadius: "8px",
-                }}
-              >
-                <Link
-                  href={`${category.value}`}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    position: "absolute",
-                    borderRadius: "8px",
-                    color: "white",
-                    backgroundColor: "rgba(0, 0, 0, 0.5)",
-                    display: "grid",
-                    justifyItems: "center",
-                    alignItems: "center",
-                    fontSize: "24px",
-                    fontWeight: "700",
-                  }}
-                >
-                  {category.value}
-                </Link>
-                <Image
-                  layout="fullWidth"
-                  height="100"
-                  width="200"
-                  src={category.products[0].group.urlImage}
-                />
-              </div>
-            );
-          }
-        )}
-      </div>
+      <CustomBanner enableSearch={true} header="Categories" />
+      <section class="most-recent pt-20 mt-[-450px] bg-transparent">
+        <div class="ruby0 flex justify-center items-center mb-[25px] relative z-[1] ml-[11rem] flex-wrap mx-auto">
+          <div class="ruby grid gap-6 pb-16 grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+            {categories.map(
+              (category: { value: string; url: any }, index: number) => {
+                return (
+                  <Link
+                    key={index}
+                    href={`/search/?q=&filters={"types":["${category.value}"]}`}
+                    class={`card rounded-xl overflow-hidden shadow-lg border w-fit h-fit cursor-pointer`}
+                  >
+                    <Card
+                      key={index}
+                      imageSrc={category.url}
+                      title={category.value}
+                    />
+                  </Link>
+                );
+              }
+            )}
+          </div>
+        </div>
+      </section>
     </>
   );
 });

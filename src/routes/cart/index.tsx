@@ -1,120 +1,93 @@
 import {
   component$,
+  $,
   useContext,
-  useResource$,
-  useSignal,
 } from "@builder.io/qwik";
 import { Image } from "@unpic/qwik";
 import { CartContext } from "~/context/cart";
 
 export default component$(() => {
   const cart = useContext(CartContext);
-  const Buy = useSignal(false);
-  console.log("datossss", cart);
-  useResource$(async ({ track }) => {
-    track(() => Buy.value);
-    console.log("Buy.value", cart);
-    if (Buy.value) {
+
+  const handleCheckout = $(async () => {
+    if (cart.products.length === 0) {
+      // Optionally handle empty cart scenario
+      return;
+    }
+
+    try {
       const getPayment = await fetch(
         import.meta.env.VITE_URL_BACKEND + "/api/1/product/payment",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            // 'Content-Type': 'application/x-www-form-urlencoded',
           },
           body: JSON.stringify({
             products: cart.products,
           }),
         }
       );
+
+      if (!getPayment.ok) {
+        // Handle HTTP errors
+        console.error("Failed to initiate payment:", getPayment.statusText);
+        return;
+      }
+
       const getPaymentParse = await getPayment.json();
-      window.location.replace(getPaymentParse.session.url);
-      console.log("getPaymentParse", getPaymentParse);
-      Buy.value = false;
+
+      // Ensure window is available
+      if (typeof window !== "undefined") {
+        window.location.replace(getPaymentParse.session.url);
+      }
+    } catch (error) {
+      console.error("Error during checkout:", error);
     }
-    return;
   });
 
   if (cart?.products?.length === 0) {
     return (
-      <div
-        style={{
-          display: "grid",
-          placeItems: "center",
-          width: "100%",
-          height: "300px",
-          fontSize: "32px",
-          fontWeight: "500",
-        }}
-      >
+      <div style={{ backgroundImage: "url('/Banner.png')" }} class="flex items-center justify-center w-full h-72 text-2xl font-medium">
         No Items in Cart
       </div>
     );
   }
 
   return (
-    <>
-      <div
-        style={{
-          display: "grid",
-          alignItems: "center",
-          justifyItems: "center",
-        }}
-      >
-        {cart.products.map((product) => {
-          console.log(product);
-          return (
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "102px 1fr 96px 96px 96px",
-                marginTop: "32px",
-                borderRadius: "8px",
-                border: "1px solid black",
-                padding: "16px 24px",
-                width: "600px",
-                alignItems: "center",
-                justifyItems: "center",
-              }}
-              key={product.priceId}
-            >
+    <div class="min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('/Banner.png')" }}>
+      <div class="flex flex-col items-center py-8 px-4">
+        {cart.products.map((product) => (
+          <div
+            class="flex flex-col md:flex-row items-center gap-5 mt-8 w-full max-w-4xl bg-white bg-opacity-75 rounded-lg border border-black p-4"
+            key={product.priceId}
+          >
+            <div class="flex justify-center w-full md:w-24 md:h-24 flex-shrink-0">
               <Image
-                style={{
-                  objectFit: "cover",
-                }}
+                class="object-cover w-full h-full"
                 src={product.url}
-                width={96}
-                height={83}
+                width={192}
+                height={166}
               />
-              <div>{product.title}</div>
-              <div>Quantity: {product.count} </div>
-              <div>Color: {product.variant}</div>
-              <div>Size: {product.size}</div>
             </div>
-          );
-        })}
+            <div class="flex flex-col mt-4 md:mt-0 md:ml-6">
+              <div class="text-lg font-semibold">{product.title}</div>
+              <div>
+                <div class="text-sm">Quantity: {product.count}</div>
+                <div class="text-sm">Color: {product.variant}</div>
+                <div class="text-sm">Size: {product.size}</div>
+              </div>
+            </div>
+          </div>
+        ))}
 
-        <div
-          onClick$={() => {
-            Buy.value = true;
-          }}
-          style={{
-            padding: "8px 32px",
-            backgroundColor: "black",
-            color: "white",
-            display: "grid",
-            placeItems: "center",
-            borderRadius: "8px",
-            fontSize: "16px",
-            fontWeight: "500",
-            cursor: "pointer",
-            marginTop: "32px",
-          }}
+        <button
+          onClick$={handleCheckout}
+          class="mt-5 rounded-full p-2 bg-[#FFDA79] text-base shadow-[15px_10px_20px_-2px] shadow-slate-300"
         >
-          Buy
-        </div>
+          Checkout
+        </button>
       </div>
-    </>
+    </div>
   );
 });

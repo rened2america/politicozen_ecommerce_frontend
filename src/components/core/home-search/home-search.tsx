@@ -1,6 +1,5 @@
 import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import Search from "~/components/primitives/input/search/search";
-import styles from "./home-search.module.css";
 export default component$(() => {
   const refScroll = useSignal<Element>();
   const plus = useSignal(89);
@@ -32,8 +31,6 @@ export default component$(() => {
   });
 
   return (
-    <div class={styles["home-search-container"]}>
-      <Search />
-    </div>
+    <Search />
   );
 });

@@ -1,38 +1,25 @@
 import { component$ } from "@builder.io/qwik";
-import styles from "./card-art.module.css";
 
-export default component$((props: any) => {
+const Card = component$(({ imageSrc, author, title, price }: any) => {
   return (
-    <div class={styles["image-container"]}>
-      <img
-        width="212"
-        height="250"
-        class={styles["image-container-img-rounded"]}
-        src={props.image.urlImage}
-        alt={props.image.name}
-      />
-      <div class={styles["backgroundImageText"]}>
-        <div class={styles["img-container-text"]}>{props.image.name}</div>
+    <div class={`card max-w-sm rounded-xl overflow-hidden shadow-lg border w-64 h-92`}>
+      <div class={`relative h-64 p-4 border-b mx-4`}>
+        <img src={imageSrc} alt={title} width={2160} height={700} class="p-4 object-contain w-full h-full" />
+      </div>
+      <div class="px-6 py-4 text-center">
+        {author && (
+          <button class="bg-yellow-300 rounded-full font-bold text-sm mb-2 p-2 w-auto">
+            {author}
+          </button>
+        )}
+        <p class="text-black font-bold text-xl">{title}</p>
+        {price && (
+          <p class="text-black font-bold text-xl">${price}</p>
+        )
+        }
       </div>
     </div>
   );
-  // return (
-  //   <div class={style.card}>
-  //     <img
-  //       class={style["card-img"]}
-  //       src={props.image.urlImage}
-  //       alt="Avatar"
-  //       width="250"
-  //       height="250"
-  //     />
-  //     <h2
-  //       style={{
-  //         fontSize: "16px",
-  //         fontWeight: "500",
-  //       }}
-  //     >
-  //       {props.image.name}
-  //     </h2>
-  //   </div>
-  // );
 });
+
+export default Card;

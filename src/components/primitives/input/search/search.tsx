@@ -1,27 +1,17 @@
 import { component$ } from "@builder.io/qwik";
-import styles from "./search.module.css";
-import { HiMagnifyingGlassMini } from "@qwikest/icons/heroicons";
 export default component$(() => {
   return (
     <form
-      style={{
-        width: "100%",
-        maxWidth: "600px",
-      }}
+      class="w-100"
       action="/search"
     >
-      <div class={styles["input-search-container"]}>
-        <div class={styles["icon-search"]}>
-          <HiMagnifyingGlassMini />
-        </div>
-        <input
-          class={styles["input-search"]}
-          type="search"
-          placeholder="Search all artist or products"
-          name="q"
-          default-value={""}
-        />
-      </div>
+      <input
+        class="p-4 w-full text-12px md:text-lg lg:text-xl rounded-2xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#FFDA79] transition duration-300"
+        type="search"
+        placeholder="Search all artists or products"
+        name="q"
+        default-value={""}
+      />
     </form>
   );
 });
