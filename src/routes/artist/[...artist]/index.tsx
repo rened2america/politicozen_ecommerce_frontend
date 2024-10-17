@@ -3,7 +3,6 @@ import { Link, routeLoader$ } from "@builder.io/qwik-city";
 import { Image } from "@unpic/qwik";
 // import Card from "~/components/core/card/card";
 import { LuTwitter, LuFacebook, LuInstagram } from "@qwikest/icons/lucide";
-import Pagination from "~/components/primitives/pagination/pagination";
 import CardArt from "~/components/core/card-art/card-art";
 
 export const useArtist = routeLoader$(async ({ query, params }) => {
@@ -42,7 +41,7 @@ export default component$(() => {
       <div
         style={{
           display: "grid",
-          gridTemplateRows: "500px 100px 1fr",
+          gridTemplateRows: "500px 1fr",
           justifyItems: "center",
         }}
       >
@@ -60,10 +59,6 @@ export default component$(() => {
               src={getArtist.value.artist.banner}
               layout="fullWidth"
               height={300}
-              // style={{
-              //   borderRadius: "16px",
-              //   objectFit: "cover",
-              // }}
               alt="banner"
             />
           ) : (
@@ -138,7 +133,7 @@ export default component$(() => {
                       getArtist?.value?.artist?.facebook?.startsWith(
                         "http://"
                       ) ||
-                      getArtist?.value?.artist?.facebook?.startsWith("https://")
+                        getArtist?.value?.artist?.facebook?.startsWith("https://")
                         ? getArtist?.value?.artist?.facebook
                         : `https://${getArtist?.value?.artist?.facebook}`
                     }
@@ -155,7 +150,7 @@ export default component$(() => {
                       getArtist?.value?.artist?.twitter?.startsWith(
                         "http://"
                       ) ||
-                      getArtist?.value?.artist?.twitter?.startsWith("https://")
+                        getArtist?.value?.artist?.twitter?.startsWith("https://")
                         ? getArtist?.value?.artist?.twitter
                         : `https://${getArtist?.value?.artist?.twitter}`
                     }
@@ -172,9 +167,9 @@ export default component$(() => {
                       getArtist?.value?.artist?.instagram?.startsWith(
                         "http://"
                       ) ||
-                      getArtist?.value?.artist?.instagram?.startsWith(
-                        "https://"
-                      )
+                        getArtist?.value?.artist?.instagram?.startsWith(
+                          "https://"
+                        )
                         ? getArtist?.value?.artist?.instagram
                         : `https://${getArtist?.value?.artist?.instagram}`
                     }
@@ -212,44 +207,51 @@ export default component$(() => {
           </div>
         </div>
 
-        <div
+        {/* <div
           style={{
             width: "100%",
           }}
         >
           <Pagination
-            count={2}
+            count={1}
             refNav={`artist/${getArtist.value.artist.id}`}
-            max={12}
+            max={8}
           />
-        </div>
+        </div> */}
         {groupRelation.value && (
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat( auto-fit, minmax(330px, 1fr) )",
+              gridTemplateColumns: "repeat( auto-fit, minmax(400px, 1fr) )",
               justifyContent: "center",
               width: "100%",
+              rowGap: "30px",
+              paddingBottom: "40px",
+              paddingTop: "40px",
+              backgroundImage: `url('/Banner.png')`,
+              backgroundRepeat: "no-repeat"
             }}
           >
-            {groupRelation.value.map((product: any) => {
+            {groupRelation.value.map((group: any) => {
               return (
                 <Link
                   style={{
                     justifySelf: "center",
                   }}
-                  key={product.product[0].id}
-                  href={`/product/${product.id}/?variant=white&size=${
-                    product.product[0].types.length > 0
-                      ? product.product[0]?.types[0]?.value === "Mug"
-                        ? "11 oz"
-                        : product.product[0]?.types[0]?.value === "Poster"
+                  key={group.product[0].id}
+                  href={`/product/${group.id}/?variant=white&size=${group.product[0].types.length > 0
+                    ? group.product[0]?.types[0]?.value === "Mug"
+                      ? "11 oz"
+                      : group.product[0]?.types[0]?.value === "Poster"
                         ? `17"x25.5"`
                         : `11"x14"`
-                      : "S"
-                  }&product=${product.product[0]?.types[0]?.value}`}
+                    : "S"
+                    }&product=${group.product[0]?.types[0]?.value}`}
                 >
-                  <CardArt image={product} />
+                  <CardArt
+                    imageSrc={group.urlImage}
+                    title={group.name}
+                  />
                 </Link>
               );
             })}
