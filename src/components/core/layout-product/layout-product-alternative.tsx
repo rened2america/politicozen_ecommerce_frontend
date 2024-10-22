@@ -54,6 +54,7 @@ export default component$((props: any) => {
 
   const sizeOrder = ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"];
   const colorOrder = ["White", "Blue", "Beige", "Red", "Black"];
+  const productType = loc.url.searchParams.get("product");
 
   return (
     <section class="py-16  px-0">
@@ -61,14 +62,14 @@ export default component$((props: any) => {
         <div class="bg-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12">
           <div class="relative h-80 md:h-[570px] lg:w-[500px]">
             {props.currentDesign && (
-              <div class="relative w-full h-full rounded-3xl overflow-visible flex justify-center sm:justify-start sm:ms-2">
+              <div class="relative w-full h-fit rounded-3xl overflow-visible flex justify-center sm:justify-start sm:ms-2">
                 <Image
-                  src={props.currentDesign.url}
+                  src={(productType == "Poster" || productType == "Canvas")
+                    ? props.currentDesign.urlLogo
+                    : props.currentDesign.url}
                   alt="Product Image"
                   layout="fill"
-                  class="object-contain w-96 h-96"
-                  width={1200}
-                  height={1800}
+                  class="object-contain"
                 />
               </div>
             )}
@@ -304,7 +305,7 @@ export default component$((props: any) => {
           })}
         </div>
       </div>
-      <div class="pt-40">
+      <div class="pt-20 md:pt-0">
         <div class="flex justify-center items-center mb-[25px] relative z-[1] flex-col">
           <div class="flex mb-6">
             <p class=" md:text-[60px] font-bold text-[40px]">You May Also </p>
