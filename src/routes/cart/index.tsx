@@ -3,11 +3,20 @@ import {
   $,
   useContext,
 } from "@builder.io/qwik";
+import { LuTrash } from "@qwikest/icons/lucide";
 import { Image } from "@unpic/qwik";
 import { CartContext } from "~/context/cart";
 
 export default component$(() => {
   const cart = useContext(CartContext);
+
+  // Function to remove an item entirely from the cart
+  const removeFromCart = $((priceId: string) => {
+
+    cart.products = cart.products.filter((product) => product.priceId !== priceId);
+
+    cart.numberProducts = cart.products.reduce((acc, p) => acc + p.count, 0);
+  });
 
   const handleCheckout = $(async () => {
     if (cart.products.length === 0) {
@@ -70,13 +79,26 @@ export default component$(() => {
                 height={166}
               />
             </div>
-            <div class="flex flex-col mt-4 md:mt-0 md:ml-6">
-              <div class="text-lg font-semibold">{product.title}</div>
-              <div>
-                <div class="text-sm">Quantity: {product.count}</div>
-                <div class="text-sm">Color: {product.variant}</div>
-                <div class="text-sm">Size: {product.size}</div>
+            <div class="flex justify-between w-full h-full">
+
+              <div class="flex flex-col gap-2 mt-4 md:mt-0 md:ml-6">
+                <div class="text-lg font-semibold">{product.title}</div>
+                <div class="flex flex-col gap-2">
+                  {product.count ? <div class="text-sm">Quantity: {product.count}</div> : ""}
+                  {product.variant ? <div class="text-sm">Color: {product.variant}</div> : ""}
+                  {product.size ? <div class="text-sm">Size: {product.size}</div> : ""}
+                </div>
               </div>
+
+              <div class="h-full flex items-center">
+                <button
+                  onClick$={() => removeFromCart(product.priceId)}
+                  class="w-fit h-fit rounded-full p-4 bg-[#FFDA79] text-base shadow-[15px_10px_20px_-2px] shadow-slate-300"
+                >
+                  <LuTrash />
+                </button>
+              </div>
+
             </div>
           </div>
         ))}
