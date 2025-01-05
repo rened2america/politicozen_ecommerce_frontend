@@ -32,6 +32,7 @@ export const CartProvider = component$(() => {
   // Persist cart data to localStorage whenever it changes
   useVisibleTask$(({ track }) => {
     track(() => cartStore.products);
+    track(() => cartStore.numberProducts);
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem('cart', JSON.stringify(cartStore));
     }

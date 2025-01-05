@@ -21,10 +21,6 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 };
 
 export default component$(() => {
-  const theme = useStore<CartProductsListState>({
-    products: [],
-    numberProducts: 0,
-  });
 
   const filter = useStore<filterProductState>({
     filters: {
@@ -37,7 +33,6 @@ export default component$(() => {
     search: "",
   });
 
-  useContextProvider(CartContext, theme);
   useContextProvider(FilterContext, filter);
 
   return (
