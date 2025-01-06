@@ -7,7 +7,6 @@ import {
 
 import Header from "~/components/core/header/header/header";
 import { Footer } from "~/components/core/footer/footer";
-import { CartContext, CartProductsListState } from "~/context/cart";
 import { FilterContext, filterProductState } from "~/context/filter";
 import { RequestHandler } from "@builder.io/qwik-city";
 
