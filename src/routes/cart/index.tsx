@@ -3,7 +3,7 @@ import {
   $,
   useContext,
 } from "@builder.io/qwik";
-import { LuTrash } from "@qwikest/icons/lucide";
+import { LuTrash, LuPlus, LuMinus } from "@qwikest/icons/lucide";
 import { Image } from "@unpic/qwik";
 import { CartContext } from "~/context/cart";
 
@@ -14,13 +14,23 @@ export default component$(() => {
   const removeFromCart = $((priceId: string) => {
 
     cart.products = cart.products.filter((product) => product.priceId !== priceId);
+    cart.numberProducts = cart.products.reduce((acc, p) => acc + p.count, 0);
+  });
 
+  // Function to update item quantity
+  const updateQuantity = $((priceId: string, increment: boolean) => {
+    cart.products = cart.products.map(product => {
+      if (product.priceId === priceId) {
+        const newCount = increment ? product.count + 1 : Math.max(1, product.count - 1);
+        return { ...product, count: newCount };
+      }
+      return product;
+    });
     cart.numberProducts = cart.products.reduce((acc, p) => acc + p.count, 0);
   });
 
   const handleCheckout = $(async () => {
     if (cart.products.length === 0) {
-      // Optionally handle empty cart scenario
       return;
     }
 
@@ -39,14 +49,12 @@ export default component$(() => {
       );
 
       if (!getPayment.ok) {
-        // Handle HTTP errors
         console.error("Failed to initiate payment:", getPayment.statusText);
         return;
       }
 
       const getPaymentParse = await getPayment.json();
 
-      // Ensure window is available
       if (typeof window !== "undefined") {
         window.location.replace(getPaymentParse.session.url);
       }
@@ -80,11 +88,27 @@ export default component$(() => {
               />
             </div>
             <div class="flex justify-between w-full h-full">
-
               <div class="flex flex-col gap-2 mt-4 md:mt-0 md:ml-6">
                 <div class="text-lg font-semibold">{product.title}</div>
                 <div class="flex flex-col gap-2">
-                  {product.count ? <div class="text-sm">Quantity: {product.count}</div> : ""}
+                  <div class="flex items-center gap-4">
+                    <div class="text-sm">Quantity:</div>
+                    <div class="flex items-center gap-2">
+                      <button
+                        onClick$={() => updateQuantity(product.priceId, false)}
+                        class="w-6 h-6 flex items-center justify-center rounded-full bg-[#FFDA79] text-base shadow-md hover:bg-[#FFE5A3] transition-colors"
+                      >
+                        <LuMinus class="w-3 h-3" />
+                      </button>
+                      <span class="w-8 text-center">{product.count}</span>
+                      <button
+                        onClick$={() => updateQuantity(product.priceId, true)}
+                        class="w-6 h-6 flex items-center justify-center rounded-full bg-[#FFDA79] text-base shadow-md hover:bg-[#FFE5A3] transition-colors"
+                      >
+                        <LuPlus class="w-3 h-3" />
+                      </button>
+                    </div>
+                  </div>
                   {product.variant ? <div class="text-sm">Color: {product.variant}</div> : ""}
                   {product.size ? <div class="text-sm">Size: {product.size}</div> : ""}
                 </div>
@@ -93,19 +117,18 @@ export default component$(() => {
               <div class="h-full flex items-center">
                 <button
                   onClick$={() => removeFromCart(product.priceId)}
-                  class="w-fit h-fit rounded-full p-4 bg-[#FFDA79] text-base shadow-[15px_10px_20px_-2px] shadow-slate-300"
+                  class="w-fit h-fit rounded-full p-4 bg-[#FFDA79] text-base shadow-[15px_10px_20px_-2px] shadow-slate-300 hover:bg-[#FFE5A3] transition-colors"
                 >
                   <LuTrash />
                 </button>
               </div>
-
             </div>
           </div>
         ))}
 
         <button
           onClick$={handleCheckout}
-          class="mt-5 rounded-full p-2 bg-[#FFDA79] text-base shadow-[15px_10px_20px_-2px] shadow-slate-300"
+          class="mt-5 rounded-full p-2 bg-[#FFDA79] text-base shadow-[15px_10px_20px_-2px] shadow-slate-300 hover:bg-[#FFE5A3] transition-colors"
         >
           Checkout
         </button>
