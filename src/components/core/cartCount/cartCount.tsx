@@ -9,7 +9,7 @@ export default component$(() => {
 
   return (
     <Link
-      class="p-1.5  relative inline-flex items-center text-sm font-medium text-center text-black "
+      class="p-1.5  relative inline-flex items-center text-sm font-medium text-center text-black cursor-pointer"
       href="/cart"
     >
         <Basket />
