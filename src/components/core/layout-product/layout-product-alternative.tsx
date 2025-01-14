@@ -73,13 +73,13 @@ export default component$((props: any) => {
                 />
               </div>
             )}
-            {props.currentProduct.description &&
+            {props?.currentProduct?.description &&
               <div class="flex-col gap-2 hidden md:flex ps-5">
                 <h2 class="text-lg font-bold">
                   Description
                 </h2>
                 <p class="leading-6">
-                  {props.currentProduct.description}
+                  {props?.currentProduct?.description}
                 </p>
               </div>
             }

@@ -228,7 +228,7 @@ export default component$((props: any) => {
           <div class={style["description-container"]}>
             <div class={style["description-title"]}>Description</div>
             <div class={style["description-content"]}>
-              {props.product.description}
+              {props?.product?.description && props.product.description}
             </div>
           </div>
         </div>
