@@ -168,7 +168,7 @@ export default component$((props: any) => {
                 <div>
                   <div class="flex flex-col w-full gap-2">
                     <p class="font-semibold text-lg">Select Color</p>
-                    <div class="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-4 gap-2 w-full">
+                    <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 gap-2 w-full">
                       {props.currentProduct.colors
                         .sort(
                           (a: any, b: any) =>
@@ -177,9 +177,6 @@ export default component$((props: any) => {
                         .map((color: any) => {
                           return (
                             <button
-                              style={{
-                                cursor: "pointer",
-                              }}
                               onClick$={() => {
                                 const variant = color.value.toLowerCase();
                                 const size = loc.url.searchParams.get("size") || "S";
@@ -191,11 +188,10 @@ export default component$((props: any) => {
                                 );
                               }}
                               class={[
-                                style["content-value"],
                                 color.value.toLowerCase() ===
                                   loc.url.searchParams.get("variant")
-                                  ? "rounded-full py-2 bg-[#FFDA79] text-base font-semibold shadow-[15px_10px_20px_-2px] shadow-slate-300"
-                                  : "rounded-full py-2 text-base text-[#636363] border font-medium border-[#636363]",
+                                  ? "cursor-pointer rounded-full px-4 py-2 bg-[#FFDA79] text-base font-semibold shadow-[15px_10px_20px_-2px] shadow-slate-300"
+                                  : "cursor-pointer rounded-full px-4 py-2 text-base text-[#636363] border font-medium border-[#636363]",
                               ]}
                             >
                               <input
@@ -205,11 +201,8 @@ export default component$((props: any) => {
                                 value="29695257:XS"
                               />
                               <label
-                                style={{
-                                  cursor: "pointer",
-                                }}
                                 for="skuAndSize__29695257"
-                                class="css-xf3ahq"
+                                class="css-xf3ahq cursor-pointer"
                               >
                                 {color.value}
                               </label>
