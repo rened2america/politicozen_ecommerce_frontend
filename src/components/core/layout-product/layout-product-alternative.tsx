@@ -2,9 +2,6 @@ import {
   component$,
   $,
   useContext,
-  //   useTask$,
-  //   useStore,
-  useSignal,
 } from '@builder.io/qwik';
 import style from './layout-product.module.css';
 import { CartContext } from '~/context/cart';
@@ -12,9 +9,9 @@ import { Link, useLocation, useNavigate } from '@builder.io/qwik-city';
 import { Image } from '@unpic/qwik';
 import ArrowRight from '~/components/primitives/Icons/arrowRight/arrowRight';
 import Card from '../card-art/card-art';
+import ColorDropdown from './ColorSelectDropDown';
 
 export default component$((props: any) => {
-  const changeColor = useSignal('');
   const nav = useNavigate();
   const loc = useLocation();
 
@@ -53,7 +50,6 @@ export default component$((props: any) => {
   });
 
   const sizeOrder = ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"];
-  const colorOrder = ["White", "Blue", "Beige", "Red", "Black"];
   const productType = loc.url.searchParams.get("product");
 
   return (
@@ -168,48 +164,7 @@ export default component$((props: any) => {
                 <div>
                   <div class="flex flex-col w-full gap-2">
                     <p class="font-semibold text-lg">Select Color</p>
-                    <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-3 gap-2 w-full">
-                      {props.currentProduct.colors
-                        .sort(
-                          (a: any, b: any) =>
-                            colorOrder.indexOf(a.value) - colorOrder.indexOf(b.value)
-                        )
-                        .map((color: any) => {
-                          return (
-                            <button
-                              onClick$={() => {
-                                const variant = color.value.toLowerCase();
-                                const size = loc.url.searchParams.get("size") || "S";
-                                const product = loc.url.searchParams.get("product");
-                                const productId = loc.params.slug;
-                                changeColor.value = variant;
-                                nav(
-                                  `/product/${productId}/?variant=${variant}&size=${size}&product=${product}`
-                                );
-                              }}
-                              class={[
-                                color.value.toLowerCase() ===
-                                  loc.url.searchParams.get("variant")
-                                  ? "cursor-pointer rounded-full px-4 py-2 bg-[#FFDA79] text-base font-semibold shadow-[15px_10px_20px_-2px] shadow-slate-300"
-                                  : "cursor-pointer rounded-full px-4 py-2 text-base text-[#636363] border font-medium border-[#636363]",
-                              ]}
-                            >
-                              <input
-                                name="skuAndSize"
-                                type="radio"
-                                class={style["visually-hidden"]}
-                                value="29695257:XS"
-                              />
-                              <label
-                                for="skuAndSize__29695257"
-                                class="css-xf3ahq cursor-pointer"
-                              >
-                                {color.value}
-                              </label>
-                            </button>
-                          );
-                        })}
-                    </div>
+                    <ColorDropdown currentProduct={props.currentProduct}/>
                   </div>
                 </div>
               ) : null}
