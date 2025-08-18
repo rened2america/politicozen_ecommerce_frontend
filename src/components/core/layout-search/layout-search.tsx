@@ -8,17 +8,21 @@ export default component$((props: any) => {
   return (
     <>
       {/* <Filter /> */}
-      <div class="acma p-5 pl-[3rem] pt-0 grid gap-6 custom-scrollbar overflow-y-auto">
+     <div class="acma p-5 pl-[3rem] pt-0 grid gap-6 custom-scrollbar overflow-y-auto">
+      {props.result.value.products?.map((product: any) => {
+        const src =
+          product?.currentDesign?.urlLogo ??
+          product?.currentDesign?.url ??
+          product?.design?.[0]?.urlLogo ??
+          product?.design?.[0]?.url;
 
-        {props.result.value.products && props.result.value.products.length > 0
-          ? props.result.value.products.map((product: any) => {
             return (
               <Link
                 key={product.id}
                 href={`/product/${product.group.id}/?${product?.types[0]?.value === "Poster" ||
-                    product?.types[0]?.value === "Canvas"
-                    ? ""
-                    : "variant=white&"
+                  product?.types[0]?.value === "Canvas"
+                  ? ""
+                  : "variant=white&"
                   }size=${product.types.length > 0
                     ? product?.types[0]?.value === "Mug"
                       ? "11 oz"
@@ -29,19 +33,18 @@ export default component$((props: any) => {
                           : "S"
                     : "S"
                   }&product=${product?.types[0]?.value}`}
-                  class={"cursor-pointer"}
+                class={"cursor-pointer"}
               >
-                  <Card
-                    imageSrc={product.design[0].url}
-                    title={product.title}
-                    price={product.price}
-                  />
+                <Card
+                  imageSrc={src}
+                  title={product.title}
+                  price={product.price}
+                />
               </Link>
               // </div>
               // <Card product={product} className={`card max-w-sm rounded-xl overflow-hidden shadow-lg border w-[270px] h-[390px]`} />
             );
-          })
-          : null}
+          })}
       </div>
     </>
   );
