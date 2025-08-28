@@ -53,7 +53,7 @@ export default component$(() => {
               <CardArt
                 image={{
                   name: product.group.name,
-                  urlImage: product.group.urlImage,
+                  urlImage: (product.group.urlImageWebp ? product.group.urlImageWebp : product.group.urlImage),
                 }}
               />
             </Link>

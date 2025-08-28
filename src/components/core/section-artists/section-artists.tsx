@@ -14,7 +14,7 @@ export default component$((props: any) => {
                 key={art.id}
                 href={`/product/${art.id}/?size=17"x25.5"&product=Poster`} class="cursor-pointer">
                 <Card
-                  imageSrc={art.urlImage}
+                  imageSrc={(art.urlImageWebp ? art.urlImageWebp : art.urlImage)}
                   author={art.artist.name}
                   title={art.name}
                 />

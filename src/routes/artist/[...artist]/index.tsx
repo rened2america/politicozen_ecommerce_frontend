@@ -249,7 +249,7 @@ export default component$(() => {
                     }&product=${group.product[0]?.types[0]?.value}`}
                 >
                   <CardArt
-                    imageSrc={group.urlImage}
+                    imageSrc={(group.urlImageWebp ? group.urlImageWebp : group.urlImage)}
                     title={group.name}
                   />
                 </Link>

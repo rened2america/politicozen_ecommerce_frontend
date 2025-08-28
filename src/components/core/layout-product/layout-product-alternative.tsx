@@ -270,7 +270,7 @@ export default component$((props: any) => {
               >
                 <Card
                   key={index}
-                  imageSrc={product.urlImage}
+                  imageSrc={product.urlImageWebp ? product.urlImageWebp : product.urlImage}
                   title={product.name}
                 />
               </Link>
