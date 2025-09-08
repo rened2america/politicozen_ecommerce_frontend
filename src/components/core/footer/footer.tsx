@@ -60,7 +60,7 @@ export const Footer = component$(() => {
             <div class="">
               <div class="flex flex-col pl-4 items-center justify-center lg:flex-row lg:justify-between">
                 <span class="text-sm text-gray-500 ">
-                  Copyright © 2024 <span class='text-[#ffda79]'>Politicozen.</span> All Rights Reserved.
+                  Copyright © 2025 <span class='text-[#ffda79]'>Politicozen.</span> All Rights Reserved.
                 </span>
                 <div class="flex gap-2 text-gray-500">
                   <Link onClick$={() => nav("/privacy-policy")}
