@@ -7,7 +7,7 @@ export const Footer = component$(() => {
     { name: "Categories", href: "/categories" },
     { name: "Products", href: "/search" },
     { name: "Artists", href: "/artists" },
-    { name: "About", href: "/about-us" },
+    { name: "About", href: "/about" },
     { name: "FAQ", href: "/faq" },
   ];
 
