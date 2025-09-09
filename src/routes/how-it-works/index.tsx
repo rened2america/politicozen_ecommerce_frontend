@@ -21,17 +21,12 @@ export default component$(() => {
         Unleash creativity, launch your Shop, make your mark!
       </div>
 
-      <article class="content">
+      <article class="content join-area">
 
         <div style="background-color: #203741;color: white; width: 100%; padding: 30px 0;">
-          <h2
-            class="subtitle"
-            style={{
-              color: "#ece8de",
-            }}
-          >
-            Step-by-Step Guide
-          </h2>
+          <div class="steps-band">
+            <h2 class="subtitle subtitle--steps">How It Works — Step by Step</h2>
+          </div>
         </div>
         <div class="steps">
           {/* step 1 */}
@@ -39,9 +34,7 @@ export default component$(() => {
             <div class="step-left">
               <img src="/howitworks/flame-1235.png" width="600"
                 height="500" alt="Step 1 Image" />
-                
             </div>
-            
             <div class="step-right">
               <h2><span>01.</span> Sign Up & Set Up</h2>
               <p>
@@ -275,12 +268,14 @@ export default component$(() => {
           </Link>
           {/* Más contenido aquí */}
         </div>
-        <p class="text-join">
-          Need more information? Visit our{" "}
-          <a class="underline" href="#">
+        <p class="text-join !mb-5">
+          Need more information? 
+          {/* Visit our{" "} */}
+          {/* <a class="underline" href="#">
             FAQs
-          </a>{" "}
-          or reach out to our support team at{" "}
+          </a>{" "} */}
+          {/* or  */}
+          {" "} Please reach out to our support team at{" "}
           <a class="underline" href="mailto:support@politicozen.com">
             support@politicozen.com
           </a>
