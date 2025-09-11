@@ -67,7 +67,7 @@ export default component$(() => {
             <div class="step-right">
               <h2><span>03.</span> Choose Your Merch</h2>
               <p>
-                Head over to the Products section -> Create Product -> select your product and fill in the details.
+                Head over to the Products section &rarr; Create Product &rarr; select your product and fill in the details.
                 Place the artwork in the designated area, then hit "Save and Publish".
               </p>
             </div>
