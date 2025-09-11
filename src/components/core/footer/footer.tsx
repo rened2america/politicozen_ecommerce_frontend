@@ -48,7 +48,7 @@ export const Footer = component$(() => {
               </div>
               <div class='pt-[4rem] '>
                 <p class='text-base'>Email Address</p>
-                <h5 class='font-bold text-lg'><a href="mailto:chi@politicozen.com">chi@politicozen.com</a></h5>
+                <h5 class='font-bold text-lg'><a href="mailto:support@politicozen.com">support@politicozen.com</a></h5>
               </div>
             </div>
           </div>
@@ -60,7 +60,7 @@ export const Footer = component$(() => {
             <div class="">
               <div class="flex flex-col pl-4 items-center justify-center lg:flex-row lg:justify-between">
                 <span class="text-sm text-gray-500 ">
-                  Copyright © 2025 <span class='text-[#ffda79]'>Politicozen.</span> All Rights Reserved.
+                  Copyright © 2025 <span class='text-[#ffda79]'>PoliticoZen.</span> All Rights Reserved.
                 </span>
                 <div class="flex gap-2 text-gray-500">
                   <Link onClick$={() => nav("/privacy-policy")}

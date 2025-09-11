@@ -38,9 +38,9 @@ export default component$(() => {
             <div class="step-right">
               <h2><span>01.</span> Sign Up & Set Up</h2>
               <p>
-                Peaprint collects over <strong>1000+ products</strong> for your various customization needs.
-                Pick a product, considering its price, model variety, production location, etc.
-                It reduces shipping costs and fulfillment times from print providers to your customers.
+                Sign up on the Artist Dashboard.
+                It just needs your name, email, and a cute password—
+                and voilà! Your store is ready for products.
               </p>
             </div>
           </div>
@@ -53,9 +53,8 @@ export default component$(() => {
             <div class="step-right">
               <h2><span>02.</span> Upload Your Artwork</h2>
               <p>
-                Peaprint collects over <strong>1000+ products</strong> for your various customization needs.
-                Pick a product, considering its price, model variety, production location, etc.
-                It reduces shipping costs and fulfillment times from print providers to your customers.
+                After signing up, head over to the Gallery section and start uploading your artwork.
+                The artwork in your gallery will be used to print on the merch—make sure it’s high quality.
               </p>
             </div>
           </div>
@@ -68,9 +67,8 @@ export default component$(() => {
             <div class="step-right">
               <h2><span>03.</span> Choose Your Merch</h2>
               <p>
-                Peaprint collects over <strong>1000+ products</strong> for your various customization needs.
-                Pick a product, considering its price, model variety, production location, etc.
-                It reduces shipping costs and fulfillment times from print providers to your customers.
+                Head over to the Products section -> Create Product -> select your product and fill in the details.
+                Place the artwork in the designated area, then hit "Save and Publish".
               </p>
             </div>
           </div>
@@ -83,9 +81,8 @@ export default component$(() => {
             <div class="step-right">
               <h2><span>04.</span> Customize Your Store</h2>
               <p>
-                Peaprint collects over <strong>1000+ products</strong> for your various customization needs.
-                Pick a product, considering its price, model variety, production location, etc.
-                It reduces shipping costs and fulfillment times from print providers to your customers.
+                You can customize your store by heading to the Profile page on your dashboard.
+                Set up a nice banner and profile picture, and tell us about yourself in the bio.
               </p>
             </div>
           </div>
@@ -98,9 +95,9 @@ export default component$(() => {
             <div class="step-right">
               <h2><span>05.</span> Promote & Sell</h2>
               <p>
-                Peaprint collects over <strong>1000+ products</strong> for your various customization needs.
-                Pick a product, considering its price, model variety, production location, etc.
-                It reduces shipping costs and fulfillment times from print providers to your customers.
+                Promote your store on your socials.
+                Bring your fans to the store,
+                and we’ll handle the rest.
               </p>
             </div>
           </div>
